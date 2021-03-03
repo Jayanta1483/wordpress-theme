@@ -90,3 +90,16 @@ function theme2_widget()
 }
 
 add_action('widgets_init','theme2_widget' );
+
+
+/*
+==============================
+    For Excerpt
+==============================
+*/
+function add_excerpt($more){
+    global $post;
+    return '...<a href="'.get_permalink($post->ID).'" target="__blank">Read More &raquo;</a>';
+}
+
+add_filter('excerpt_more', 'add_excerpt');
