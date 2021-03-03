@@ -1,12 +1,16 @@
 html,
-body{
+ body{
   margin: 0;
   color: #333;
   background: #eee;
   font: sans-serif;
 }
 
-body{
+/* body{
     padding: 20px;
+} */ 
+
+.link-decoration{
+    text-decoration: none;
 }
 

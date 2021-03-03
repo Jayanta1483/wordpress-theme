@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<article>
+<article style="background: <?php echo background_color();?>;">
     <?php
     if(have_posts()){
         while(have_posts()){
