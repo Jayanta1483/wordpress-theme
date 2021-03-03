@@ -45,19 +45,24 @@ Template Name: no-heading
                 </div>
             </nav>
    <h3>Following are My Projects</h3>
-<article>
-    <?php
-    if(have_posts()){
-        while(have_posts()){
-            the_post();
-            get_template_part('template-parts/content','page');
-            ?>
-            <hr>
+   <div class="row">
+    <div class="col-xs-12 col-sm-8">
+        <article>
             <?php
-        }
-    }
-    ?>
-</article>
+            if (have_posts()) {
+                while (have_posts()) {
+                    the_post();
+                    get_template_part('template-parts/content', 'page');
+            ?>
+                    <hr>
+            <?php
+                }
+            }
+            ?>
+        </article>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <?php get_footer(); ?>
+    </div>
 
-
-<?php get_footer(); ?>
+</div>
