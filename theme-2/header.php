@@ -39,7 +39,7 @@
                 if (is_home()) {  ?>
                     <h1><?php wp_title(false);   ?></h1>
                 <?php } else { ?>
-                    <h1><?php the_title();  ?></h1>
+                    <h1 class="text-center"><?php the_title();  ?></h1>
                 <?php } ?>
             </header>
         </div>
