@@ -25,7 +25,7 @@
                                 'menu' => 'primary',
                                 'container' => false,
                                 'theme_location' => 'primary',
-                                'menu_class' => 'nav navbar-nav navbar-right',
+                                'menu_class' => 'nav navbar-nav ml-auto',
                                 'walker'=> new WP_Bootstrap_Navwalker()
                             )
                         );

@@ -21,9 +21,9 @@ Template Name: no-heading
 </head>
 
 <body <?php body_class();   ?>>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
+<div>
+    <div>
+        <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <a class="navbar-brand" href="#"><?php echo get_bloginfo('name');?></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@ Template Name: no-heading
                                 'menu' => 'primary',
                                 'container' => false,
                                 'theme_location' => 'primary',
-                                'menu_class' => 'nav navbar-nav navbar-right',
+                                'menu_class' => 'nav navbar-nav ml-auto',
                                 'walker'=> new WP_Bootstrap_Navwalker()
                             )
                         );
