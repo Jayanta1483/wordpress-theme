@@ -1,6 +1,6 @@
 
 
-<article class="text-center shadow p-3 mb-5 bg-white rounded">
+<article class="text-center shadow p-3 mb-5 rounded">
     <?php if (has_post_thumbnail()) {  ?>
         
             <img src="<?php the_post_thumbnail_url('thumbnail');  ?>" class="img-thumbnail" alt="">
