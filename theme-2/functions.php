@@ -131,3 +131,69 @@ function comicpress_jayanta_copyright() {
     }
     return $output;
     }
+
+
+    /*
+    =====================================
+           Adding Short Code
+    =====================================
+    */
+
+    function theme2_carousel()
+{
+    $output = '';
+    $output .= '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">';
+        
+        $category_id = array('include' => '8, 24, 19');
+        $categories = get_categories($category_id);
+        $count = 0;
+        $carousel = '';
+        foreach ($categories as $category) {
+            $arg = array(
+                'cat' => $category->term_id,
+                'post_type' => 'post',
+                'posts_per_page' => 1, 
+                'category__not_in' => 1
+
+            );
+
+            $last_blog = new WP_Query($arg);
+
+            if ($last_blog->have_posts()) {
+                while ($last_blog->have_posts()) {
+                    $last_blog->the_post(); 
+
+                  $active =   ($count == 0) ? 'active' : '';
+                 $carousel .=  '<div class="carousel-item"'.$active.' ">';
+                 $carousel .= '<img src="'. the_post_thumbnail_url('full').'" class="d-block w-100" height="350" alt="...">';
+                  $carousel .=   '</div>';
+
+          $count++;}
+            }
+
+            wp_reset_postdata();
+
+
+        }
+        $output .= $carousel;
+        $output .= '</div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>';
+
+        return $output;
+}
+
+//add_shortcode('carousel', 'theme2_carousel');
