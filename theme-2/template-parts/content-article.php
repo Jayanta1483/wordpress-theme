@@ -1,2 +1,5 @@
 
-<p><?php  the_content(); ?></p>
+<p><?php  
+the_content(); 
+comments_template();
+?></p>
