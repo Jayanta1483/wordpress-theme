@@ -7,13 +7,16 @@
                 while (have_posts()) {
                     the_post();
                     get_template_part('template-parts/content', get_post_format());
+
             ?>
                     <hr>
             <?php
                 }
+             echo paginate_links();
             }
             ?>
         </article>
+        
     </div>
     <div class="col-xs-12 col-sm-4">
         <?php get_footer(); ?>
