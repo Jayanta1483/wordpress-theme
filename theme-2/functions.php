@@ -61,6 +61,7 @@ function theme2_theme_setup()
     add_theme_support('custom-background');
     add_theme_support('custom-header');
     add_theme_support('post-formats', array('aside', 'image', 'video'));
+    add_theme_support('html5', array('search-form'));
 }
 add_action('after_setup_theme', 'theme2_theme_setup');
 
