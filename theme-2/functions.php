@@ -198,3 +198,10 @@ function comicpress_jayanta_copyright() {
 }
 
 //add_shortcode('carousel', 'theme2_carousel');
+
+
+/*
+==========================================
+         Pagination
+==========================================
+*/

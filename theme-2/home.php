@@ -12,7 +12,8 @@
                     <hr>
             <?php
                 }
-             echo paginate_links();
+              echo paginate_links();
+            //  theme2_pagination();
             }
             ?>
         </article>
