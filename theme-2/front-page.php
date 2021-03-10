@@ -1,4 +1,10 @@
 <?php get_header(); ?>
+<header style="background-image: url('<?php echo (has_header_image()) ? header_image() : "";  ?>');">
+
+
+    <h1 class="text-center"><?php the_title();   ?></h1>
+
+</header>
 
 
 <article style="background: <?php echo background_color(); ?>;">

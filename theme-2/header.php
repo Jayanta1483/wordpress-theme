@@ -38,16 +38,6 @@
                     </form>
                 </div>
             </nav>
-
-            <header style="background-image: url('<?php echo (has_header_image()) ? header_image() : "";  ?>');">
-                <?php
-                if (is_home()) {  ?>
-                    <h1><?php wp_title(false);   ?></h1>
-                <?php } elseif (is_search()) { ?>
-                    <h4 class="text-center"><?php wp_title(false);   ?></h4>
-                <?php } else { ?>
-                    <h1 class="text-center"><?php the_title();  ?></h1>
-                <?php } ?>
-            </header>
+            
         </div>
     </div>
