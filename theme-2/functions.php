@@ -56,7 +56,7 @@ require get_template_directory() . "/inc/class-wp-bootstrap-navwalker.php";
 */
 function theme2_theme_setup()
 {
-    add_theme_support('title-tag');
+    //add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('custom-background');
     add_theme_support('custom-header');
@@ -205,3 +205,20 @@ function comicpress_jayanta_copyright() {
          Pagination
 ==========================================
 */
+
+
+
+
+
+/*
+============================================
+        Removing Version
+============================================
+*/
+
+function theme2_remove_version()
+{
+    return "";
+}
+
+add_filter('the_generator', 'theme2_remove_version');
