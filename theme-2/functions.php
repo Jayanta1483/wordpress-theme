@@ -222,3 +222,55 @@ function theme2_remove_version()
 }
 
 add_filter('the_generator', 'theme2_remove_version');
+
+/*
+==============================================
+    Custom Post Type
+==============================================
+*/
+
+function theme2_custom_posts()
+{
+    $labels = array(
+        'name'=>'Portfolio',
+        'singular_name'=>'Portfolio',
+        'add_new'=>'Add New Projects',
+        'add_new_item'=>'Add New Items',
+        'new_item'=>'New Project',
+        'edit_item'=>'Edit Project',
+        'view_item'=>'View Project',
+        'all_items'=>'All Projects',
+        'search_items'=>'Search Projects',
+        'parent_item_colon'=>'Parent Projects:',
+        'not_found'=>'No Projects Found.',
+        'not_found_in_trash'=>'No Projects Found in Trash.'
+
+    );
+
+    $args = array(
+        'labels'=>$labels,
+        'description'=>'My Portfolio of Projects',
+        'public'=>true,
+        'publicly_queryable'=>true,
+        'quary_var'=>true,
+        'rewrite'=> true,
+        'capability_type'=>'post',
+        'has_archive'=>true,
+        'hierarchical'=>false,
+        'menu_position'=> 5,
+        'supports'=> array(
+            'title',
+            'editor',
+            'excerpt',
+            'thumbnail',
+            'revision'
+        ),
+        'taxonomies'=>array('category', 'post_tag'),
+        'exclude_from_search' => 'false'
+
+    );
+
+    register_post_type('portfolio', $args);
+}
+
+add_action('init', 'theme2_custom_posts');
