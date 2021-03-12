@@ -266,7 +266,8 @@ function theme2_custom_posts()
             'revision'
         ),
         'taxonomies'=>array('category', 'post_tag'),
-        'exclude_from_search' => 'false'
+        'exclude_from_search' => false,
+        'show_in_rest'=> true
 
     );
 
