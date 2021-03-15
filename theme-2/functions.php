@@ -267,11 +267,76 @@ function theme2_custom_posts()
         ),
         'taxonomies'=>array('category', 'post_tag'),
         'exclude_from_search' => false,
-        'show_in_rest'=> true
+        'show_in_rest'=> true,
+        'menu_icon'=>'dashicons-id'
 
     );
 
     register_post_type('portfolio', $args);
+
+
+    $labels1 = array(
+        'name'=>'Books',
+        'singular_name'=>'Book',
+        'add_new'=>'Add New Book',
+        'add_new_item'=>'Add New Items',
+        'new_item'=>'New Book',
+        'edit_item'=>'Edit Book',
+        'view_item'=>'View Books',
+        'all_items'=>'All Books',
+        'search_items'=>'Search Books',
+        'parent_item_colon'=>'Parent Books:',
+        'not_found'=>'No Books Found.',
+        'not_found_in_trash'=>'No Books Found in Trash.'
+
+    );
+
+    $args1 = array(
+        'labels'=>$labels1,
+        'description'=>'My Books',
+        'public'=>true,
+        'publicly_queryable'=>true,
+        'quary_var'=>true,
+        'rewrite'=> true,
+        'capability_type'=>'post',
+        'has_archive'=>true,
+        'hierarchical'=>false,
+        'menu_position'=> 5,
+        'supports'=> array(
+            'title',
+            'editor',
+            'excerpt',
+            'thumbnail',
+            'revision'
+        ),
+        'taxonomies'=>array('category', 'post_tag'),
+        'exclude_from_search' => false,
+        'show_in_rest'=> true,
+        'menu_icon'=>'dashicons-book-alt'
+
+    );
+
+    register_post_type('books', $args1);
 }
 
 add_action('init', 'theme2_custom_posts');
+
+
+add_filter( 'template_include', function( $template ) {
+    // your custom post types
+    $my_types = array( 'portfolio', 'books' );
+
+    // is the current request for an archive page of one of your post types?
+    if ( is_post_type_archive(  $my_types ) ){
+        // if it is return the common archive template
+        return get_template_directory() . '/archive-cpt.php';
+    } else 
+    // is the current request for a single page of one of your post types?
+    if ( is_singular( $my_types ) ){
+        // if it is return the common single template
+        return get_template_directory() . '/single-cpt.php';
+    } else {
+        // if not a match, return the $template that was passed in
+        return $template;
+    }
+});

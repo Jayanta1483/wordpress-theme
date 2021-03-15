@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<h1>main archive</h1>
 <div class="row">
     <div class="col-xs-12 col-sm-8">
         <article>
