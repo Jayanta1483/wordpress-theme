@@ -265,7 +265,7 @@ function theme2_custom_posts()
             'thumbnail',
             'revision'
         ),
-        'taxonomies'=>array('category', 'post_tag'),
+        //'taxonomies'=>array('category', 'post_tag'),
         'exclude_from_search' => false,
         'show_in_rest'=> true,
         'menu_icon'=>'dashicons-id'
@@ -309,7 +309,7 @@ function theme2_custom_posts()
             'thumbnail',
             'revision'
         ),
-        'taxonomies'=>array('category', 'post_tag'),
+        //'taxonomies'=>array('category', 'post_tag'),
         'exclude_from_search' => false,
         'show_in_rest'=> true,
         'menu_icon'=>'dashicons-book-alt'
@@ -340,3 +340,74 @@ add_filter( 'template_include', function( $template ) {
         return $template;
     }
 });
+
+/*
+===============================================
+               Custom Taxonomy
+===============================================
+*/
+
+function theme2_custom_taxonomy()
+{
+    // add new taxonomy hierchical
+$labels1 = array(
+    'name'=> 'Genres',
+    'singular_name'=>'Genre',
+    'search_items'      => 'Search Genres' ,
+    'all_items'         =>  'All Genres' ,
+    'parent_item'       =>  'Parent Genre' ,
+    'parent_item_colon' =>  'Parent Genre:' ,
+    'edit_item'         =>  'Edit Genre' ,
+    'update_item'       =>  'Update Genre' ,
+    'add_new_item'      =>  'Add New Genre' ,
+    'new_item_name'     =>  'New Genre Name' ,
+    'menu_name'         =>  'Genre',
+);
+
+$args1 = array(
+    'hierarchical'      => true,
+    'labels'            => $labels1,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'genre' ),
+    'show_in_rest'      => true,
+);
+
+    // add new taxonomy NOT hierchical
+
+$labels2 = array(
+    'name'                       => ( 'Authors'),
+    'singular_name'              => ( 'Author'),
+    'search_items'               => ( 'Search Author'),
+    'popular_items'              => ( 'Popular Author'),
+    'all_items'                  => ( 'All Author'),
+    'parent_item'                => null,
+    'parent_item_colon'          => null,
+    'edit_item'                  => ( 'Edit Author'),
+    'update_item'                => ( 'Update Author'),
+    'add_new_item'               => ( 'Add New Author'),
+    'new_item_name'              => ( 'New Author Name'),
+    'separate_items_with_commas' => ( 'Separate authors with commas'),
+    'add_or_remove_items'        => ( 'Add or remove authors'),
+    'choose_from_most_used'      => ( 'Choose from the most used authors'),
+    'not_found'                  => ( 'No authors found.'),
+    'menu_name'                  => ( 'Author'),
+);
+
+$args2 = array(
+    'hierarchical'          => false,
+    'labels'                => $labels2,
+    'show_ui'               => true,
+    'show_admin_column'     => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var'             => true,
+    'rewrite'               => array( 'slug' => 'author' ),
+    'show_in_rest'          => true,
+);
+
+    register_taxonomy('Genre', array('books'), $args1);
+    register_taxonomy('Author', array('books'), $args2);
+}
+
+add_action('init', 'theme2_custom_taxonomy', 0);
