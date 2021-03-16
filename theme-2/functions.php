@@ -410,4 +410,4 @@ $args2 = array(
     register_taxonomy('Author', array('books'), $args2);
 }
 
-add_action('init', 'theme2_custom_taxonomy', 0);
+add_action('init', 'theme2_custom_taxonomy');
