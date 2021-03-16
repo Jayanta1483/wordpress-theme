@@ -322,24 +322,7 @@ function theme2_custom_posts()
 add_action('init', 'theme2_custom_posts');
 
 
-add_filter( 'template_include', function( $template ) {
-    // your custom post types
-    $my_types = array( 'portfolio', 'books' );
 
-    // is the current request for an archive page of one of your post types?
-    if ( is_post_type_archive(  $my_types ) ){
-        // if it is return the common archive template
-        return get_template_directory() . '/archive-cpt.php';
-    } else 
-    // is the current request for a single page of one of your post types?
-    if ( is_singular( $my_types ) ){
-        // if it is return the common single template
-        return get_template_directory() . '/single-cpt.php';
-    } else {
-        // if not a match, return the $template that was passed in
-        return $template;
-    }
-});
 
 /*
 ===============================================
@@ -377,22 +360,22 @@ $args1 = array(
     // add new taxonomy NOT hierchical
 
 $labels2 = array(
-    'name'                       => ( 'Authors'),
-    'singular_name'              => ( 'Author'),
-    'search_items'               => ( 'Search Author'),
-    'popular_items'              => ( 'Popular Author'),
-    'all_items'                  => ( 'All Author'),
+    'name'                       =>  'Writers',
+    'singular_name'              =>  'Writer',
+    'search_items'               =>  'Search Writer',
+    'popular_items'              =>  'Popular Writer',
+    'all_items'                  =>  'All Writer',
     'parent_item'                => null,
     'parent_item_colon'          => null,
-    'edit_item'                  => ( 'Edit Author'),
-    'update_item'                => ( 'Update Author'),
-    'add_new_item'               => ( 'Add New Author'),
-    'new_item_name'              => ( 'New Author Name'),
-    'separate_items_with_commas' => ( 'Separate authors with commas'),
-    'add_or_remove_items'        => ( 'Add or remove authors'),
-    'choose_from_most_used'      => ( 'Choose from the most used authors'),
-    'not_found'                  => ( 'No authors found.'),
-    'menu_name'                  => ( 'Author'),
+    'edit_item'                  =>  'Edit Writer',
+    'update_item'                =>  'Update Writer',
+    'add_new_item'               =>  'Add New Writer',
+    'new_item_name'              =>  'New Writer Name',
+    'separate_items_with_commas' =>  'Separate writers with commas',
+    'add_or_remove_items'        =>  'Add or remove writers',
+    'choose_from_most_used'      =>  'Choose from the most used writers',
+    'not_found'                  =>  'No writers found.',
+    'menu_name'                  =>  'Writer',
 );
 
 $args2 = array(
@@ -402,12 +385,45 @@ $args2 = array(
     'show_admin_column'     => true,
     'update_count_callback' => '_update_post_term_count',
     'query_var'             => true,
-    'rewrite'               => array( 'slug' => 'author' ),
+    'rewrite'               => array( 'slug' => 'writer' ),
     'show_in_rest'          => true,
 );
 
     register_taxonomy('Genre', array('books'), $args1);
-    register_taxonomy('Author', array('books'), $args2);
+    register_taxonomy('Writer', array('books'), $args2);
 }
 
 add_action('init', 'theme2_custom_taxonomy');
+
+
+
+/*
+=========================================================
+Single Template for Multiple Custom Posts and Taxonomies
+=========================================================
+*/
+
+
+add_filter( 'template_include', function( $template ) {
+    // your custom post types
+    $my_types = array( 'portfolio', 'books' );
+    $taxo = array('Genre', 'Writer');
+
+    // is the current request for an archive page of one of your post types?
+    if ( is_post_type_archive(  $my_types ) ){
+        // if it is return the common archive template
+        return get_template_directory() . '/archive-cpt.php';
+    } else 
+    // is the current request for a single page of one of your post types?
+    if ( is_singular( $my_types ) ){
+        // if it is return the common single template
+        return get_template_directory() . '/single-cpt.php';
+    } else
+    if(is_tax($taxo)){
+        return get_template_directory() . '/taxonomy-cpt.php';
+    }
+    else {
+        // if not a match, return the $template that was passed in
+        return $template;
+    }
+});

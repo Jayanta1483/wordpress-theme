@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<h3>archive cpt</h3>
+
 <div class="row">
     <div class="col-xs-12 col-sm-8">
         <article>
