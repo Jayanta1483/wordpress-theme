@@ -7,7 +7,7 @@ html,
 }
 
 body{
-    padding: 20px;
+    /* padding: 20px; */
 } 
 
 .link-decoration{
@@ -31,3 +31,19 @@ span.current{
     background-color: #0275d8 ;
     color: white;
 }
+
+a.navbar-brand{
+    font-size: 27px;
+    font-family: 'Lucida Handwriting';
+}
+
+a.nav-link{
+    font-size: 17px;
+    
+}
+
+.navbar-brand, .dropdown-item, .nav-link{
+    font-family: 'Lucida Handwriting';
+}
+
+li:hover .dropdown-menu{display: block;}

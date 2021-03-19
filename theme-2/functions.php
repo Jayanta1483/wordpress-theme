@@ -46,7 +46,8 @@ function theme2_custom_menu()
 add_action('init', 'theme2_custom_menu');
 
 
-require get_template_directory() . "/inc/class-wp-bootstrap-navwalker.php";
+//require get_template_directory() . "/inc/class-wp-bootstrap-navwalker.php";
+require __DIR__ . "/inc/nav-walker.php";
 
 /*
 ======================================
