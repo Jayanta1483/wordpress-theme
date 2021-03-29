@@ -55,6 +55,7 @@ function sunset_custom_settings(){
 
   register_setting( 'sunset-settings-group', 'first_name');
   register_setting( 'sunset-settings-group', 'last_name');
+  register_setting( 'sunset-settings-group', 'description');
   register_setting( 'sunset-settings-group', 'twitter', 'sunset_sanitize_twitter');
   register_setting( 'sunset-settings-group', 'face_book','sunset_sanitize_facebook');
 
@@ -66,6 +67,7 @@ function sunset_custom_settings(){
 
   add_settings_field( 'sidebar-fname', 'First Name', 'sunset_sidebar_fname', 'jay-sunset', 'sunset-sidebar-options');
   add_settings_field( 'sidebar-lname', 'Last Name', 'sunset_sidebar_lname', 'jay-sunset', 'sunset-sidebar-options');
+  add_settings_field( 'sidebar-description', 'Description', 'sunset_sidebar_description', 'jay-sunset', 'sunset-sidebar-options');
   add_settings_field( 'twitter-handler', 'Twitter', 'sunset_sidebar_twitter', 'jay-sunset', 'sunset-sidebar-options');
   add_settings_field( 'facebook-handler', 'Facebook', 'sunset_sidebar_facebook', 'jay-sunset', 'sunset-sidebar-options');
 }
@@ -88,6 +90,12 @@ function sunset_sidebar_lname(){
   $lastName = esc_attr(get_option( 'last_name' ));
   echo '<input type="text" name="last_name" value="'.$lastName.'" class="regular-text" placeholder="Last Name">';
   
+}
+
+function sunset_sidebar_description(){
+  $description = esc_attr(get_option( 'description' ));
+  echo '<input type="text" name="description" value="'.$description.'" class="regular-text" placeholder="Description">
+  <p><i>write something smart</i></p>';
 }
 
 function sunset_sidebar_twitter(){
