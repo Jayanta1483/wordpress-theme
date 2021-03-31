@@ -1,6 +1,6 @@
-jQuery(document).ready(function(){
+jQuery(document).ready(function($){
     let mediaUploader;
-    jQuery('#profile').on('click', function(){
+    $('#profileBtn').on('click', function(){
        if(mediaUploader){
            mediaUploader.open();
            return;
@@ -13,5 +13,12 @@ jQuery(document).ready(function(){
            },
            multiple: false
        });
+
+       mediaUploader.on('select', function(){
+           let attachment = mediaUploader.state().get('selection').first().toJSON();
+           $('#profile').val(attachment.url);
+       })
+
+       mediaUploader.open();
     });
 })
