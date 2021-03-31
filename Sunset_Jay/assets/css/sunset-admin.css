@@ -43,3 +43,24 @@ h2.sunset-description
     font-size: 13px;
     margin: 0 0 20px;
 }
+
+.image-container,
+.profile-picture{
+    margin: 0 auto 5px;
+   overflow: hidden; 
+}
+
+.profile-picture{
+    width: 120px;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile-picture{
+   
+    border-radius: 50%;
+    
+}
+
