@@ -1,4 +1,4 @@
-<h1>Sunset Theme Options</h1>
+<h1>Sunset Sidebar Options</h1>
 <?php settings_errors();    ?>
 <?php
 $picture = esc_attr(get_option('profile_picture'));
@@ -24,6 +24,6 @@ $description = esc_attr(get_option('description'));
 </div>
 <form action="options.php" method="post" class="sunset-general-form">
     <?php settings_fields('sunset-settings-group');  ?>
-    <?php do_settings_sections('jay-sunset'); ?>
+    <?php do_settings_sections('sunset-sidebar'); ?>
     <?php submit_button(); ?>
 </form>

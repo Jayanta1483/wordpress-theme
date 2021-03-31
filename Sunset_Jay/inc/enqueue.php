@@ -9,7 +9,7 @@
 
 
 function sunset_load_admin_scripts($hook){
-    if($hook != 'toplevel_page_jay-sunset'){ return; }
+    if($hook != 'toplevel_page_sunset-sidebar'){ return; }
     wp_enqueue_style( 'sunset_admin', get_template_directory_uri().'/assets/css/sunset-admin.css', array(), '1.0', 'all' );
 
     wp_enqueue_media( );

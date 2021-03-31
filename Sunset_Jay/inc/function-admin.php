@@ -15,23 +15,39 @@ function sunset_admin_page(){
          'Sunset theme options', 
          'Sunset',  
          'manage_options',
-         'jay-sunset',  
+         'sunset-sidebar',  
          'sunset_theme_create_page', 
          'dashicons-admin-generic', 
           110 
         );
 
-//Generet Admin Sub-Pages
-add_submenu_page( 'jay-sunset', 'Sunset theme options', 'General',  'manage_options', 'jay-sunset',  'sunset_theme_settings_page', );
+//Generate Admin Sub-Pages
+add_submenu_page( 
+  'sunset-sidebar',
+ 'Sunset Sidebar Options',
+  'Sidebar',
+  'manage_options',
+  'sunset-sidebar',  
+  'sunset_theme_create_page',
+ );
 
 add_submenu_page( 
-  'jay-sunset',
-  'Sunset theme options',
-  'Custom Css Options',
+  'sunset-sidebar',
+  'Sunset Css options',
+  'Custom Css',
   'manage_options',
-  'custom-css', 
+  'sunset-css', 
   'sunset_theme_settings_page',
      );
+
+add_submenu_page( 
+      'sunset-sidebar',
+      'Sunset Theme Options',
+      'Theme Options',
+      'manage_options',
+      'sunset-theme', 
+      'sunset_theme_support_page',
+         );
 
 //Activate Custom Settings
 add_action('admin_init', 'sunset_custom_settings');
@@ -62,16 +78,16 @@ function sunset_custom_settings(){
 
   // ADDING SETTINGS FOR EACH SECTIONS
 
-  add_settings_section('sunset-sidebar-options', 'Sidebar Options', 'sunset_sidebar_options', 'jay-sunset');
+  add_settings_section('sunset-sidebar-options', 'Sidebar Options', 'sunset_sidebar_options', 'sunset-sidebar');
 
   // ADDING SETTINGS OF FIELDS FOR EACH OPTIONS
   
-  add_settings_field( 'sidebar-profile', 'Profile Picture', 'sunset_sidebar_profile', 'jay-sunset', 'sunset-sidebar-options');
-  add_settings_field( 'sidebar-fname', 'First Name', 'sunset_sidebar_fname', 'jay-sunset', 'sunset-sidebar-options');
-  add_settings_field( 'sidebar-lname', 'Last Name', 'sunset_sidebar_lname', 'jay-sunset', 'sunset-sidebar-options');
-  add_settings_field( 'sidebar-description', 'Description', 'sunset_sidebar_description', 'jay-sunset', 'sunset-sidebar-options');
-  add_settings_field( 'twitter-handler', 'Twitter', 'sunset_sidebar_twitter', 'jay-sunset', 'sunset-sidebar-options');
-  add_settings_field( 'facebook-handler', 'Facebook', 'sunset_sidebar_facebook', 'jay-sunset', 'sunset-sidebar-options');
+  add_settings_field( 'sidebar-profile', 'Profile Picture', 'sunset_sidebar_profile', 'sunset-sidebar', 'sunset-sidebar-options');
+  add_settings_field( 'sidebar-fname', 'First Name', 'sunset_sidebar_fname', 'sunset-sidebar', 'sunset-sidebar-options');
+  add_settings_field( 'sidebar-lname', 'Last Name', 'sunset_sidebar_lname', 'sunset-sidebar', 'sunset-sidebar-options');
+  add_settings_field( 'sidebar-description', 'Description', 'sunset_sidebar_description', 'sunset-sidebar', 'sunset-sidebar-options');
+  add_settings_field( 'twitter-handler', 'Twitter', 'sunset_sidebar_twitter', 'sunset-sidebar', 'sunset-sidebar-options');
+  add_settings_field( 'facebook-handler', 'Facebook', 'sunset_sidebar_facebook', 'sunset-sidebar', 'sunset-sidebar-options');
 }
 
 // CALLBACK FUNCTIONS FOR SECTIONS
