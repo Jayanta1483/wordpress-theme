@@ -12,7 +12,7 @@ $description = esc_attr(get_option('description'));
     <div class="sunset-sidebar-preview">
         <div class="sunset-sidebar">
             <div class="image-container">
-                <div class="profile-picture" style="background-image: url('<?php echo $picture; ?>');"></div>
+                <div id="profile-picture-prev" class="profile-picture" style="background-image: url('<?php echo $picture; ?>');"></div>
             </div>
             <h1 class="sunset-username"><?php echo $full_name; ?></h1>
             <h2 class="sunset-description"><?php echo $description; ?></h2>

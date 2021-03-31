@@ -17,6 +17,7 @@ jQuery(document).ready(function($){
        mediaUploader.on('select', function(){
            let attachment = mediaUploader.state().get('selection').first().toJSON();
            $('#profile').val(attachment.url);
+           $('#profile-picture-prev').css('background-image', 'url('+attachment.url+')');
        })
 
        mediaUploader.open();
