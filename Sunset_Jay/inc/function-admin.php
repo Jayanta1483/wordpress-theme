@@ -11,15 +11,15 @@
 function sunset_admin_page(){
 
 //Generete Sunset Admin Page
-    add_menu_page(
-         'Sunset theme options', 
-         'Sunset',  
-         'manage_options',
-         'sunset-sidebar',  
-         'sunset_theme_create_page', 
-         'dashicons-admin-generic', 
-          110 
-        );
+ add_menu_page(
+    'Sunset theme options', 
+    'Sunset',  
+    'manage_options',
+    'sunset-sidebar',  
+    'sunset_theme_create_page', 
+    'dashicons-admin-generic', 
+     110 
+   );
 
 //Generate Admin Sub-Pages
 add_submenu_page( 
@@ -31,6 +31,16 @@ add_submenu_page(
   'sunset_theme_create_page',
  );
 
+ add_submenu_page( 
+  'sunset-sidebar',
+  'Sunset Theme Options',
+  'Theme Options',
+  'manage_options',
+  'sunset-theme', 
+  'sunset_theme_support_page',
+     );
+
+
 add_submenu_page( 
   'sunset-sidebar',
   'Sunset Css options',
@@ -40,14 +50,7 @@ add_submenu_page(
   'sunset_theme_settings_page',
      );
 
-add_submenu_page( 
-      'sunset-sidebar',
-      'Sunset Theme Options',
-      'Theme Options',
-      'manage_options',
-      'sunset-theme', 
-      'sunset_theme_support_page',
-         );
+
 
 //Activate Custom Settings
 add_action('admin_init', 'sunset_custom_settings');
@@ -57,6 +60,8 @@ add_action('admin_init', 'sunset_custom_settings');
 
 add_action( 'admin_menu', 'sunset_admin_page' );
 
+//TEMPLATE SUBMENU FUNCTIONS
+
 function sunset_theme_create_page(){
     require_once __DIR__.'/templates/sunset-admin.php';
 }
@@ -65,10 +70,16 @@ function sunset_theme_settings_page(){
 
 }
 
+function sunset_theme_support_page(){
+  require_once __DIR__.'/templates/sunset-theme-support.php';
+}
+
 function sunset_custom_settings(){
 
   // REGESTERING SETTINGS FOR EACH OPTIONS
-  
+
+  /* For Sidebar */
+
   register_setting( 'sunset-settings-group', 'profile_picture');
   register_setting( 'sunset-settings-group', 'first_name');
   register_setting( 'sunset-settings-group', 'last_name');
@@ -76,9 +87,25 @@ function sunset_custom_settings(){
   register_setting( 'sunset-settings-group', 'twitter', 'sunset_sanitize_twitter');
   register_setting( 'sunset-settings-group', 'face_book','sunset_sanitize_facebook');
 
+  /* For Theme Support  */
+
+  register_setting( 'sunset-theme-support', 'post_format', 'sunset_post_formats_callback' );
+
+  /* Post Format Callback Functions*/
+
+  function sunset_post_formats_callback($input){
+       return $input;
+  }
+
   // ADDING SETTINGS FOR EACH SECTIONS
 
+  /* For Sidebar */
+
   add_settings_section('sunset-sidebar-options', 'Sidebar Options', 'sunset_sidebar_options', 'sunset-sidebar');
+
+  /* For Theme Support */
+
+  add_settings_section('sunset-theme-options', 'Theme Options', 'sunset_theme_options', 'sunset-theme');
 
   // ADDING SETTINGS OF FIELDS FOR EACH OPTIONS
   
@@ -94,6 +121,10 @@ function sunset_custom_settings(){
 
 function sunset_sidebar_options(){
   echo "Customize Your Sidebar Information";
+}
+
+function sunset_theme_options(){
+  echo "Activate or Deactivate Specific Theme Options";
 }
 
 // CALLBACK FUCTIONS FOR EACH FIELDS

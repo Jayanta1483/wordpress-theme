@@ -1,25 +1,42 @@
 jQuery(document).ready(function($){
     let mediaUploader;
+
+    //on clicking media uploader button
+
     $('#profileBtn').on('click', function(){
-       if(mediaUploader){
-           mediaUploader.open();
+       if(mediaUploader){              //if mediaUploader is not empty then open it
+           mediaUploader.open();       //else create mediaUploader
            return;
        }
 
+       //creating mediaUploader
+
        mediaUploader = wp.media.frames.file_frame = wp.media({
-           title: 'Choose a Profile Picture',
+           title: 'Choose a Profile Picture',                         //media uploader page attributes
            button:{
                text: 'Choose Picture'
            },
-           multiple: false
+           multiple: false                                          //false when choosing single media file
        });
 
-       mediaUploader.on('select', function(){
-           let attachment = mediaUploader.state().get('selection').first().toJSON();
-           $('#profile').val(attachment.url);
-           $('#profile-picture-prev').css('background-image', 'url('+attachment.url+')');
-       })
+       //After a media file is selected
 
+       mediaUploader.on('select', function(){
+
+           //gets the media file as an array object then converting them to json format:
+
+           let attachment = mediaUploader.state().get('selection').first().toJSON();  
+
+           // storing the url inside the input element value:
+
+           $('#profile').val(attachment.url);                               
+           
+           //automatically displaying selected picture in the preview:
+
+           $('#profile-picture-prev').css('background-image', 'url('+attachment.url+')');  
+       })
+      
+       // have to open mediaUploader again to avoid double clicking the button
        mediaUploader.open();
     });
 })
