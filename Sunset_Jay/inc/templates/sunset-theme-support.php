@@ -5,7 +5,7 @@
 
 ?>
 <form action="options.php" method="post" class="sunset-general-form">
-    <?php //settings_fields('sunset-settings-group');  ?>
-    <?php //do_settings_sections('sunset-sidebar'); ?>
-    <?php //submit_button(); ?>
+    <?php settings_fields('sunset-theme-options');  ?>
+    <?php do_settings_sections('sunset-theme'); ?>
+    <?php submit_button(); ?>
 </form>

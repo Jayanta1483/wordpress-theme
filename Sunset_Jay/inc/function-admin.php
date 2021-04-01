@@ -108,6 +108,8 @@ function sunset_custom_settings(){
   add_settings_section('sunset-theme-options', 'Theme Options', 'sunset_theme_options', 'sunset-theme');
 
   // ADDING SETTINGS OF FIELDS FOR EACH OPTIONS
+
+  /* For Sidebar */
   
   add_settings_field( 'sidebar-profile', 'Profile Picture', 'sunset_sidebar_profile', 'sunset-sidebar', 'sunset-sidebar-options');
   add_settings_field( 'sidebar-fname', 'First Name', 'sunset_sidebar_fname', 'sunset-sidebar', 'sunset-sidebar-options');
@@ -115,6 +117,10 @@ function sunset_custom_settings(){
   add_settings_field( 'sidebar-description', 'Description', 'sunset_sidebar_description', 'sunset-sidebar', 'sunset-sidebar-options');
   add_settings_field( 'twitter-handler', 'Twitter', 'sunset_sidebar_twitter', 'sunset-sidebar', 'sunset-sidebar-options');
   add_settings_field( 'facebook-handler', 'Facebook', 'sunset_sidebar_facebook', 'sunset-sidebar', 'sunset-sidebar-options');
+
+  /* For Theme Support */
+
+  add_settings_field( 'post-formats', 'Post Formats', 'sunset_post_formats', 'sunset-theme', 'sunset-theme-options');
 }
 
 // CALLBACK FUNCTIONS FOR SECTIONS
@@ -163,6 +169,19 @@ function sunset_sidebar_facebook(){
   echo '<input type="text" name="face_book" value="'.$fb.'" class="regular-text" placeholder="Your Facebook Account">';
 }
 
+/* For Theme Option */
+
+function sunset_post_formats(){
+  $formats = array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat');
+  $output = '';
+
+  foreach($formats as $format){
+    $output .= '<label><input type="checkbox" id="'.$format.'" value="1" name="'.$format.'">'.$format.'</label></br>';
+
+  }
+
+  echo $output;
+}
 // FOR SANITIZATION
 
 function sunset_sanitize_twitter($input){
