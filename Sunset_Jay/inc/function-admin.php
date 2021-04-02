@@ -89,13 +89,11 @@ function sunset_custom_settings(){
 
   /* For Theme Support  */
 
-  register_setting( 'sunset-theme-support', 'post_format', 'sunset_post_formats_callback' );
+  register_setting( 'sunset-theme-support', 'post_format' );
+  register_setting( 'sunset-theme-support', 'custom_header' );
+  register_setting( 'sunset-theme-support', 'custom_background' );
 
-  /* Post Format Callback Functions*/
-
-  function sunset_post_formats_callback($input){
-        var_dump($input);
-  }
+  
 
   // ADDING SETTINGS FOR EACH SECTIONS
 
@@ -121,6 +119,8 @@ function sunset_custom_settings(){
   /* For Theme Support */
 
   add_settings_field( 'post-formats', 'Post Formats', 'sunset_post_formats', 'sunset-theme', 'sunset-theme-options');
+  add_settings_field( 'custom-header', 'Custom Header', 'sunset_custom_header', 'sunset-theme', 'sunset-theme-options');
+  add_settings_field( 'custom-background', 'Custom Background', 'sunset_custom_background', 'sunset-theme', 'sunset-theme-options');
 }
 
 // CALLBACK FUNCTIONS FOR SECTIONS
@@ -184,6 +184,18 @@ function sunset_post_formats(){
   }
 
   echo $output;
+}
+
+function sunset_custom_header(){
+  $options =esc_attr(get_option('custom_header'));
+  $checked = (!empty($options) && $options == 1) ? 'checked' : '';
+  echo '<label><input type="checkbox" id="custom_header" value="1" name="custom_header" '.$checked.'>Activate Custom Header</label></br>';
+}
+
+function sunset_custom_background(){
+  $options =esc_attr(get_option('custom_background'));
+  $checked = (!empty($options) && $options == 1) ? 'checked' : '';
+  echo '<label><input type="checkbox" id="custom_background" value="1" name="custom_background" '.$checked.'>Activate Custom Background</label></br>';
 }
 // FOR SANITIZATION
 

@@ -43,7 +43,7 @@ jQuery(document).ready(function($){
     // To Remove Profile Picture
 
     $('#picture-remove').on('click', function(){
-          let con = confirm('Are You Sure?');
+          let con = confirm('Are you sure about removing your profile picture?');
           if(con){
             $('#profile').val(''); 
             $('.sunset-general-form').submit();

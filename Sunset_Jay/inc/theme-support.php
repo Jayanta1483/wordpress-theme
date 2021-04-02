@@ -16,3 +16,17 @@ foreach ($formats as $format) {
 if (!empty($options)) {
     add_theme_support('post-formats',  $output);
 }
+
+
+
+$header = esc_attr(get_option('custom_header'));
+$background = esc_attr(get_option('custom_background'));
+
+
+if (!empty($header)) {
+    add_theme_support('custom-header');
+}
+
+if (!empty($background)) {
+    add_theme_support('custom-background');
+}
