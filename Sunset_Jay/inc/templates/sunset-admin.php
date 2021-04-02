@@ -25,5 +25,5 @@ $description = esc_attr(get_option('description'));
 <form action="options.php" method="post" class="sunset-general-form">
     <?php settings_fields('sunset-settings-group');  ?>
     <?php do_settings_sections('sunset-sidebar'); ?>
-    <?php submit_button(); ?>
+    <?php submit_button('Save Changes', 'primary', 'btnSubmit'); ?>
 </form>

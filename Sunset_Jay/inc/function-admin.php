@@ -137,7 +137,8 @@ function sunset_theme_options(){
 
 function sunset_sidebar_profile(){
   $picture = esc_attr(get_option( 'profile_picture' ));
-  echo '<input type="button" value="Upload Profile Picture" class="button" id="profileBtn"><input type="hidden" name="profile_picture" value="'.$picture.'" id="profile">';
+  echo '<input type="button" value="Upload Profile Picture" class="button" id="profileBtn"><input type="hidden" name="profile_picture" value="'.$picture.'" id="profile">
+  <input type="button" class="button" value="Remove" id="picture-remove">';
   
 }
 

@@ -39,4 +39,14 @@ jQuery(document).ready(function($){
        // have to open mediaUploader again to avoid double clicking the button
        mediaUploader.open();
     });
+
+    // To Remove Profile Picture
+
+    $('#picture-remove').on('click', function(){
+          let con = confirm('Are You Sure?');
+          if(con){
+            $('#profile').val(''); 
+            $('.sunset-general-form').submit();
+          }
+    })
 })
