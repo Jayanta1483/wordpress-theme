@@ -94,7 +94,7 @@ function sunset_custom_settings(){
   /* Post Format Callback Functions*/
 
   function sunset_post_formats_callback($input){
-       return $input;
+        var_dump($input);
   }
 
   // ADDING SETTINGS FOR EACH SECTIONS
@@ -172,11 +172,13 @@ function sunset_sidebar_facebook(){
 /* For Theme Option */
 
 function sunset_post_formats(){
+  $options = get_option('post_format');
   $formats = array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat');
   $output = '';
 
   foreach($formats as $format){
-    $output .= '<label><input type="checkbox" id="'.$format.'" value="1" name="'.$format.'">'.$format.'</label></br>';
+    $checked = (!empty($options) && $options[$format] == 1) ? 'checked' : '';
+    $output .= '<label><input type="checkbox" id="'.$format.'" value="1" name="post_format['.$format.']" '.$checked.'>'.$format.'</label></br>';
 
   }
 
