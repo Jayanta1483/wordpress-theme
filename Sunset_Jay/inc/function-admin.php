@@ -260,7 +260,7 @@ function sunset_activate_contact()
 {
   $options = esc_attr(get_option('activate_contact'));
   $checked = (!empty($options) && $options == 1) ? 'checked' : '';
-  echo '<label><input type="checkbox" id="activate_contact" value="1" name="activate_contact" ' . $checked . '>Activate The Contact Form</label></br>';
+  echo '<input type="checkbox" id="activate_contact" value="1" name="activate_contact" ' . $checked . '></br>';
 }
 
 // FOR SANITIZATION
