@@ -9,10 +9,13 @@
 $contact = get_option('activate_contact');
 
 if (!empty($contact)) {
-    add_action( 'init', 'sunset_contact_custom_post' );
+    add_action('init', 'sunset_contact_custom_post');
+    add_filter('manage_sunset-contact_posts_columns', 'sunset_set_posts_columns');
+    add_action('manage_sunset-contact_posts_custom_column', 'sunset_contact_custom_post_column', 10, 2);
 }
 
-function sunset_contact_custom_post(){
+function sunset_contact_custom_post()
+{
     $labels = array(
         'name'              => 'Messages',
         'singular_name'     => 'Message',
@@ -31,11 +34,27 @@ function sunset_contact_custom_post(){
         'supports'          => array('title', 'editor', 'author')
     );
 
-    register_post_type( 'sunset-contact', $args );
+    register_post_type('sunset-contact', $args);
 }
 
+function sunset_set_posts_columns($columns)
+{
+    $new_columns = array();
+    $new_columns['title'] = 'Full Name';
+    $new_columns['message'] = 'Message';
+    $new_columns['email'] = 'Email';
+    $new_columns['date'] = 'Date';
+    return $new_columns;
+}
 
-
-
-
-?>
+function sunset_contact_custom_post_column($column, $post_id)
+{
+    switch ($column) {
+        case 'message':
+            echo get_the_excerpt( );
+            break;
+        case 'email':
+            echo 'Email Address';
+            break;
+    }
+}
