@@ -133,6 +133,10 @@ function sunset_custom_settings()
 
   add_settings_section('sunset-contact-sections', 'Contact Form', 'sunset_contact_section', 'sunset-contact');
 
+  /* For CSS Option */
+
+  add_settings_section('sunset-contact-sections', 'Contact Form', 'sunset_contact_section', 'sunset-contact');
+
   // SETTINGS OF FIELDS FOR EACH OPTIONS
 
   /* For Sidebar */
