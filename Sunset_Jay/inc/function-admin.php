@@ -57,7 +57,7 @@ function sunset_admin_page()
     'Custom Css',
     'manage_options',
     'sunset-css',
-    'sunset_theme_settings_page',
+    'sunset_css_option_page',
   );
 
 
@@ -88,6 +88,11 @@ function sunset_theme_support_page()
 function sunset_contact_form_page()
 {
   require_once __DIR__ . '/templates/sunset-contact-form.php';
+}
+
+function sunset_css_option_page()
+{
+  require_once __DIR__ . '/templates/sunset-css-option.php';
 }
 
 //FUNCTION FOR CUSTOM SETTINGS

@@ -69,6 +69,7 @@ function sunset_contact_custom_post_column($column, $post_id)
 function sunset_contact_add_meta_box()
 {
    add_meta_box( 'contact_email', 'User Email', 'sunset_contact_email_callback', 'sunset-contact' );
+   add_meta_box( 'contact_mobile', 'User Mobile', 'sunset_contact_mobile_callback', 'sunset-contact' );
 }
 
 function sunset_contact_email_callback($post)
@@ -105,4 +106,16 @@ function sunset_save_contact_email_data($post_id)
 
     $my_data = sanitize_text_field( $_POST['sunset_contact_email_field'] );
     update_post_meta( $post_id, '_contact_email_value_key', $my_data );
+}
+
+//For Testing Purpose Only
+
+function sunset_contact_mobile_callback($post)
+{
+    wp_nonce_field( 'sunset_save_contact_mobile_data', 'sunset_contact_mobile_meta_box_nonce' );
+
+    $value = get_post_meta( $post->ID, '_contact_mobile_value_key', true );
+
+    echo '<label for="sunset_contact_mobile_field">User Mobile No. : </label>';
+    echo '<input type="number" id="sunset_contact_mobile_field" name="sunset_contact_mobile_field" value="'.esc_attr($value).'" size="25" />';
 }
