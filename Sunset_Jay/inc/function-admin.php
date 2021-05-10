@@ -92,7 +92,7 @@ function sunset_contact_form_page()
 
 function sunset_css_option_page()
 {
-  require_once __DIR__ . '/templates/sunset-css-option.php';
+  require_once __DIR__ . '/templates/sunset-custom-css.php';
 }
 
 //FUNCTION FOR CUSTOM SETTINGS
