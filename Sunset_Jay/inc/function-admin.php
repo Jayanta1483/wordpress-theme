@@ -122,6 +122,10 @@ function sunset_custom_settings()
 
   register_setting('sunset-contact-options', 'activate_contact');
 
+  /* For Custom CSS */
+
+  register_setting('sunset-custom-css', 'sunset_css');
+
 
 
   //  SETTINGS FOR EACH SECTIONS
@@ -140,7 +144,7 @@ function sunset_custom_settings()
 
   /* For CSS Option */
 
-  add_settings_section('sunset-contact-sections', 'Contact Form', 'sunset_contact_section', 'sunset-contact');
+  add_settings_section('sunset-custom-css-section', 'Custom CSS', 'sunset_custom_css_section_callback', 'sunset-css');
 
   // SETTINGS OF FIELDS FOR EACH OPTIONS
 
@@ -162,6 +166,10 @@ function sunset_custom_settings()
   /* For Contact Form */
 
   add_settings_field('activate-form', 'Activate Contact Form', 'sunset_activate_contact', 'sunset-contact', 'sunset-contact-sections');
+
+  /* For Custom CSS */
+
+  add_settings_field('custom-css', 'Insert Your Custom CSS', 'sunset_custom_css_option_callback', 'sunset-css', 'sunset-custom-css-section');
 }
 
 
@@ -188,6 +196,13 @@ function sunset_theme_options()
 function sunset_contact_section()
 {
   echo "Activate or Deactivate The Built-in Contact Form";
+}
+
+/*For Custom CSS */
+
+function sunset_custom_css_section_callback()
+{
+  echo "Customize Sunset Theme With Your Own CSS";
 }
 
 // CALLBACK FUCTIONS FOR EACH FIELDS
@@ -285,4 +300,15 @@ function sunset_sanitize_facebook($input)
 {
   $output = sanitize_text_field($input);
   return $output;
+}
+
+/* For Custom CSS */
+
+function sunset_custom_css_option_callback()
+{
+  $css = get_option( 'sunset_css' );
+  $css = empty($css) ? '/* Sunset Theme Custom CSS*/' : $css;
+
+  echo '<textarea placeholder="Sunset Custom CSS">'.$css.'</textarea>';
+
 }
