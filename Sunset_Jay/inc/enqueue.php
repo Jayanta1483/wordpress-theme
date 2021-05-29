@@ -21,10 +21,26 @@ add_action('admin_enqueue_scripts', 'sunset_load_admin_scripts');
 
 
 
+/*
+====================================
+   ENQUEUE FUNCTIONS FOR FRONTEND
+====================================
+
+*/
+
+function sunset_theme_frontend_scripts(){
+    wp_enqueue_style( 'sunset_bootstrap', get_template_directory_uri().'/assets/css/bootstrap.min.css', array(), '4.6', 'all' );
+    wp_enqueue_style( 'sunset_theme', get_template_directory_uri().'/assets/css/sunset.css', array(), '1.0', 'all' );
+
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', get_template_directory_uri(  ).'/assets/js/jquery.js', false, '3.6.0', true );
+    wp_enqueue_script( 'jquery' );
+
+    wp_enqueue_script( 'sunset_script', get_template_directory_uri().'/assets/js/bootstrap.min.js', array('jquery'), '4.6', true );
+}
 
 
-
-
+add_action( 'wp_enqueue_scripts', 'sunset_theme_frontend_scripts' );
 
 
 
