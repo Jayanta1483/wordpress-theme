@@ -16,5 +16,4 @@ This is Template for Header
 </head>
 <body <?php body_class(); ?>>
     
-</body>
-</html>
+
