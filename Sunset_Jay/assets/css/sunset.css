@@ -1,0 +1,32 @@
+.header-content{
+    height: 350px;
+}
+
+
+.bg-image{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(4px);
+    
+}
+
+.header-text{
+    position: absolute;
+    left: 24%; top: 42%;
+    text-align: center;
+    color: rgba(241, 241, 146, 0.986);
+    font-family: 'lucida Calligraphy';
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+   
+}
+
+.header-text h6{font-size: 12px;}
+
+/* for widescreen view */
+
+@media (min-width:786px) {
+    .header-text{left: 35%;}
+    .header-text h2{font-size: 42px;}
+    .header-text h6{font-size: 20px;}
+}
