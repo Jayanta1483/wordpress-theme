@@ -31,8 +31,8 @@ if (!empty($background)) {
     add_theme_support('custom-background');
 }
 
-function sunset_theme_setup(){
-    add_theme_support( 'title-tag' );
-}
+// function sunset_theme_setup(){
+//     add_theme_support( 'title-tag' );
+// }
 
-add_action('init', 'sunset_theme_setup');
+// add_action('init', 'sunset_theme_setup');
