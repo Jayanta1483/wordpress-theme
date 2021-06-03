@@ -31,8 +31,14 @@ if (!empty($background)) {
     add_theme_support('custom-background');
 }
 
-// function sunset_theme_setup(){
-//     add_theme_support( 'title-tag' );
-// }
+function sunset_theme_setup(){
+    add_theme_support( 'menus' );
+    register_nav_menus( 
+        array(
+            'primary'=> 'Navigation',
+            'secondary'=> 'Footer Menu'
+        )
+        );
+}
 
-// add_action('init', 'sunset_theme_setup');
+add_action('init', 'sunset_theme_setup');
