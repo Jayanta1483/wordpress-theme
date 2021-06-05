@@ -1,8 +1,12 @@
+
+
 .header-content{
     height: 350px;
 }
 
-
+.header-container{
+    position: relative;
+}
 .bg-image{
     background-size: cover;
     background-position: center;
@@ -13,7 +17,7 @@
 
 .header-text{
     position: absolute;
-    left: 24%; top: 42%;
+    left: 20%; top: 42%;
     text-align: center;
     color: rgba(241, 241, 146, 0.986);
     font-family: 'lucida Calligraphy';
@@ -22,6 +26,66 @@
 }
 
 .header-text h6{font-size: 12px;}
+
+.nav-container{
+    position: absolute;
+    width: 100%;
+    height:  auto;
+    top: 295px;
+}
+
+
+.nav-bg-trans{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-bg-dark{
+    background-color: rgba(20, 20, 20, 0.603);
+}
+
+
+nav{
+    ul{
+        li{
+            margin-right: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+     
+            
+            &::after{
+                content: '';
+                display: block;
+                width: 85%;
+                height: 3px;
+                background-color: #fff;
+                position: absolute;
+                bottom: 0; 
+                left: 5px;
+                opacity: 0;
+                transition: 0.5s ease;
+                
+                }
+     
+            &:hover::after{opacity: 1;transform: translateY(-2px)}
+            &.active::after{opacity: 1;transform: translateY(-2px)}
+            &.show{
+                background-color: rgba(0,0,0,0.1);
+                &::after{opacity: 0;}
+               }
+        }
+    }
+}
+
+.dropdown-menu{
+    background-color: rgb(41, 40, 40);
+    & li:hover::after{opacity: 0;}
+  }
+  .dropdown-item{
+    color: #fff;
+    &:hover{background-color: rgb(41, 40, 40);color: #fff;}
+  }
 
 /* for widescreen view */
 
