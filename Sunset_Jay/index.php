@@ -1,5 +1,31 @@
-<?php get_header(); ?>
+<?php
+/*
+  @package Sunset Theme
+*/
 
-<h3>This is Index</h3>
+get_header(); ?>
 
-<?php get_footer( );  ?>
+
+
+<div id="primary" class="content-area">
+<div id="main" class="site-main" role="main">
+<div class="container">
+<?php
+
+if(have_posts()){
+    while(have_posts(  )){
+        the_post();
+        get_template_part( 'template-parts/content', get_post_format(  ) );
+    }
+}
+
+
+
+?>
+</div><!-- container -->
+</div><!--main-->
+</div><!--primary-->
+
+
+
+<?php get_footer() ?>

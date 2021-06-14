@@ -1,10 +1,13 @@
 @media (min-width:786px) {
-    .header-text{left: 36%;}
+    //.header-text{left: 36%;}
     .header-text h2{font-size: 42px;}
     .header-text h6{font-size: 20px;}
 }
 
 @media (max-width:600px){
+    .entry-title{
+        font-size: 32px;
+    }
     nav{
         ul{
             li::after{
@@ -12,4 +15,12 @@
             }
         }
     }
+    
+
+    .post-footer-container{
+        text-align: center;
+    }
+
+    .comments-tag a{float: none;}
 }
+

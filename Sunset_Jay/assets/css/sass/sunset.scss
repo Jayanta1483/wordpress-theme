@@ -1,4 +1,20 @@
 
+$color-one : #000;
+$color-two : #bdbbbbb6;
+$color-two-dark : #808080;
+
+
+a{
+    &:hover{
+        color: $color-two-dark;
+        text-decoration: none;
+    }
+}
+
+hr{
+    background-color: $color-two;
+}
+
 
 .header-content{
     height: 350px;
@@ -11,15 +27,16 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(4px);
+    filter: blur(6px); 
     
 }
 
 .header-text{
     position: absolute;
-    left: 20%; top: 42%;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    color: rgba(241, 241, 146, 0.986);
+    //color: rgba(241, 241, 146, 0.986);
     font-family: 'lucida Calligraphy';
     text-shadow: 0 1px 2px rgba(0,0,0,0.4);
    
@@ -87,6 +104,106 @@ nav{
     &:hover{background-color: rgb(41, 40, 40);color: #fff;}
   }
 
+
+
+/*
+=================================
+   FOR POSTS ON HOME PAGE
+=================================
+*/
+.entry-meta, .standard-featured, .entry-excerpt{
+    margin-bottom: 25px;
+}
+
+.entry-content{
+    margin-bottom: 32px;
+}
+
+h1{ 
+    font-size: 55px;
+    font-weight: 200;
+    & a {color: #000;}
+    &.entry-title{
+        margin-top: 20px;
+        margin-bottom: 15px;
+        word-spacing: 5px;
+        &::before,
+        &::after{
+            content: '~';
+            position: relative;
+        }
+    }
+}
+
+
+.posted-on,.posted-in{
+    color: $color-two;
+    font-size: 16px;
+    font-style: italic;
+    text-transform: capitalize;  
+    & a{
+        color: $color-two-dark;
+        text-decoration: none;
+        
+    
+        
+    }
+}
+
+/* RESPONSIVE IMAGE */
+
+.responsive{
+    width: 100%;
+    height: 400px; 
+    transition: .3s;
+    
+    &:hover{
+        opacity: 0.7;
+    }
+
+}
+
+
+.entry-excerpt p{
+
+    font-size: 19px;
+    line-height: 1.5em; 
+    font-weight: 300; 
+    letter-spacing: 0.02em; 
+}
+
+
+.tags-list a{
+    margin: 0 6px;
+    text-transform: uppercase;
+    color: $color-two-dark;
+    font-weight: 600;
+    font-size: 14px;
+}
+.comments-tag a{
+    text-transform: uppercase;
+    float: right;
+    color: $color-two-dark;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
+
+
+
+.btn-sunset{
+    border: 2.3px solid $color-two; 
+    text-transform: uppercase;
+    color: $color-two;
+    transition: .7s;
+    &:hover{background-color: $color-one; color: #fff;border-color: $color-one;}
+}
+
+.entry-footer{
+    padding-bottom: 8px;
+    
+}
 /* for widescreen view */
 
 @import 'media-queries';

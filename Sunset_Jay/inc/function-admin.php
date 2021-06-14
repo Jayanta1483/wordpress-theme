@@ -144,7 +144,8 @@ function sunset_custom_settings()
 
   /* For CSS Option */
 
-  add_settings_section('sunset-custom-css-section', 'Custom CSS', 'sunset_custom_css_section_callback', 'sunset-css');
+  add_settings_section('sunset-custom-css-section-1', 'Custom CSS Option 1', 'sunset_custom_css_section_callback_one', 'sunset-css');
+  add_settings_section('sunset-custom-css-section-2', 'Custom CSS Option 2', 'sunset_custom_css_section_callback_two', 'sunset-css');
 
   // SETTINGS OF FIELDS FOR EACH OPTIONS
 
@@ -169,7 +170,8 @@ function sunset_custom_settings()
 
   /* For Custom CSS */
 
-  add_settings_field('custom-css', 'Insert Your Custom CSS', 'sunset_custom_css_option_callback', 'sunset-css', 'sunset-custom-css-section');
+  add_settings_field('custom-css-one', 'Insert Your Custom CSS 1', 'sunset_custom_css_option_callback_one', 'sunset-css', 'sunset-custom-css-section-1');
+  add_settings_field('custom-css-two', 'Insert Your Custom CSS 2', 'sunset_custom_css_option_callback_two', 'sunset-css', 'sunset-custom-css-section-2');
 }
 
 
@@ -200,9 +202,14 @@ function sunset_contact_section()
 
 /*For Custom CSS */
 
-function sunset_custom_css_section_callback()
+function sunset_custom_css_section_callback_one()
 {
-  echo "Customize Sunset Theme With Your Own CSS";
+  echo "Customize Sunset Theme With Your Own CSS 1";
+}
+
+function sunset_custom_css_section_callback_two()
+{
+  echo "Customize Sunset Theme With Your Own CSS 2";
 }
 
 // CALLBACK FUCTIONS FOR EACH FIELDS
@@ -252,7 +259,7 @@ function sunset_sidebar_facebook()
 function sunset_post_formats()
 {
   $options = get_option('post_format');
-  $formats = array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat');
+ $formats = array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat');
   $output = '';
 
   foreach ($formats as $format) {
@@ -260,7 +267,8 @@ function sunset_post_formats()
     $output .= '<label><input type="checkbox" id="' . $format . '" value="1" name="post_format[' . $format . ']" ' . $checked . '>' . $format . '</label></br>';
   }
 
-  echo $output;
+  echo $output; 
+  //print_r($options);
 }
 
 function sunset_custom_header()
@@ -284,8 +292,10 @@ function sunset_activate_contact()
 {
   $options = esc_attr(get_option('activate_contact'));
   $checked = (!empty($options) && $options == 1) ? 'checked' : '';
-  echo '<input type="checkbox" id="activate_contact" value="1" name="activate_contact" ' . $checked . '></br>';
-}
+  echo '<input type="checkbox" id="activate_contact" value="1" name="activate_contact" ' . $checked . '></br>'; 
+  
+ 
+  }
 
 // FOR SANITIZATION
 
@@ -304,11 +314,24 @@ function sunset_sanitize_facebook($input)
 
 /* For Custom CSS */
 
-function sunset_custom_css_option_callback()
+function sunset_custom_css_option_callback_one()
 {
-  $css = get_option( 'sunset_css' );
-  $css = empty($css) ? '/* Sunset Theme Custom CSS*/' : $css;
+  // $css = get_option( 'sunset_css' );
+  // $css = empty($css) ? '/* Sunset Theme Custom CSS*/' : $css;
 
-  echo '<textarea placeholder="Sunset Custom CSS">'.$css.'</textarea>';
+  // echo '<textarea placeholder="Sunset Custom CSS">'.$css.'</textarea>';
+
+  echo "<div style='width:500px; height:500px; border:1px solid black;'></div>";
+
+}
+
+function sunset_custom_css_option_callback_two()
+{
+  // $css = get_option( 'sunset_css' );
+  // $css = empty($css) ? '/* Sunset Theme Custom CSS*/' : $css;
+
+  // echo '<textarea placeholder="Sunset Custom CSS">'.$css.'</textarea>';
+
+  echo "<div style='width:500px; height:500px; border:1px solid black;'></div>";
 
 }
