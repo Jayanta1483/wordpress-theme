@@ -125,6 +125,10 @@ nav ul li.show::after {
   margin-bottom: 32px;
 }
 
+.entry-header {
+  margin-top: 50px;
+}
+
 h1 {
   font-size: 55px;
   font-weight: 200;
@@ -208,6 +212,19 @@ h1.entry-title::before, h1.entry-title::after {
 
 .entry-footer {
   padding-bottom: 8px;
+  margin-top: 20px;
+}
+
+/*
+==============================
+   FOR IMAGE POST FORMAT
+==============================
+*/
+.sunset-format-image .entry-header {
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* for widescreen view */
