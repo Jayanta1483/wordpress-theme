@@ -221,10 +221,58 @@ h1.entry-title::before, h1.entry-title::after {
 ==============================
 */
 .sunset-format-image .entry-header {
-  height: 400px;
+  height: 500px;
+  padding-top: 2px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.sunset-format-image .entry-header:hover .entry-excerpt {
+  top: 89%;
+}
+
+.sunset-format-image .entry-header .posted-on, .sunset-format-image .entry-header .posted-in,
+.sunset-format-image .entry-header a {
+  color: #fff;
+}
+
+.sunset-format-image .entry-header .entry-excerpt {
+  padding: 15px 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 100%;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#000), to(rgba(0, 0, 0, 0.09)));
+  background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0.09));
+}
+
+.sunset-format-image .entry-header .entry-excerpt p {
+  margin-bottom: 0;
+}
+
+@-webkit-keyframes excerpt-up {
+  from {
+    bottom: -85px;
+  }
+  to {
+    bottom: -25px;
+  }
+}
+
+@keyframes excerpt-up {
+  from {
+    bottom: -85px;
+  }
+  to {
+    bottom: -25px;
+  }
 }
 
 /* for widescreen view */

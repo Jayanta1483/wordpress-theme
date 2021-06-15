@@ -94,3 +94,30 @@ $comments = '';
   $comments = '<a href="' . get_comments_link() . '">'. $comments .' <span class="sunset-icon sunset-comment"></span></a>';
     return '<div class="post-footer-container"><div class="row"><div class="col-xl col-sm-6">'.get_the_tag_list('<div class="tags-list"><span class="sunset-icon sunset-tag"></span>',' ','</div>').'</div><div class="col-xl col-sm-6 comments-tag">'.$comments.'</div></div></div>';
 }
+
+function sunset_get_post_image()
+{    
+    $featured_image = '';
+
+    if(has_post_thumbnail( )){  
+    
+        $featured_image = esc_url(get_the_post_thumbnail_url());
+    }else{
+        $attachments = get_posts( 
+            array(
+                
+                'post_type' => 'attachment',
+                'posts_per_page' => 1,
+                'post_parent' => get_the_ID()
+            )
+        );
+        
+        //var_dump($attachments);
+       foreach ($attachments as $attachment) {
+           $featured_image = wp_get_attachment_image_url( $attachment->ID, 'large' );
+        
+       }
+    }
+
+    return $featured_image;
+}

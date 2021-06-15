@@ -218,15 +218,41 @@ h1{
 */
 
 .sunset-format-image{
-.entry-header{
-    height: 400px;
+    
+   .entry-header{
+    height: 500px;
+    padding-top: 2px;
     background-position: center; 
-    background-size: cover;
+    background-size: cover; 
     background-repeat: no-repeat;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    
+    &:hover .entry-excerpt{top: 89%;}
+    & .posted-on, .posted-in,
+    & a{
+        color: #fff;
+    }
+
+    .entry-excerpt{
+        padding: 15px 0;
+        position: absolute;
+        right: 0;left: 0;
+        top: 100%;
+        transition-duration: 1s;
+        background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0.09)); 
+        
+        & p{margin-bottom: 0;}
+    }
 }
 }
 
-
+@keyframes excerpt-up {
+   from{bottom: -85px;}
+   to{bottom: -25px;}
+}
 
 
 
