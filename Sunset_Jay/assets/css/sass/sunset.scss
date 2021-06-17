@@ -263,8 +263,38 @@ h1{
 
 .sunset-format-video{
     margin-top: 70px;
+    video{
+        width: 100%;
+    }
 } 
 
+
+/*
+==========================
+   AUDIO POST FORMAT
+==========================
+*/
+
+.sunset-format-audio{
+    //margin-top: 70px;
+    audio{
+        width: 100%; 
+    }
+    .entry-header{
+        margin-bottom: 30px;
+        h1{
+            &::before,
+            &::after{content: none;}
+        }
+    }
+
+    .entry-title,.entry-meta{display: inline;}
+    .entry-meta{
+        float: right;
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+} 
 
 /* for widescreen view */
 

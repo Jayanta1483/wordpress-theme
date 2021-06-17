@@ -284,6 +284,37 @@ h1.entry-title::before, h1.entry-title::after {
   margin-top: 70px;
 }
 
+.sunset-format-video video {
+  width: 100%;
+}
+
+/*
+==========================
+   AUDIO POST FORMAT
+==========================
+*/
+.sunset-format-audio audio {
+  width: 100%;
+}
+
+.sunset-format-audio .entry-header {
+  margin-bottom: 30px;
+}
+
+.sunset-format-audio .entry-header h1::before, .sunset-format-audio .entry-header h1::after {
+  content: none;
+}
+
+.sunset-format-audio .entry-title, .sunset-format-audio .entry-meta {
+  display: inline;
+}
+
+.sunset-format-audio .entry-meta {
+  float: right;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {

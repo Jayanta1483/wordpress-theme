@@ -12,7 +12,7 @@
 
 <article id="post-<?php the_ID(  );?>" <?php post_class('sunset-format-video');?> class="text-center">
 
-<div class="d-flex justify-content-center"><?php echo sunset_get_embedded_media_content(); ?></div>
+<div class=""><?php echo sunset_get_embedded_media_content(array('video', 'iframe')); ?></div>
 
     <header class="entry-header text-center">
         <?php the_title('<h1 class="entry-title"><a href="'.esc_url( get_the_permalink( ) ).'">', '</a></h1>'); ?>

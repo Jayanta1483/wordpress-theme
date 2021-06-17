@@ -125,10 +125,10 @@ function sunset_get_post_image()
 }
 
 
-function sunset_get_embedded_media_content()
+function sunset_get_embedded_media_content($types = array())
 {
     $content = apply_filters('the_content', get_the_content());
-    $types = array('audio', 'video', 'iframe');
+    // $types = array('audio', 'video', 'iframe');
     $media = get_media_embedded_in_content($content, $types);
     return do_shortcode( $media[0] );
 }
