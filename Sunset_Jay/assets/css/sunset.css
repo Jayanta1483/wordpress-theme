@@ -275,6 +275,15 @@ h1.entry-title::before, h1.entry-title::after {
   }
 }
 
+/*
+==========================
+   VIDEO POST FORMAT
+==========================
+*/
+.sunset-format-video {
+  margin-top: 70px;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {

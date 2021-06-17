@@ -21,18 +21,6 @@
         </div>
         <div class="entry-excerpt text-center"><?php the_excerpt(); ?></div>
     </header>
-    
-    <!-- <div class="entry-content">
-        <div class="standard-featured" >
-         
-        
-           
-         <img src="" alt="" class="responsive" style="display: block;">
-
-      
-        </div>
-        
-    </div> -->
 
     <footer class="entry-footer">
       <?php  echo sunset_posted_footer();  ?>
