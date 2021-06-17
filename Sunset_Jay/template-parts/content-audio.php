@@ -23,7 +23,7 @@
 
 
 
-   <?php the_content()   ;?>
+   <?php echo sunset_get_embedded_media_content()   ;?>
    
 
 
