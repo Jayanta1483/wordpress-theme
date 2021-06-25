@@ -296,6 +296,15 @@ h1{
     }
 } 
 
+
+    .d-block{
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+
 /* for widescreen view */
 
 @import 'media-queries';

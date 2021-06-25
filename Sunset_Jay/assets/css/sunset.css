@@ -315,6 +315,13 @@ h1.entry-title::before, h1.entry-title::after {
   margin-bottom: 0;
 }
 
+.d-block {
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {
