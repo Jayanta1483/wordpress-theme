@@ -2,7 +2,8 @@
 
 /*
 
-@package Sunset Theme--Standard Post Format
+@package Sunset Theme
+--Gallery Post Format--
 
 */
 
@@ -17,7 +18,7 @@
         </div>
     </header>
     <div class="entry-content">
-        <?php $featured_image = sunset_get_post_image(6);   ?>
+        <?php $featured_image = sunset_get_post_image(8);   ?>
         <?php //var_dump($featured_image); 
         ?>
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -28,10 +29,12 @@
                     ">
                         <div style ="background-image:url('<?php echo $image   ;?>');"
                      class="d-block w-100" alt="..."></div>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h4><?php $captions = sunset_get_attachment_caption(6); echo $captions[$i]; ?></h4>
-                            
-                        </div>
+                        <!-- <div class="carousel-caption d-none d-md-block"> -->
+                            <?php $captions = sunset_get_attachment_caption(8)   ;?>
+                            <?php if(!empty($captions[$i])){ ?>
+                            <h5 class="caption text-center"><?php echo $captions[$i]; ?></h5>
+                            <?php } ?>
+                        <!-- </div> -->
                     </div>
                 <?php  $i++; }   ?>
 

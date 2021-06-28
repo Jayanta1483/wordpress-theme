@@ -157,3 +157,39 @@ function sunset_get_embedded_media_content($types = array())
     $media = get_media_embedded_in_content($content, $types);
     return do_shortcode($media[0]);
 }
+
+
+
+/*
+==========================
+  FOR QUOTE POST FORMAT
+==========================
+*/
+
+add_filter( 'the_content', 'sunset_post_format_quote_content' );
+
+function sunset_post_format_quote_content($content)
+{
+   if(get_post_format() == 'quote'){
+       $content = get_the_content();
+       $content = str_replace(array('<blockquote class="wp-block-quote">','<p></p>','<cite>', '</cite>','</blockquote>'), '', $content);
+       $content = '<h1><blockquote class="wp-block-quote"><cite>"'.$content.'"</cite></blockquote></h1>';
+
+   }
+
+   return $content;
+}
+
+
+/*
+==========================
+  FOR LINK POST FORMAT
+==========================
+*/
+
+function sunset_get_link()
+{
+   $link = (preg_match('/<a\s[^>]*?href=[\'"](.+?)[\'"]/i', get_the_content(), $links)) ? $links[1] : '';
+
+    return esc_url( $link );
+}
