@@ -389,6 +389,54 @@ h1.entry-title::before, h1.entry-title::after {
   padding-top: 10px;
 }
 
+/*
+=============================
+     ASIDE POST FORMAT
+=============================
+*/
+.sunset-format-aside .content {
+  background-color: #f3f1f1;
+}
+
+.sunset-format-aside img.responsive {
+  width: 250px;
+  height: 250px;
+  max-width: 100%;
+  margin: auto;
+  border-radius: 50%;
+  -webkit-transition: none;
+  transition: none;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+  z-index: 1000;
+}
+
+.sunset-format-aside img.responsive:hover {
+  opacity: 1;
+}
+
+.sunset-format-aside footer {
+  margin-top: 0;
+  padding: 10px;
+}
+
+.sunset-format-aside .footer-row {
+  background-color: #e7e6e6;
+}
+
+.sunset-format-aside .feature-column, .sunset-format-aside .content-column {
+  padding: 0;
+}
+
+.sunset-format-aside .entry-content {
+  padding-right: 15px;
+}
+
+.sunset-format-aside .aside-featured {
+  padding-top: 10px;
+  margin-top: 11px;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {

@@ -377,9 +377,51 @@ h1{
 
 
 
+/*
+=============================
+     ASIDE POST FORMAT
+=============================
+*/
 
+.sunset-format-aside{
+    .content{
+        background-color: rgb(243, 241, 241);
+    }
+    img.responsive{
+        width: 250px;
+        height: 250px;
+        max-width: 100%;
+        margin: auto;
+        border-radius: 50%;
+       transition: none;
+       &:hover{opacity: 1;}
+       transform: translateY(20px);
+       z-index: 1000;
+    }
 
+    footer{
+        margin-top: 0;
+        padding: 10px;
+        
+    }
+    .footer-row{
+        background-color: #e7e6e6;
+    }
+    .feature-column,.content-column{
+        padding: 0;
+    }
 
+    .entry-content{
+        padding-right: 15px;
+    }
+
+    .aside-featured{
+        padding-top: 10px;
+        margin-top: 11px;
+    }
+
+    
+}
 
 
 

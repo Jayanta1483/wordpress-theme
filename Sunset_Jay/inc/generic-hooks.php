@@ -17,7 +17,7 @@ add_action( 'pre_get_posts', 'sunset_reorder_posts' );
 
 function sunset_reorder_posts($query)
 {
-    if(is_home() && $query->is_main_query(  )){
+    if(!is_admin() && is_home() && $query->is_main_query(  )){
         $query->set('orderby', 'date');
         $query->set('order', 'ASC');
     }
