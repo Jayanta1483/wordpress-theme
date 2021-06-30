@@ -27,12 +27,12 @@
                 foreach ($featured_image as $image) { ?>
                     <div class="carousel-item <?php echo ($i == 0) ? 'active' : ''   ;?>
                     ">
-                        <div style ="background-image:url('<?php echo $image   ;?>');"
+                        <div style ="background-image:url('<?php echo $image['url']   ;?>');"
                      class="d-block w-100" alt="..."></div>
                         <!-- <div class="carousel-caption d-none d-md-block"> -->
-                            <?php $captions = sunset_get_attachment_caption(8)   ;?>
-                            <?php if(!empty($captions[$i])){ ?>
-                            <h5 class="caption text-center"><?php echo $captions[$i]; ?></h5>
+                            <?php $caption = $image['caption']   ;?>
+                            <?php if(!empty($caption)){ ?>
+                            <h5 class="caption text-center"><?php echo $caption; ?></h5>
                             <?php } ?>
                         <!-- </div> -->
                     </div>

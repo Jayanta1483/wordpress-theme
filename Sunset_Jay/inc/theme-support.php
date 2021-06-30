@@ -98,6 +98,16 @@ function sunset_posted_footer()
     return '<div class="post-footer-container"><div class="row"><div class="col-xl col-sm-6">' . get_the_tag_list('<div class="tags-list"><span class="sunset-icon sunset-tag"></span>', ' ', '</div>') . '</div><div class="col-xl col-sm-6 comments-tag">' . $comments . '</div></div></div>';
 }
 
+function sunset_get_embedded_media_content($types = array())
+{
+    $content = apply_filters('the_content', get_the_content());
+    // $types = array('audio', 'video', 'iframe');
+    $media = get_media_embedded_in_content($content, $types);
+    return do_shortcode($media[0]);
+}
+
+
+
 function sunset_get_post_image($num = 1)
 {
     $featured_image = [];
@@ -116,47 +126,21 @@ function sunset_get_post_image($num = 1)
         );
 
         if ($attachments) {
-            //var_dump($attachments);
+           
             foreach ($attachments as $attachment) {
-                //$featured_image[] = wp_get_attachment_image_url($attachment->ID, 'large');
-                array_push($featured_image, wp_get_attachment_image_url($attachment->ID, 'large'));
+                array_push($featured_image, array('url' => $attachment->guid, 'caption' => $attachment->post_excerpt));
             }
         }
     }
-
+        //   echo "<pre>";
+        //   print_r($featured_image);
+        //   wp_die();
     return $featured_image;
 }
 
-function sunset_get_attachment_caption($num)
-{   
-    $captions = [];
-    $attachments = get_posts(
-        array(
 
-            'post_type' => 'attachment',
-            'posts_per_page' => $num,
-            'post_parent' => get_the_ID()
-        )
-    );
 
-    if ($attachments) {
-        //var_dump($attachments);
-        foreach ($attachments as $attachment) {
-            
-            array_push($captions, wp_get_attachment_caption($attachment->ID));
-        }
-    }
 
-    return $captions;
-}
-
-function sunset_get_embedded_media_content($types = array())
-{
-    $content = apply_filters('the_content', get_the_content());
-    // $types = array('audio', 'video', 'iframe');
-    $media = get_media_embedded_in_content($content, $types);
-    return do_shortcode($media[0]);
-}
 
 
 
