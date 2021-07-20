@@ -19,7 +19,7 @@ $(document).ready(function () {
 
       let data = {
         page: newPage,
-        action: 'sunset_load_more'
+        action: 'sunset_load_more' // IT IS THE ACTION NAME WHICH SHOULD BE REGISTERD IN AJAX-HANDLER PHP PAGE
       }
 
       $.ajax({
@@ -31,7 +31,7 @@ $(document).ready(function () {
           
           canBeLoaded = false;
           $('#lazy-load-preloader').css('background-image', 'url("/th-wp/wp-content/themes/Sunset_jay/assets/img/preloader.gif")');
-          console.log(xhr)
+          
         },
 
         error: function (response) {
