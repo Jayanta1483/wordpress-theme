@@ -424,9 +424,21 @@ h1{
 }
 
 
+/*
+===================
+  LAZY LOAD
+===================
+*/
 
-
-
+#lazy-load-preloader{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+  // background-image: url('../../img/preloader.gif');
+   background-position: center;
+   background-repeat: no-repeat; 
+   background-size: cover;
+}
 
 
 

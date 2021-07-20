@@ -11,7 +11,17 @@ This is a template for Footer;
 ?>
 
 
+<footer class="mt-5">
+<pre>
 
+
+
+
+
+
+</pre>
+
+</footer>
 
 <?php wp_footer(); ?>
 </body>

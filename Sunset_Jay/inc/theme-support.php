@@ -132,9 +132,10 @@ function sunset_get_post_image($num = 1)
             }
         }
     }
-        //   echo "<pre>";
-        //   print_r($featured_image);
-        //   wp_die();
+        
+
+
+
     return $featured_image;
 }
 

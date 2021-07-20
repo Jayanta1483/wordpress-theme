@@ -437,6 +437,20 @@ h1.entry-title::before, h1.entry-title::after {
   margin-top: 11px;
 }
 
+/*
+===================
+  LAZY LOAD
+===================
+*/
+#lazy-load-preloader {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {

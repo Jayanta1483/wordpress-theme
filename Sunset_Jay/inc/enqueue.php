@@ -36,8 +36,18 @@ function sunset_theme_frontend_scripts(){
     wp_register_script( 'jquery', get_template_directory_uri(  ).'/assets/js/jquery.js', false, '3.6.0', true );
     
     wp_enqueue_script( 'jquery' );
+
+   
+
     wp_enqueue_script( 'sunset_script_main', get_template_directory_uri().'/assets/js/main.js', array('jquery'), '4.6', true );
     wp_enqueue_script( 'sunset_script', get_template_directory_uri().'/assets/js/bootstrap.min.js', array('jquery'), '4.6', true );
+    
+    wp_localize_script( 'sunset_script_main', 'sunset_load_more_params', array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'noposts' => __('No other Posts Found', 'sunset')
+     ) );
+
+   
 }
 
 

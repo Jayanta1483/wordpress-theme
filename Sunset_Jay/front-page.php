@@ -8,7 +8,7 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
 <div id="main" class="site-main" role="main">
-<div class="container">
+<div class="container" id="sunset-blog-posts-container" data-page='1'>
 <?php
 
 if(have_posts()){
@@ -22,6 +22,9 @@ if(have_posts()){
 
 ?>
 </div><!-- container -->
+<div class="text-center" id="lazy-load-preloader">
+ 
+</div>
 </div><!--main-->
 </div><!--primary-->
 
