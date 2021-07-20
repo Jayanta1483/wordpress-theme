@@ -55,10 +55,5 @@
     </div> 
 
     <hr>
-    <pre>
-
-
-
-
-    </pre>
+   
 </article>

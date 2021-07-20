@@ -46,10 +46,5 @@
       <?php  echo sunset_posted_footer();  ?>
     </footer>
     <hr>
-    <pre>
-
-
-
-
-    </pre>
+    
 </article>

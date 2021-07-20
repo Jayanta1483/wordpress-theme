@@ -26,21 +26,30 @@ $(document).ready(function () {
         method: 'post',
         url: url,
         data: data,
+
+        beforeSend: function (xhr) {
+          
+          canBeLoaded = false;
+          $('#lazy-load-preloader').css('background-image', 'url("/th-wp/wp-content/themes/Sunset_jay/assets/img/preloader.gif")');
+          console.log(xhr)
+        },
+
         error: function (response) {
           console.log(response);
           canBeLoaded = false;
         },
-        beforeSend: function (xhr) {
-          canBeLoaded = false;
-          $('#lazy-load-preloader').css('background-image', 'url("/th-wp/wp-content/themes/Sunset_jay/assets/img/preloader.gif")');
-        },
+        
         success: function (response) {
 
           $('#sunset-blog-posts-container').append(response);
           canBeLoaded = true;
 
           if (response == '') {
-            $('#lazy-load-preloader').css('display', 'none');
+            canBeLoaded = false;
+            $('#lazy-load-preloader').css('background-image', 'url("")').css('width', '100%')
+            .append('<h5 id="no-post">Sorry !! No more posts found!!</h5>');
+            $('#no-post').fadeOut(3000);
+            
           }
         }
       })

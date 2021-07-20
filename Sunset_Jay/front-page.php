@@ -22,9 +22,7 @@ if(have_posts()){
 
 ?>
 </div><!-- container -->
-<div class="text-center" id="lazy-load-preloader">
- 
-</div>
+<div class="text-center" id="lazy-load-preloader"></div>
 </div><!--main-->
 </div><!--primary-->
 
