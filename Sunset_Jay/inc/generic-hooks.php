@@ -23,5 +23,10 @@ function sunset_reorder_posts($query)
     }
 }
 
+function themeslug_query_vars( $qvars ) {
+  $qvars[] = 'paged';
+  return $qvars;
+}
+add_filter( 'query_vars', 'themeslug_query_vars' );
 
 ?>

@@ -451,6 +451,39 @@ h1.entry-title::before, h1.entry-title::after {
   background-size: cover;
 }
 
+.reveal {
+  -webkit-animation-name: lazyLoad;
+          animation-name: lazyLoad;
+  -webkit-animation-duration: 0.9s;
+          animation-duration: 0.9s;
+}
+
+@-webkit-keyframes lazyLoad {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(90px);
+            transform: translateY(90px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes lazyLoad {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(90px);
+            transform: translateY(90px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {
