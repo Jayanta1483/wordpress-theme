@@ -117,7 +117,7 @@ nav ul li.show::after {
    FOR POSTS ON HOME PAGE
 =================================
 */
-.entry-meta, .standard-featured, .entry-excerpt {
+.entry-meta, .standard-featured, .entry-excerpt, .entry-excerpt-single {
   margin-bottom: 25px;
 }
 
@@ -173,7 +173,7 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   opacity: 0.7;
 }
 
-.entry-excerpt p {
+.entry-excerpt p, .entry-excerpt-single p {
   font-size: 19px;
   line-height: 1.5em;
   font-weight: 300;
@@ -232,8 +232,9 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   overflow: hidden;
 }
 
-.sunset-format-image .entry-header:hover .entry-excerpt {
-  top: 89%;
+.sunset-format-image .entry-header:hover .entry-excerpt, .sunset-format-image .entry-header:hover .entry-excerpt-single {
+  opacity: 1;
+  bottom: -30px;
 }
 
 .sunset-format-image .entry-header .posted-on, .sunset-format-image .entry-header .posted-in,
@@ -241,19 +242,20 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   color: #fff;
 }
 
-.sunset-format-image .entry-header .entry-excerpt {
+.sunset-format-image .entry-header .entry-excerpt, .sunset-format-image .entry-header .entry-excerpt-single {
+  opacity: 0;
   padding: 15px 0;
   position: absolute;
   right: 0;
   left: 0;
-  top: 100%;
+  bottom: -130px;
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#000), to(rgba(0, 0, 0, 0.09)));
   background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0.09));
 }
 
-.sunset-format-image .entry-header .entry-excerpt p {
+.sunset-format-image .entry-header .entry-excerpt p, .sunset-format-image .entry-header .entry-excerpt-single p {
   margin-bottom: 0;
 }
 
@@ -489,6 +491,21 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
         ARCHIVE PAGE
 =============================
 */
+.nav-next {
+  float: right;
+}
+
+.nav-previous {
+  float: left;
+}
+
+.entry-excerpt-single {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 12px;
+  padding: 10px;
+  color: #fff;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {

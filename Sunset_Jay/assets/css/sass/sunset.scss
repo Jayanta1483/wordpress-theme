@@ -230,17 +230,18 @@ h1{
     position: relative;
     overflow: hidden;
     
-    &:hover .entry-excerpt{top: 89%;}
+    &:hover .entry-excerpt{opacity: 1; bottom: -30px;}
     & .posted-on, .posted-in,
     & a{
         color: #fff;
     }
 
     .entry-excerpt{
+        opacity: 0;
         padding: 15px 0;
         position: absolute;
         right: 0;left: 0;
-        top: 100%;
+        bottom: -130px;
         transition-duration: 1s;
         background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0.09)); 
         
@@ -469,7 +470,21 @@ h1{
     @extend .entry-title;
 }
 
+.nav-next{
+    float: right;
+}
 
+.nav-previous{
+    float: left;
+}
+
+.entry-excerpt-single{
+    background-color: rgba(0, 0, 0, 0.5);//rgb(243, 241, 241);
+    margin-top: 12px;
+    padding: 10px;
+    @extend .entry-excerpt;
+    color: #fff;
+}
 
 /* for widescreen view */
 
