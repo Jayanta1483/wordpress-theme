@@ -91,7 +91,25 @@ $(document).ready(function () {
   })
 
 
- 
+  // FOR GALLERY IMAGE MODAL
+
+  let images = $('.blocks-gallery-item img');
+  let span = $('.close');
+
+  images.each(function(index, element){
+      $(this).click(function(){
+        console.log(element)
+        $('#modalContent').addClass('appear');
+        $('#imgModal').css('display', 'block');
+        $('#modalContent').attr('src', $(this).attr('src'));
+      })
+  })
+
+ span.each(function(i){
+   $(this).click(function(){
+    $('#imgModal').css('display', 'none');
+   })
+ })
   
 
 

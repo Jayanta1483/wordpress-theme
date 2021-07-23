@@ -506,6 +506,111 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   color: #fff;
 }
 
+.sunset-format-gallery-single {
+  /* The Close Button */
+}
+
+.sunset-format-gallery-single .content-container img {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.sunset-format-gallery-single .content-container img:hover {
+  -webkit-transform: scale(1.4, 1.4);
+          transform: scale(1.4, 1.4);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.sunset-format-gallery-single .img-modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1500;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Black w/ opacity */
+}
+
+.sunset-format-gallery-single .close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #bbb;
+  font-size: 40px;
+  font-weight: bold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sunset-format-gallery-single .close:hover,
+.sunset-format-gallery-single .close:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sunset-format-gallery-single #caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.sunset-format-gallery-single .modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  top: 20%;
+}
+
+.sunset-format-gallery-single .appear {
+  -webkit-animation-name: appear;
+          animation-name: appear;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+
+@-webkit-keyframes appear {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes appear {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {
