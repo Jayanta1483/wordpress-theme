@@ -10,7 +10,7 @@
 
 <article id="post-<?php the_ID(  );?>" <?php post_class();?> class="text-center">
     <header class="entry-header text-center">
-        <?php the_title('<h1 class="entry-title"><a href="'.esc_url( get_the_permalink( ) ).'">', '</a></h1>'); ?>
+        <?php the_title('<h1 class="entry-title"><a href="'.esc_url( get_the_permalink( ) ).'" target="_blank">', '</a></h1>'); ?>
 
         <div class="entry-meta">
             <?php echo sunset_posted_meta(); ?>

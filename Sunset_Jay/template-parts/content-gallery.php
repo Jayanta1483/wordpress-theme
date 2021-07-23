@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('sunset-format-gallery'); ?> class="text-center">
     <header class="entry-header text-center">
-        <?php the_title('<h1 class="entry-title"><a href="' . esc_url(get_the_permalink()) . '">', '</a></h1>'); ?>
+        <?php the_title('<h1 class="entry-title"><a href="' . esc_url(get_the_permalink()) . '" target="_blank">', '</a></h1>'); ?>
 
         <div class="entry-meta">
             <?php echo sunset_posted_meta(); ?>
@@ -38,27 +38,7 @@
                     </div>
                 <?php  $i++; }   ?>
 
-                <!-- <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div> -->
+    
             </div>
             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

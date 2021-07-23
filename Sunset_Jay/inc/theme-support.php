@@ -72,12 +72,12 @@ function sunset_posted_meta()
         $i = 1;
         foreach ($categories as $category) {
             $output .=  ($i > 1) ? ', ' : '';
-            $output .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" alt="' . esc_attr('View all posts in%s', $category->name) . '">' . esc_html($category->name) . '</a>';
+            $output .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" alt="' . esc_attr('View all posts in%s', $category->name) . '" target="_blank">' . esc_html($category->name) . '</a>';
             $i++;
         }
     }
 
-    return '<span class="posted-on">Posted on <a href="' . esc_url(get_the_permalink()) . '" >' . get_the_date() . '</a>' . $edited . '</span> / <span class="posted-in"> category :' . $output . '</span>';
+    return '<span class="posted-on">Posted on <a href="' . esc_url(get_the_permalink()) . '" target="_blank">' . get_the_date() . '</a>' . $edited . '</span> / <span class="posted-in"> category :' . $output . '</span>';
 }
 
 
@@ -94,7 +94,7 @@ function sunset_posted_footer()
             $comments = get_comments_number() . ' comments';
         }
     }
-    $comments = '<a href="' . get_comments_link() . '">' . $comments . ' <span class="sunset-icon sunset-comment"></span></a>';
+    $comments = '<a href="' . get_comments_link() . '" target="_blank">' . $comments . ' <span class="sunset-icon sunset-comment"></span></a>';
     return '<div class="post-footer-container"><div class="row"><div class="col-xl col-sm-6">' . get_the_tag_list('<div class="tags-list"><span class="sunset-icon sunset-tag"></span>', ' ', '</div>') . '</div><div class="col-xl col-sm-6 comments-tag">' . $comments . '</div></div></div>';
 }
 

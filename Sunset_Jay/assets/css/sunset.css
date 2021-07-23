@@ -138,13 +138,13 @@ h1 a {
   color: #000;
 }
 
-h1.entry-title {
+h1.entry-title, h1.page-title {
   margin-top: 20px;
   margin-bottom: 15px;
   word-spacing: 5px;
 }
 
-h1.entry-title::before, h1.entry-title::after {
+h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-title::after {
   content: '~';
   position: relative;
 }
@@ -305,7 +305,7 @@ h1.entry-title::before, h1.entry-title::after {
   content: none;
 }
 
-.sunset-format-audio .entry-title, .sunset-format-audio .entry-meta {
+.sunset-format-audio .entry-title, .sunset-format-audio .page-title, .sunset-format-audio .entry-meta {
   display: inline;
 }
 
@@ -364,15 +364,15 @@ h1.entry-title::before, h1.entry-title::after {
   margin-top: 100px;
 }
 
-.sunset-format-link .entry-title {
+.sunset-format-link .entry-title, .sunset-format-link .page-title {
   font-size: 48px;
 }
 
-.sunset-format-link .entry-title::before, .sunset-format-link .entry-title::after {
+.sunset-format-link .entry-title::before, .sunset-format-link .page-title::before, .sunset-format-link .entry-title::after, .sunset-format-link .page-title::after {
   display: none;
 }
 
-.sunset-format-link .entry-title a {
+.sunset-format-link .entry-title a, .sunset-format-link .page-title a {
   color: #808080;
 }
 
@@ -484,6 +484,11 @@ h1.entry-title::before, h1.entry-title::after {
   }
 }
 
+/*
+=============================
+        ARCHIVE PAGE
+=============================
+*/
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {
@@ -495,7 +500,7 @@ h1.entry-title::before, h1.entry-title::after {
 }
 
 @media (max-width: 600px) {
-  .entry-title {
+  .entry-title, .page-title {
     font-size: 32px;
   }
   nav ul li::after {

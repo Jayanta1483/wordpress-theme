@@ -12,7 +12,7 @@
 
 <article id="post-<?php the_ID(  );?>" <?php post_class('sunset-format-quote');?>>
     <header class="entry-header text-center">
-        <a href="<?php esc_url(the_permalink())   ;?>">
+        <a href="<?php esc_url(the_permalink())   ;?>" target="_blank">
     <?php 
     the_content(  );
     

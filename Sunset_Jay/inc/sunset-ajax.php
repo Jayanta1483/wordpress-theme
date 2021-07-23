@@ -23,6 +23,13 @@ function sunset_load_more_callback()
         'paged' => $paged
     );
 
+    if(!empty($_POST['archive_key']) && !empty($_POST['archive_value'])){
+        $archive_name = ($_POST['archive_key'] == 'category') ? 'category_name' : esc_sql($_POST['archive_key']);
+
+        $args[$archive_name] = esc_sql($_POST['archive_value']);
+        //$arg['order'] = 'ASC';
+    }
+
     $load_more_qry = new WP_Query($args);
 
     if ($load_more_qry->have_posts()) { ?>
