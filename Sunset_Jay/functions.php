@@ -7,6 +7,7 @@ require __DIR__.'/inc/custom-post-type.php';
 require __DIR__.'/inc/generic-hooks.php';
 require __DIR__.'/inc/generic-functions.php';
 require __DIR__.'/inc/sunset-ajax.php';
+require __DIR__.'/inc/shortcode.php';
 
 
 require __DIR__.'\class\class-wp-bootstrap-navwalker.php';

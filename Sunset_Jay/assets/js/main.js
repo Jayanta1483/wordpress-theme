@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+
   $(window).on("unload", ()=>location.hash = window.pageYOffset );
   window.scrollTo(0, location.hash);
   

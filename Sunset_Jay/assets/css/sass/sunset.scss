@@ -566,6 +566,27 @@ h1{
 
 
 
+/*
+=============
+   TOOLTIPS
+=============
+*/
+
+.sunset-tooltip{
+   color: rgb(245, 161, 7);
+   font-weight:500;
+}
+
+.sunset-popover{
+    @extend .sunset-tooltip;
+}
+
+
+
+
+
+
+
 /* for widescreen view */
 
 @import 'media-queries';

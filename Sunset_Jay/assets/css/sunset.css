@@ -611,6 +611,16 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   }
 }
 
+/*
+=============
+   TOOLTIPS
+=============
+*/
+.sunset-tooltip, .sunset-popover {
+  color: #f5a107;
+  font-weight: 500;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {
