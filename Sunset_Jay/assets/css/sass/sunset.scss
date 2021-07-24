@@ -470,12 +470,23 @@ h1{
     @extend .entry-title;
 }
 
-.nav-next{
-    float: right;
-}
 
-.nav-previous{
-    float: left;
+/* POST NAVIGATION */
+
+.sunset-post-prev,.sunset-post-next{
+    display: inline-block;
+    transition: 0.2s;
+  a{
+      color: #808080;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: 0.2s;
+  }
+
+  &:hover,
+  &:hover a{
+    color: orange;
+}
 }
 
 .entry-excerpt-single{

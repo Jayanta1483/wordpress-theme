@@ -33,4 +33,15 @@ function sunset_term_link_modyfication_callback($links)
   
 }
 
+add_filter( 'sunset_post_nav_class', 'sunset_post_nav_class_handler' );
+
+function sunset_post_nav_class_handler($class)
+{
+  $class .= ' sunset-post-navigation';
+
+  return $class;
+}
+
+
+
 ?>

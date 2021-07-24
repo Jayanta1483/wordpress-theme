@@ -22,7 +22,7 @@ get_header(); ?>
             get_template_part('template-parts/single-post', get_post_format());
           }  
            
-          the_post_navigation(  );
+          echo sunset_post_navigation(  );
 
           if(comments_open(  )){
             comments_template(  );
