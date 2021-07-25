@@ -21,10 +21,12 @@ get_header(); ?>
             the_post();
             get_template_part('template-parts/single-post', get_post_format());
           }  
-           
+          echo sunset_social_media_sharing();
           echo sunset_post_navigation(  );
+       ?> 
 
-          if(comments_open(  )){
+       
+  <?php   if(comments_open(  )){
             comments_template(  );
           }
         

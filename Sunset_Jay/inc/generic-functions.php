@@ -42,3 +42,24 @@ function sunset_post_navigation()
  
     return $navigation;
 }
+
+
+/*
+==========================
+  SOCIAL MEDIA SHAREING
+==========================
+*/
+
+function sunset_social_media_sharing()
+{
+    $output = '<div class="social-media-container text-center">
+       Share this with:
+          <ul class="social-media-share">
+          <li   data-href="https://www.facebook.com/jayanta.sarkar.10" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fjayanta.sarkar.10&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#" ><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#" ><i class="fab fa-instagram"></i></a></li>
+        </ul>
+        </div>';
+
+    return $output;
+}

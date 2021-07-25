@@ -634,6 +634,25 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   font-weight: 500;
 }
 
+.social-media-share {
+  list-style-type: none;
+  padding: 0;
+}
+
+.social-media-share li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-media-share a {
+  font-size: large;
+  color: #000;
+}
+
+.social-media-share a:hover {
+  color: #f5a107;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {

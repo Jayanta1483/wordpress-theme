@@ -21,6 +21,8 @@ This is Template for Header
 </head>
 
 <body <?php body_class(); ?>>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=324226167608332&autoLogAppEvents=1" nonce="uudVBEQ8"></script>
     <header class="container-fluid px-0">
         <div class="row no-gutters">
             <div class="col-xl-12">
