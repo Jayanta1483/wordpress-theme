@@ -653,6 +653,152 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   color: #f5a107;
 }
 
+/*
+===================
+ COMMENT SECTION
+===================
+*/
+h2.comments-title {
+  font-weight: 300;
+}
+
+.sunset-comment-form {
+  padding: 25px 0;
+  background-color: #e7e6e6;
+}
+
+ol.comment-list {
+  list-style-type: none;
+  background-color: #e7e6e6;
+  padding: 15px;
+}
+
+ol.comment-list > li {
+  border-bottom: 2px dotted #808080;
+  padding: 10px 0;
+}
+
+ol.children {
+  list-style-type: none;
+}
+
+.avatar, .avatar-60 {
+  float: right;
+}
+
+.fn, .fn a.url {
+  text-transform: capitalize;
+  color: #2271b1;
+  font-weight: 600;
+}
+
+.comment-meta a {
+  color: #808080;
+  font-size: 16px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.comment-body p {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.comment-body .reply a, .comment-body .replya:hover {
+  color: #2271b1;
+}
+
+.sunset-comment-respond {
+  width: 50%;
+  margin: auto;
+  color: #808080;
+}
+
+.sunset-comment-respond h2 a, .sunset-comment-respond h2a:hover {
+  color: #808080;
+}
+
+.sunset-comment-respond label {
+  font-size: 19px;
+  line-height: 1.5em;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.sunset-comment-respond .comment-reply-title {
+  font-weight: 300;
+}
+
+.sunset-comment-respond textarea, .sunset-comment-respond input[type="text"] {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 0;
+}
+
+.sunset-comment-respond .comment-notes {
+  text-align: center;
+}
+
+.sunset-comment-respond label[for="comment"] {
+  display: block;
+}
+
+.sunset-comment-respond textarea#comment {
+  width: 100%;
+}
+
+.sunset-comment-respond .comment-form-author,
+.sunset-comment-respond .comment-form-email {
+  display: inline-block;
+}
+
+.sunset-comment-respond .comment-form-author label,
+.sunset-comment-respond .comment-form-email label {
+  display: block;
+}
+
+.sunset-comment-respond .comment-form-email {
+  float: right;
+}
+
+.sunset-comment-respond .comment-form-url label {
+  display: block;
+}
+
+.sunset-comment-respond .comment-form-url input {
+  width: 100%;
+}
+
+.sunset-comment-respond .comment-form-cookies-consent label {
+  font-size: 15px;
+}
+
+.sunset-comment-respond .comment-form-cookies-consent input {
+  display: inline;
+}
+
+.sunset-comment-respond .form-submit {
+  text-align: center;
+}
+
+.sunset-comment-respond span.required {
+  color: red;
+}
+
+.sunset-comment-respond .btn-lg {
+  padding: 8px;
+}
+
+.sunset-comment-respond .cancel-reply-link-text {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.sunset-comment-respond .cancel-reply-link-text a, .sunset-comment-respond .cancel-reply-link-texta:hover {
+  color: #2271b1;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {

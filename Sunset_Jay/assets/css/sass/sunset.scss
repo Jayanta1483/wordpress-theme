@@ -610,6 +610,171 @@ h1{
 
 
 
+
+
+
+
+
+/*
+===================
+ COMMENT SECTION
+===================
+*/
+h2.comments-title{
+    font-weight: 300;
+}
+.sunset-comment-form{
+    padding: 25px 0;
+    background-color: #e7e6e6;
+}
+
+ol.comment-list{
+    list-style-type: none;
+    background-color: #e7e6e6;
+    padding: 15px;
+
+    >li{
+        border-bottom: 2px dotted #808080;
+        padding: 10px 0;
+    }
+}
+
+ol.children{
+    list-style-type: none;
+}
+
+.avatar,.avatar-60{
+    float: right;
+}
+
+.fn{
+    
+    text-transform: capitalize;
+    color: #2271b1;
+    font-weight: 600;
+   & a.url{
+       @extend .fn;
+    }
+}
+
+.comment-meta{
+    a{
+        color: #808080;
+        font-size: 16px;
+        font-weight: 200;
+        font-style: italic;
+    }
+}
+
+.comment-body{
+    p{  
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .reply{
+        a,
+        &a:hover{
+            color: #2271b1;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sunset-comment-respond{
+    width: 50%;
+    margin: auto;
+    color: $color-two-dark;
+
+    h2{
+        a, &a:hover{
+            color: $color-two-dark;
+        }
+    }
+    
+    label{
+    font-size: 19px;
+    line-height: 1.5em; 
+    font-weight: 300; 
+    letter-spacing: 0.02em; 
+    }
+    .comment-reply-title{
+        font-weight: 300;
+    }
+
+    textarea,input[type="text"] {
+        border: none;
+        border-radius: 5px;
+        padding: 8px 0;
+    }
+
+    .comment-notes{
+        text-align: center;
+    }
+
+    label[for="comment"] {
+       display: block;
+    }
+
+    textarea#comment {
+        width: 100%;
+    }
+
+    .comment-form-author,
+    .comment-form-email{
+        display: inline-block;
+        label{display: block;}
+    }
+
+    .comment-form-email{float: right;}
+    .comment-form-url{
+        label{display: block;}
+        input{width: 100%;}
+    }
+
+    .comment-form-cookies-consent{
+        label{font-size: 15px;}
+        input{display: inline;}
+    }
+    
+    .form-submit{
+        text-align: center;
+    }
+
+    span.required{
+      color: red;
+    }
+    .btn-lg{
+        padding: 8px;
+    }
+
+    .cancel-reply-link-text{
+        margin-top: 10px;
+        font-size: 18px;
+        a,
+        &a:hover{color: #2271b1;}
+    }
+
+}
+
+
+
+
+
+
+
 /* for widescreen view */
 
 @import 'media-queries';

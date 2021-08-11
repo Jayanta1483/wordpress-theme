@@ -37,7 +37,7 @@ $(document).ready(function () {
       let page = $('.load-more-post-container').last().data('page');
 
       let newPage = page + 1;
-      
+      console.log(newPage)
       //$('#sunset-blog-posts-container').data('page', newPage);
       console.log(archive)
       let data = {
@@ -75,13 +75,14 @@ $(document).ready(function () {
             // pageNum.toString();
             // history.replaceState(null, null, "/th-wp/page/"+pageNum);
             canBeLoaded = true;
+			console.log(typeof response)
 
           } else {
             setTimeout(() => {
               $('#lazy-load-preloader').css('background-image', 'url("")').css('width', '100%')
                 .append('<h5 id="no-post">Sorry !! No more posts found!!</h5>');
               $('#no-post').addClass('alert alert-danger').attr('role', 'alert').fadeOut(1500);
-              
+              console.log(typeof response)
 
             }, 300);
             canBeLoaded = false;
