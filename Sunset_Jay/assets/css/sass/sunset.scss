@@ -630,17 +630,20 @@ h2.comments-title{
 
 ol.comment-list{
     list-style-type: none;
-    background-color: #e7e6e6;
-    padding: 15px;
+    //background-color: #e7e6e6;
+    padding: 15px 0;
 
     >li{
-        border-bottom: 2px dotted #808080;
-        padding: 10px 0;
+        // border-bottom: 2px dotted #808080;
+        margin: 8px 0;
+        padding: 10px 10px;
+        background-color: #e7e6e6;
     }
 }
 
 ol.children{
     list-style-type: none;
+   
 }
 
 .avatar,.avatar-60{

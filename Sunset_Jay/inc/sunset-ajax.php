@@ -7,6 +7,13 @@ This page is for handling ajax calls
   
  */
 
+
+/*
+=========================
+  POSTS INFINITE SCROLL
+=========================
+*/
+
 add_action('wp_ajax_nopriv_sunset_load_more', 'sunset_load_more_callback');
 add_action('wp_ajax_sunset_load_more', 'sunset_load_more_callback');
 
@@ -50,11 +57,96 @@ function sunset_load_more_callback()
 
 
 
+/*
+=====================
+  COMMENTS DISPLAY
+=====================
+*/
 
 
 
+add_action('wp_ajax_nopriv_sunset_comments', 'sunset_comments_callback');
+add_action('wp_ajax_sunset_comments', 'sunset_comments_callback');
 
 
+function sunset_comments_callback()
+{   
+    
+
+    $comment = wp_handle_comment_submission( wp_unslash( $_POST ) );
+    if ( is_wp_error( $comment ) ) {
+        $data = (int) $comment->get_error_data();
+        if ( ! empty( $data ) ) {
+            wp_die(
+                '<p>' . $comment->get_error_message() . '</p>',
+                __( 'Comment Submission Failure' ),
+                array(
+                    'response'  => $data,
+                    'back_link' => true,
+                )
+            );
+        } else {
+            wp_die('Unknown Error');
+        }
+    }
+
+    $user            = wp_get_current_user();
+    $cookies_consent = ( isset( $_POST['wp-comment-cookies-consent'] ) );
+
+    do_action( 'set_comment_cookies', $comment, $user, $cookies_consent );
+
+
+    $comment_depth = 1;
+	$comment_parent = $comment->comment_parent;
+	while( $comment_parent ){
+		$comment_depth++;
+		$parent_comment = get_comment( $comment_parent );
+		$comment_parent = $parent_comment->comment_parent;
+	}
+
+
+    $GLOBALS['comment'] = $comment;
+	$GLOBALS['comment_depth'] = $comment_depth;
+   
+
+    ob_start();
+
+    sunset_comments_list_callback($comment, $args=array('max_depth'=> 6), $comment_depth);
+
+    $comment_html = ob_get_clean(); 
+    $output = array();
+    $output['id'] = (int)$comment->comment_parent;
+    $output['comment_html'] = $comment_html;
+
+
+    echo json_encode($output);
+    
+    wp_die();
+
+}
+
+
+
+/*
+=====================
+  COMMENTS COUNT
+=====================
+*/
+
+
+
+add_action('wp_ajax_nopriv_sunset_comments_count', 'sunset_comments_count_callback');
+add_action('wp_ajax_sunset_comments_count', 'sunset_comments_count_callback');
+
+function sunset_comments_count_callback()
+{
+    $post_id = $_POST['post_id'];
+    $sunset_comments_count = get_comments_number($post_id);
+
+    echo $sunset_comments_count;
+
+    wp_die();
+}
 
 
 

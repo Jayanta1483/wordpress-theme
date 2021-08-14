@@ -44,7 +44,7 @@ function sunset_theme_frontend_scripts(){
     wp_enqueue_script('sunset_icons', "https://kit.fontawesome.com/46b79071a9.js", array()  );
     
    
-    wp_localize_script( 'sunset_script_main', 'sunset_load_more_params', array(
+    wp_localize_script( 'sunset_script_main', 'sunset_ajax_params', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' )
        
      ) );
