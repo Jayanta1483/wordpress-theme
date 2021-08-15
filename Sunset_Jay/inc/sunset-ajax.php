@@ -71,7 +71,12 @@ add_action('wp_ajax_sunset_comments', 'sunset_comments_callback');
 
 function sunset_comments_callback()
 {   
-    
+    $check_ajax = check_ajax_referer('sunset_comment_form-wpnonce', 'sunset_comment_nonce');
+
+    if( ! $check_ajax)
+    {   
+        wp_die();
+    }
 
     $comment = wp_handle_comment_submission( wp_unslash( $_POST ) );
     if ( is_wp_error( $comment ) ) {

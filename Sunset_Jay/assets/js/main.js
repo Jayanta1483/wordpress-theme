@@ -161,6 +161,29 @@ $(window).on('load', function(){
       method : 'post',
       url : url,
       data : data,
+      error: function (request, status, error) {
+        switch (request.status) {
+          case 400:
+            alert('Server understood the request, but request content was invalid.');
+            break;
+            case 401:
+            alert('Unauthorized access.');
+            break;
+            case 403:
+            alert('Forbidden resource can\'t be accessed.');
+            break;
+            case 500:
+            alert('Internal server error.');
+            break;
+            case 500:
+            alert('Service unavailable.');
+            break;
+        
+          default:
+            alert(error+' : '+request.responseText);
+            break;
+        }
+      },
       success : function(response){
         console.log(response)
         let res = JSON.parse(response);
