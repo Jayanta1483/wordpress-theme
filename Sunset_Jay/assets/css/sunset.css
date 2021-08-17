@@ -799,6 +799,10 @@ ol.children {
   color: #2271b1;
 }
 
+#commentLoadMore {
+  margin-bottom: 10px;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {

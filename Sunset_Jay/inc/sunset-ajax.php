@@ -154,9 +154,49 @@ function sunset_comments_count_callback()
 }
 
 
+/*
+==================================
+  COMMENTS PAGINATION->LOAD MORE
+==================================
+*/
+
+add_action('wp_ajax_nopriv_comments_load_more', 'sunset_comments_load_more_callback');
+add_action('wp_ajax_comments_load_more', 'sunset_comments_load_more_callback');
+
+function sunset_comments_load_more_callback()
+{
+   
+   $post_id = $_REQUEST['post_id'];
+   
+
+ob_start();
+
+$comments = get_comments(array(
+    'post_id' => $post_id,
+    'status'  => 'approve'
+));
+
+wp_list_comments(
+    array(
+        'avatar_size' => 60,
+        'style'       => 'ol',
+        'short_ping'  => true,
+        'callback'    => 'sunset_comments_list_callback',
+        'reverse_top_level' => false
+        
+        
+        
+    ),
+    $comments
+);
 
 
 
+$comments_list = ob_get_clean();
+
+echo $comments_list;
+    wp_die();
+}
 
 
 ?>

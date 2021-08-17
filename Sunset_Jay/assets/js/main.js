@@ -9,11 +9,11 @@ $(document).ready(function () {
   })
 
   // TO SHOW COMMENTS COUNT ON LOAD
-$(window).on('load', function(){
-  sunsetGetCommentsCount();
+  $(window).on('load', function () {
+    sunsetGetCommentsCount();
 
-})
- 
+  })
+
   $(window).on("unload", () => location.hash = window.pageYOffset);
   window.scrollTo(0, location.hash);
 
@@ -126,77 +126,77 @@ $(window).on('load', function(){
   =============================
   */
 
+  /* FOR COMMENTS COUNT */
 
-  function sunsetGetCommentsCount()
-  {
+  function sunsetGetCommentsCount() {
     const url = sunset_ajax_params.ajaxurl;
     let postID = $('#comments').data('postid');
     postID = postID.toString();
     let data = {
-      action : 'sunset_comments_count',
-      post_id : postID
+      action: 'sunset_comments_count',
+      post_id: postID
     }
 
-    $.post(url, data, function(response){
+    $.post(url, data, function (response) {
       console.log(response)
-        let commentsCount = response;
-        $('.comments-title #comment_num').html(commentsCount);
-      });
+      let commentsCount = response;
+      $('.comments-title #comment_num').html(commentsCount);
+    });
   }
 
 
+  /* FOR COMMENT SUBMIT */
 
-
-  $('#commentSub').click(function(e){
+  $('#commentSub').click(function (e) {
     e.preventDefault();
-    
+
     const url = sunset_ajax_params.ajaxurl;
     let formData = $('#commentform').serialize();
-    
-    let data = formData+'&action=sunset_comments';
-    
+
+    let data = formData + '&action=sunset_comments';
+
     console.log(data)
 
     $.ajax({
-      method : 'post',
-      url : url,
-      data : data,
+      method: 'post',
+      url: url,
+      data: data,
       error: function (request, status, error) {
         switch (request.status) {
           case 400:
             alert('Server understood the request, but request content was invalid.');
             break;
-            case 401:
+          case 401:
             alert('Unauthorized access.');
             break;
-            case 403:
+          case 403:
             alert('Forbidden resource can\'t be accessed.');
             break;
-            case 500:
+          case 500:
             alert('Internal server error.');
             break;
-            case 500:
+          case 500:
             alert('Service unavailable.');
             break;
-        
+
           default:
-            alert(error+' : '+request.responseText);
+            alert(error + ' : ' + request.responseText);
             break;
         }
       },
-      success : function(response){
+      success: function (response) {
         console.log(response)
         let res = JSON.parse(response);
-        
-        if(res.id != 0){
-        let id = res.id.toString();
-        let eleId = '#comment-'+id;
+
+        if (res.id != 0) {
+          let id = res.id.toString();
+          let eleId = '#comment-' + id;
           console.log(eleId);
-          $(eleId).append('<ol class="children" id="children-'+id+'"></ol>');
-          $('#children-'+id).append(res.comment_html);
+          $(eleId).append('<ol class="children" id="children-' + id + '"></ol>');
+          $('#children-' + id).append(res.comment_html);
           sunsetGetCommentsCount();
           $('#commentform')[0].reset();
-        }else{
+        } else {
           $('.comment-list').append(res.comment_html);
           sunsetGetCommentsCount();
           $('#commentform')[0].reset();
@@ -208,74 +208,36 @@ $(window).on('load', function(){
 
 
 
-  
+  /* FOR COMMENT LOAD MORE */
 
+  $('#load_more').click(function () {
+    const postID = $(this).data('post');
+    const url = sunset_ajax_params.ajaxurl;
+    let data = {
+      action: 'comments_load_more',
+      post_id: postID
+    }
+console.log(data)
+    $.ajax({
+      url: url,
+      data: data,
+      error : function(xhr, error){
+            console.log(xhr.responseText)
+      },
+      beforeSend : function(){
+        $('#load_more').val('Loading...');
+      },
+      success: function (response) {
+        console.log(response)
 
+        $('.comment-list').html(response);
+        $('#load_more').css('display', 'none');
+        
+      }
 
-  // $('.comment-reply-link').click(function(e){
-  //   e.preventDefault();
-  //   $('#cancel-comment-reply-link').css('display', 'block');
-  // })
+    });
 
-  // let commentform = $('#commentform'); // find the comment form
-  // commentform.prepend('<div id="comment-status" ></div>'); // add info panel before the form to provide feedback or errors
-  // let statusdiv = $('#comment-status'); // define the info panel
-  // let list;
-  // $('a.comment-reply-link').click(function () {
-  //   list = $(this).parent().parent().parent().attr('id');
-  // });
-
-  // commentform.submit(function (e) {
-  //   // e.preventDefault();
-  //   //serialize and store form data in a letiable
-  //   let formdata = commentform.serialize();
-  //   //Add a status message
-  //   statusdiv.html('<p>Processing…</p>');
-  //   //Extract action URL from commentform
-  //   let formurl = commentform.attr('action');
-  //   //Post Form with data
-
-  //   $.ajax({
-  //     type: 'post',
-  //     url: formurl,
-  //     data: formdata,
-  //     error: function (XMLHttpRequest, textStatus, errorThrown) {
-  //       statusdiv.html('<p class="ajax-error" >You might have left one of the fields blank, or be posting too quickly</p>');
-  //     },
-  //     success: function (data, textStatus) {
-  //       if (data == "success" || textStatus == "success") {
-  //         statusdiv.html('<p class="ajax-success" >Thanks for your comment. We appreciate your response.</p>');
-  //         console.log(data);
-
-  //         if ($("#commentsbox").has("ol.commentlist").length > 0) {
-  //           if (list != null) {
-  //             $('div.rounded').prepend(data);
-  //           }
-  //           else {
-  //             $('ol.commentlist').append(data);
-  //          }
-  //         }
-  //         else {
-  //           $("#commentsbox").find('div.post-info').prepend('<ol class="commentlist"> </ol>');
-  //           $('ol.commentlist').html(data);
-  //         }
-  //       } else {
-  //         statusdiv.html('<p class="ajax-error" >Please wait a while before posting your next comment</p>');
-  //         commentform.find('textarea[name=comment]').val('');
-  //       }
-  //     }
-  //   });
-  //   return false;
-  // });
-
-
-
-
-
-
-
-
-
+  })
 
 
 

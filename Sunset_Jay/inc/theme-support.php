@@ -85,10 +85,10 @@ function sunset_posted_footer()
 {
     $comments = '';
 
-    if (!have_comments()) {
+    if (get_comments_number() == 0) {
         $comments = 'No Comments';
     } else {
-        if (!get_comments_number() > 1) {
+        if (get_comments_number() == 1) {
             $comments = get_comments_number() . ' comment';
         } else {
             $comments = get_comments_number() . ' comments';
