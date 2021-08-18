@@ -410,7 +410,7 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   transition: none;
   -webkit-transform: translateY(20px);
           transform: translateY(20px);
-  z-index: 1000;
+  z-index: 5;
 }
 
 .sunset-format-aside img.responsive:hover {
@@ -531,7 +531,7 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
 .sunset-format-gallery-single .content-container img:hover {
   -webkit-transform: scale(1.4, 1.4);
           transform: scale(1.4, 1.4);
-  z-index: 1000;
+  z-index: 8;
   cursor: pointer;
 }
 
@@ -540,7 +540,7 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
-  z-index: 1500;
+  z-index: 9;
   /* Sit on top */
   padding-top: 100px;
   /* Location of the box */
@@ -801,6 +801,80 @@ ol.children {
 
 #commentLoadMore {
   margin-bottom: 10px;
+}
+
+/*
+================
+     SIDEBAR
+================
+*/
+.sidebar-open {
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.746);
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.sidebar-open:hover {
+  color: #fff;
+}
+
+.sunset-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.sunset-sidebar-container {
+  width: 100%;
+  max-width: 280px;
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.sunset-sidebar-container #sidebar-close {
+  color: #bbb;
+  font-size: 25px;
+  font-weight: bold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.sunset-sidebar-container #sidebar-close:hover {
+  color: #fff;
+}
+
+.slide-in {
+  top: 0;
+  right: 0;
+}
+
+.slide-out {
+  top: 0;
+  right: -400px;
+}
+
+.visibility-hidden {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.visibility-visible {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* for widescreen view */

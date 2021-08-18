@@ -45,6 +45,40 @@ function sunset_theme_setup()
 
 add_action('init', 'sunset_theme_setup');
 
+/*
+========================
+      SIDEBAR
+========================
+*/
+
+
+add_action('widgets_init', 'sunset_sidebar_register');
+
+function sunset_sidebar_register()
+{
+    register_sidebar(array(
+       'id'                    => 'sunset_sidebar',
+       'name'                  => __('Sunset Sidebar', 'sunset'),
+       'description'           => __('Sunset right sidebar', 'sunset'),
+       'before_widget'         => '<section id="%1$s" class="widget %1$s">',
+       'after_widget'          => '</section>',
+       'before_title'          => '<h2 class="sunset-widget-title">',
+       'after_title'           => '</h2>'
+    ));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

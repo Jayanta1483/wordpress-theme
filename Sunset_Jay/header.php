@@ -21,13 +21,23 @@ This is Template for Header
 </head>
 
 <body <?php body_class(); ?>>
+<div class="sunset-sidebar visibility-hidden">
+    <div class="sunset-sidebar-container slide-out">
+        <div class="sidebar-close"><span id="sidebar-close">&times;</span></div>
+        <div class="sidebar-scroll">
+              <?php get_sidebar()   ;?>
+        </div>
+    </div>
+</div>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=324226167608332&autoLogAppEvents=1" nonce="uudVBEQ8"></script>
     <header class="container-fluid px-0">
         <div class="row no-gutters">
             <div class="col-xl-12">
                 <div class="header-container">
+                <span class="sidebar-open">&#x2630;</span>
                     <div class="header-content bg-image text-center" style="background-image: url('<?php header_image(); ?>');">
+            
                     </div>
                     <!--header-content-->
                     <div class="header-text">

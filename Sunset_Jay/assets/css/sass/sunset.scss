@@ -397,7 +397,7 @@ h1{
        transition: none;
        &:hover{opacity: 1;}
        transform: translateY(20px);
-       z-index: 1000;
+       z-index: 5;
     }
 
     footer{
@@ -505,7 +505,7 @@ h1{
         transition: 0.5s;
         &:hover{
             transform: scale(1.4, 1.4);
-            z-index: 1000;
+            z-index: 8;
             cursor: pointer;
         }
     }
@@ -515,7 +515,7 @@ h1{
 .img-modal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1500; /* Sit on top */
+    z-index: 9; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -776,16 +776,91 @@ ol.children{
 
 #commentLoadMore{
     margin-bottom: 10px;
-    // .page-numbers{
-    //     padding: 5px 8px;
-    //     background-color: #b3afaf;
-    //     color: #fff;
-    //     &.current,
-    //     &:hover{
-    //         background-color: #808080;
-    //     }
-    // }
 }
+
+
+
+/*
+================
+     SIDEBAR
+================
+*/
+
+.sidebar-open{
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.746);
+    position: absolute;
+    top: 20px;right: 50px;
+    cursor: pointer;
+    z-index: 3;
+
+    &:hover{color: #fff;}
+}
+
+.sunset-sidebar{
+    position: fixed;
+    top: 0;bottom: 0;
+    left: 0;right: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.sunset-sidebar-container{
+    width: 100%;
+    max-width: 280px;
+    height: 100vh;
+    position: fixed;
+    //top: 0;right: 0;
+    z-index: 10;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+    transition: 0.5s;
+
+    #sidebar-close{
+        color: #bbb;
+        font-size: 25px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+        &:hover{
+            color: #fff;
+        }
+    }
+}
+
+
+.slide-in{
+    top: 0; right: 0;
+}
+
+.slide-out{
+    top: 0; right: -400px;
+}
+
+.visibility-hidden{
+background-color: rgba(0,0,0,0);
+}
+
+.visibility-visible{
+    background-color: rgba(0,0,0,0.8);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

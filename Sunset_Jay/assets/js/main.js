@@ -131,7 +131,7 @@ $(document).ready(function () {
   function sunsetGetCommentsCount() {
     const url = sunset_ajax_params.ajaxurl;
     let postID = $('#comments').data('postid');
-    postID = postID.toString();
+    //postID = (postID != '') ? postID.toString() : '';
     let data = {
       action: 'sunset_comments_count',
       post_id: postID
@@ -228,16 +228,66 @@ console.log(data)
         $('#load_more').val('Loading...');
       },
       success: function (response) {
-        console.log(response)
-
+       setTimeout(() => {
         $('.comment-list').html(response);
         $('#load_more').css('display', 'none');
+       }, 850); 
+       
         
       }
 
     });
 
   })
+
+
+
+
+
+/*
+============
+  SIDEBAR
+============
+*/
+
+$('#sidebar-close').click(function(){
+  $('.sunset-sidebar').removeClass('visibility-visible').addClass('visibility-hidden').css('z-index', '-1');
+  $('.sunset-sidebar-container').removeClass('slide-in').addClass('slide-out');
+  //$('span.sidebar-open').css('z-index', '5');
+})
+
+$('span.sidebar-open').click(function(){
+ // $(this).css('z-index', '1');
+  $('.sunset-sidebar').css('z-index', '8').removeClass('visibility-hidden').addClass('visibility-visible');
+  $('.sunset-sidebar-container').removeClass('slide-out').addClass('slide-in');
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
