@@ -21,8 +21,8 @@ This is Template for Header
 </head>
 
 <body <?php body_class(); ?>>
-<div class="sunset-sidebar visibility-hidden">
-    <div class="sunset-sidebar-container slide-out">
+<div class="sunset-sidebar visibility-visible">
+    <div class="sunset-sidebar-container">
         <div class="sidebar-close"><span id="sidebar-close">&times;</span></div>
         <div class="sidebar-scroll">
               <?php get_sidebar()   ;?>

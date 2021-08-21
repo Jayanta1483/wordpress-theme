@@ -38,7 +38,8 @@ function sunset_theme_setup()
     register_nav_menus(
         array(
             'primary' => 'Navigation',
-            'secondary' => 'Footer Menu'
+            'secondary' => 'Footer Menu',
+            'sidebar'   => 'Sidebar Menu'
         )
     );
 }
@@ -51,6 +52,15 @@ add_action('init', 'sunset_theme_setup');
 ========================
 */
 
+/* Removing 5.8 Block Widget feature */
+
+function sunset_remove_block_widget() {
+    remove_theme_support( 'widgets-block-editor' );
+}
+add_action( 'after_setup_theme', 'sunset_remove_block_widget' );
+
+
+/* Registering sidebar for the theme */
 
 add_action('widgets_init', 'sunset_sidebar_register');
 
@@ -61,7 +71,7 @@ function sunset_sidebar_register()
        'name'                  => __('Sunset Sidebar', 'sunset'),
        'description'           => __('Sunset right sidebar', 'sunset'),
        'before_widget'         => '<section id="%1$s" class="widget %1$s">',
-       'after_widget'          => '</section>',
+       'after_widget'          => '</section><hr class="widget-hr">',
        'before_title'          => '<h2 class="sunset-widget-title">',
        'after_title'           => '</h2>'
     ));

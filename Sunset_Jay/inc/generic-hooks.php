@@ -67,8 +67,21 @@ function sunset_nonce_life_mod()
 
 
 
+/*
+=======================
+  SIDEBAR TAGS SIZE
+=======================
+*/
 
+add_filter('widget_tag_cloud_args', 'sunset_tag_size');
 
+function sunset_tag_size($args)
+{
+  $args['smallest'] = 10;
+  $args['largest'] = 10;
+
+  return $args;
+}
 
 
 

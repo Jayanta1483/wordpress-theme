@@ -787,6 +787,11 @@ ol.children{
 */
 
 .sidebar-open{
+    width: 60px;
+    height: 60px;
+    padding-top: 5px;
+    text-align: center;
+    border-radius: 50%;
     font-size: 30px;
     color: rgba(255, 255, 255, 0.746);
     position: absolute;
@@ -795,26 +800,35 @@ ol.children{
     z-index: 3;
 
     &:hover{color: #fff;}
+    &:active{
+
+        background-color: hsla(0, 0%, 100%, 0.205);
+    }
 }
 
 .sunset-sidebar{
     position: fixed;
     top: 0;bottom: 0;
     left: 0;right: 0;
-    z-index: -1;
+    // width: 100vw;
+    //height: 100vh;
+    z-index: 10;
     transition: 0.5s;
+    
+
+
 }
 
 .sunset-sidebar-container{
     width: 100%;
     max-width: 280px;
     height: 100vh;
-    position: fixed;
-    //top: 0;right: 0;
+    position: absolute;
+    top: 0;right: 0;
     z-index: 10;
     background-color: #000;
     color: #fff;
-    overflow: hidden;
+    overflow: hidden auto;
     transition: 0.5s;
 
     #sidebar-close{
@@ -826,6 +840,77 @@ ol.children{
         &:hover{
             color: #fff;
         }
+    }
+
+
+    h2.sunset-widget-title{
+        width: 90%;
+        margin: 15px auto;
+        border-radius: 20px;
+        padding: 4px 0;
+        background-color: hsla(0, 0%, 73%, 0.205);
+        font-size: 18px;
+        font-weight: 300;
+        text-align: center;
+    }
+
+
+
+
+
+    .widget-hr{
+        width: 90%;
+        margin: 25px 14px;
+    }
+
+    section{
+        ul{
+            list-style-type: none;
+            a{
+                text-decoration: none;
+                color: #808080;
+            }
+        }
+
+        &#categories-3{
+            li{
+                margin: 10px 20px 10px 0;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        &#tag_cloud-2{
+            .tagcloud{
+                text-align: center;
+                a{ 
+                    width: 12px;
+                    padding: 1px 8px;
+                    border-radius: 20px;
+                    background-color: hsla(0, 0%, 50%, 0.74);
+                   color: #ffff;
+                }
+            }
+        }
+
+        &#recent-comments-3{
+            li{
+                margin: 10px 0;
+            }
+            span.comment-author-link{
+                display: block;
+                a{
+                    text-transform: capitalize;
+                    font-size: 18px;
+                }
+            }
+
+            a{
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+        }
+        
     }
 }
 
@@ -847,8 +932,73 @@ background-color: rgba(0,0,0,0);
     }
 
 
+h1.sunset-username,
+h2.sunset-description
+    {
+        font-weight: 100;
+        color: white;
+    }
+    
+h1.sunset-username
+    {
+        font-size: 24px;
+        margin: 0 0 10px;
+    }
+    
+h2.sunset-description
+    {
+        font-size: 13px;
+        margin: 0 0 20px;
+    }
+    
+    .image-container,
+    .profile-picture{
+        margin: 0 auto 5px;
+       overflow: hidden; 
+    }
+    
+    .profile-picture{
+        width: 130px;
+        height: 130px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .profile-picture{
+       
+        border-radius: 50%;
+        
+    }
+    
+    
+.social-media{
+    list-style-type: none;
+    padding: 0;
+    li{
+        display: inline-block;
+        margin-right: 10px;
+    }
+    a{font-size: large;
+      color: #fff;
 
+      &:hover{ color: rgb(245, 161, 7);} 
+    }
+}
 
+.social-media{
+    a[href*='instagram']{
+        background-image:url('../img/SVG/instagram.svg');
+        background-repeat: no-repeat;
+        background-position: center 3px;
+        background-size:15px;
+        width:18px;
+        height: 18px;
+        display: block;
+        text-indent:-9999px;
+        
+    }
+}
 
 
 
