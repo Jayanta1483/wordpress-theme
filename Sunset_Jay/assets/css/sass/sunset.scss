@@ -812,7 +812,7 @@ ol.children{
     left: 0;right: 0;
     // width: 100vw;
     //height: 100vh;
-    z-index: 10;
+    z-index: -1;
     transition: 0.5s;
     
 
@@ -877,6 +877,7 @@ ol.children{
                 margin: 10px 20px 10px 0;
                 display: flex;
                 justify-content: space-between;
+				
             }
         }
 
@@ -996,6 +997,7 @@ h2.sunset-description
         height: 18px;
         display: block;
         text-indent:-9999px;
+        
         
     }
 }

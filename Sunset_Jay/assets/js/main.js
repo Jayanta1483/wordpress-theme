@@ -253,13 +253,16 @@ console.log(data)
 $('#sidebar-close').click(function(){
   $('.sunset-sidebar').removeClass('visibility-visible').addClass('visibility-hidden').css('z-index', '-1');
   $('.sunset-sidebar-container').removeClass('slide-in').addClass('slide-out');
+  $('body').css('overflowY', 'auto');
   //$('span.sidebar-open').css('z-index', '5');
 })
 
 $('span.sidebar-open').click(function(){
  // $(this).css('z-index', '1');
   $('.sunset-sidebar').css('z-index', '8').removeClass('visibility-hidden').addClass('visibility-visible');
+ 
   $('.sunset-sidebar-container').removeClass('slide-out').addClass('slide-in');
+  $('body').css('overflowY', 'hidden');
 })
 
 
