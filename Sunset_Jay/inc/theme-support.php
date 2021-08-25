@@ -138,7 +138,28 @@ function sunset_posted_footer()
             $comments = get_comments_number() . ' comments';
         }
     }
-    $comments = '<a href="' . get_comments_link() . '" target="_blank">' . $comments . ' <span class="sunset-icon sunset-comment"></span></a>';
+	
+	//delete_post_meta( get_the_ID(), 'like');
+	//delete_post_meta(get_the_ID(), 'dislike');
+	
+	if(! empty(get_post_meta(get_the_ID(), 'dislike', true))){
+		$dislike = get_post_meta(get_the_ID(), 'dislike', true);
+		$dclass = 'active-popular';
+	}else{
+		$dislike = '';
+		$dclass = '';
+	}
+	
+	if(! empty(get_post_meta(get_the_ID(), 'like', true))){
+		$like = get_post_meta(get_the_ID(), 'like', true);
+		$lclass = 'active-popular';
+	}else{
+		$like = '';
+		$lclass = '';
+	}
+	
+	$popular = (is_single()) ? '<span id="dislike" class="'.$dclass.'" data-status="dislike" data-post="'.get_the_ID().'"><i class="fas fa-thumbs-down"></i><i id="dnum">'.$dislike.'</i></span><span id="like" class="'.$lclass.'" data-status="like" data-post="'.get_the_ID().'"><i class="fas fa-thumbs-up"></i><i id="lnum">'.$like.'</i></span>' : '';
+    $comments = '<a href="' . get_comments_link() . '" target="_blank">'.$comments . ' <span class="sunset-icon sunset-comment"></span></a>'. $popular;
     return '<div class="post-footer-container"><div class="row"><div class="col-xl col-sm-6">' . get_the_tag_list('<div class="tags-list"><span class="sunset-icon sunset-tag"></span>', ' ', '</div>') . '</div><div class="col-xl col-sm-6 comments-tag">' . $comments . '</div></div></div>';
 }
 

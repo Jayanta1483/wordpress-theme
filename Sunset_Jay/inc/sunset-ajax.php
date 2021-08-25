@@ -199,4 +199,86 @@ echo $comments_list;
 }
 
 
+
+
+/*
+=======================
+     POPULARITY
+=======================
+*/
+
+add_action('wp_ajax_nopriv_sunset_ajax_popular', 'sunset_ajax_popular_callback');
+add_action('wp_ajax_sunset_ajax_popular', 'sunset_ajax_popular_callback');
+
+
+function sunset_ajax_popular_callback()
+{
+   if(! empty($_REQUEST['stat']) && ! empty($_REQUEST['post']))
+   {
+	   
+	   $status = $_REQUEST['stat'];
+	   $post_id = esc_sql($_REQUEST['post']);
+	   $meta_value_like = (! empty(get_post_meta($post_id, 'like', true))) ? get_post_meta($post_id, 'like', true) : 0;
+	   $meta_value_dislike = (! empty(get_post_meta($post_id, 'dislike', true))) ? get_post_meta($post_id, 'dislike', true) : 0;
+	   
+	   
+	   if($status == 'like')
+	   {   
+           $meta_value_like++;
+		   update_post_meta($post_id, 'like', $meta_value_like);
+		   $num = get_post_meta($post_id, 'like', true);
+		   $response = array('stat'=>'L', 'num'=>$num);
+		  
+	   }else{
+		   $meta_value_dislike++;
+		   update_post_meta($post_id, 'dislike', $meta_value_dislike);
+		   $num = get_post_meta($post_id, 'dislike', true);
+		   $response = array('stat'=>'D', 'num'=>$num);
+		   
+		   
+	   }
+	   
+	   $meta_pop = ($meta_value_like > $meta_value_dislike) ? ($meta_value_like - $meta_value_dislike) : '';
+	   
+	   if(! empty($meta_pop))
+	   {
+		   update_post_meta($post_id, 'meta_pop', $meta_pop);
+	   }
+	   
+	   echo json_encode($response);
+	   
+	   wp_die();
+	   
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

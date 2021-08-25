@@ -32,7 +32,7 @@ $sunset_comment_count = get_comments_number();
 		$cpage = get_query_var('cpage');
          if($sunset_comment_count > 0) {
 		 ?>
-	       <div class="text-center" id="commentLoadMore" ><input type="button" class="btn btn-outline-dark" id="load_more" data-post="<?php echo the_ID()   ;?>" value="<?php _e('View Comments'); ?>" ></input></div>
+	       <div class="text-center" id="commentLoadMore" ><input type="button" class="btn btn-outline-dark" id="load_more" data-post="<?php echo the_ID()   ;?>" value="<?php esc_html_e('View Comments', 'sunset'); ?>" ></input></div>
 		<?php  }
 
 		
