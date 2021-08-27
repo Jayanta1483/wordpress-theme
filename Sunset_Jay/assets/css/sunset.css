@@ -752,6 +752,9 @@ ol.children {
   overflow: hidden auto;
   transition: 0.5s;
 }
+.sunset-sidebar-container ul {
+  padding-left: 20px;
+}
 .sunset-sidebar-container #sidebar-close {
   color: #bbb;
   font-size: 25px;
@@ -892,13 +895,19 @@ h2.sunset-description {
   text-indent: -9999px;
 }
 
+.sunset_popular_posts-2 ul {
+  padding-left: 20px;
+}
 .sunset_popular_posts-2 ul li {
   margin-bottom: 10px;
 }
 .sunset_popular_posts-2 ul li p {
   margin: 0;
 }
-.sunset_popular_posts-2 ul li a {
+.sunset_popular_posts-2 ul li .widget-popular-title {
+  display: inline-block;
+}
+.sunset_popular_posts-2 ul li .widget-popular-title a {
   text-transform: uppercase;
   font-size: 12px;
 }

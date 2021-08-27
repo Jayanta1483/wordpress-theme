@@ -87,7 +87,7 @@ function sunset_theme_support_page()
 
 function sunset_contact_form_page()
 {
-  require_once __DIR__ . '/templates/sunset-contact-form.php';
+  require_once __DIR__ . '/templates/sunset-contact.php';
 }
 
 function sunset_css_option_page()
@@ -267,7 +267,7 @@ function sunset_post_formats()
     $output .= '<label><input type="checkbox" id="' . $format . '" value="1" name="post_format[' . $format . ']" ' . $checked . '>' . $format . '</label></br>';
   }
 
-  echo $output; 
+  echo $output;
   //print_r($options);
 }
 
@@ -292,9 +292,9 @@ function sunset_activate_contact()
 {
   $options = esc_attr(get_option('activate_contact'));
   $checked = (!empty($options) && $options == 1) ? 'checked' : '';
-  echo '<input type="checkbox" id="activate_contact" value="1" name="activate_contact" ' . $checked . '></br>'; 
-  
- 
+  echo '<input type="checkbox" id="activate_contact" value="1" name="activate_contact" ' . $checked . '></br>';
+
+
   }
 
 // FOR SANITIZATION

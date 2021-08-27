@@ -1,4 +1,4 @@
-<?php    
+<?php
 
 /*
 
@@ -14,11 +14,11 @@ This file is for all the shortcodes
       TOOLTIPS
 =======================
 */
- 
+
 add_shortcode( 'tooltips', 'sunset_tooltip_callback' );
 
 function sunset_tooltip_callback($attrs, $content = null){
-    $attrs = shortcode_atts( 
+    $attrs = shortcode_atts(
         array(
             'placement' => 'top',
             'title' => 'Tooltip'
@@ -33,7 +33,7 @@ function sunset_tooltip_callback($attrs, $content = null){
 add_shortcode( 'popover', 'sunset_popover_callback' );
 
 function sunset_popover_callback($attrs, $content = null){
-    $attrs = shortcode_atts( 
+    $attrs = shortcode_atts(
         array(
             'content' => 'Popover Content',
             'title' => 'Popover Title',
@@ -49,7 +49,35 @@ function sunset_popover_callback($attrs, $content = null){
 
 
 
-//<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+
+
+/*
+=====================
+    CONTACT FORM
+=====================
+*/
+
+add_shortcode('sunset_contact_form', 'sunset_contact_form_callback');
+
+function sunset_contact_form_callback()
+{
+  ob_start();
+  require __DIR__.'/templates/sunset-contact-form.php';
+  return ob_get_clean();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -201,7 +201,7 @@ class Sunset_Popular_Posts extends WP_Widget{
 			echo '<ul>';
 		while($popular_post->have_posts()){
 			$popular_post->the_post();
-			echo '<li><p><a href="'.esc_url(get_the_permalink()).'" target="_blank">'.esc_html(get_the_title()).'</a>
+			echo '<li><p><span class="post-icon" ></span><span class="widget-popular-title" ><a href="'.esc_url(get_the_permalink()).'" target="_blank">'.esc_html(get_the_title()).'</a></span>
 			      <span class="widget-comments"><i class="fas fa-comment-alt"></i> '.esc_html(get_comments_number()).'</span></p>
 				  <p><span class="widget-like"><i class="fas fa-thumbs-up"></i> '.esc_html(get_post_meta(get_the_ID(), 'like', true)).'</span> <span class="widget-dislike" ><i class="fas fa-thumbs-down"></i>'.esc_html(get_post_meta(get_the_ID(), 'dislike', true)).'</span></p></li>';
 		}

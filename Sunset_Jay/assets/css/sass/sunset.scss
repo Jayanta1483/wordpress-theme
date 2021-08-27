@@ -865,7 +865,9 @@ ol.children{
     color: #fff;
     overflow: hidden auto;
     transition: 0.5s;
-
+    
+	ul{padding-left:20px;}
+	
     #sidebar-close{
         color: #bbb;
         font-size: 25px;
@@ -1040,12 +1042,19 @@ h2.sunset-description
 .sunset_popular_posts-2{
 
   ul{
+    padding-left:20px;
     li{
 	margin-bottom:10px;
 	p{margin:0;}
+	
+	.widget-popular-title{
+	  display:inline-block;
 	 a{
 	  text-transform:uppercase;
 	  font-size:12px;
+	  
+	 
+	 }
 	 
 	 }
 	  .widget-comments{
@@ -1063,6 +1072,7 @@ h2.sunset-description
 		 color:$color-two-dark;
 		 margin-right:5px;
 	  }
+	  
 	}
   }
 
