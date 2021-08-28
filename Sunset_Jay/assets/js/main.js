@@ -1,15 +1,15 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-  $(function () {
+  $(function() {
     $('[data-toggle="tooltip"]').tooltip()
   })
 
-  $(function () {
+  $(function() {
     $('[data-toggle="popover"]').popover()
   })
 
   // TO SHOW COMMENTS COUNT ON LOAD
-  $(window).on('load', function () {
+  $(window).on('load', function() {
     sunsetGetCommentsCount();
 
   })
@@ -21,7 +21,7 @@ $(document).ready(function () {
   archive = archive.split('/');
   console.log(archive);
 
-  $('#btn-toogle').click(function () {
+  $('#btn-toogle').click(function() {
     $('#nav').toggleClass("nav-bg-trans nav-bg-dark");
   })
 
@@ -29,7 +29,7 @@ $(document).ready(function () {
   let canBeLoaded = true;
   const bottomOffset = 1000;
 
-  $(window).scroll(function () {
+  $(window).scroll(function() {
 
 
 
@@ -53,19 +53,19 @@ $(document).ready(function () {
         url: url,
         data: data,
 
-        beforeSend: function (xhr) {
+        beforeSend: function(xhr) {
 
           canBeLoaded = false;
           $('#lazy-load-preloader').css('background-image', 'url("/th-wp/wp-content/themes/Sunset_jay/assets/img/preloader.gif")');
 
         },
 
-        error: function (response) {
+        error: function(response) {
           console.log(response);
           canBeLoaded = false;
         },
 
-        success: function (response) {
+        success: function(response) {
 
           if (response != "") {
 
@@ -103,8 +103,8 @@ $(document).ready(function () {
   let images = $('.blocks-gallery-item img');
   let span = $('.close');
 
-  images.each(function (index, element) {
-    $(this).click(function () {
+  images.each(function(index, element) {
+    $(this).click(function() {
       console.log(element)
       $('#modalContent').addClass('appear');
       $('#imgModal').css('display', 'block');
@@ -112,8 +112,8 @@ $(document).ready(function () {
     })
   })
 
-  span.each(function (i) {
-    $(this).click(function () {
+  span.each(function(i) {
+    $(this).click(function() {
       $('#imgModal').css('display', 'none');
     })
   })
@@ -137,7 +137,7 @@ $(document).ready(function () {
       post_id: postID
     }
 
-    $.post(url, data, function (response) {
+    $.post(url, data, function(response) {
       console.log(response)
       let commentsCount = response;
       $('.comments-title #comment_num').html(commentsCount);
@@ -147,7 +147,7 @@ $(document).ready(function () {
 
   /* FOR COMMENT SUBMIT */
 
-  $('#commentSub').click(function (e) {
+  $('#commentSub').click(function(e) {
     e.preventDefault();
 
     const url = sunset_ajax_params.ajaxurl;
@@ -161,7 +161,7 @@ $(document).ready(function () {
       method: 'post',
       url: url,
       data: data,
-      error: function (request, status, error) {
+      error: function(request, status, error) {
         switch (request.status) {
           case 400:
             alert('Server understood the request, but request content was invalid.');
@@ -184,7 +184,7 @@ $(document).ready(function () {
             break;
         }
       },
-      success: function (response) {
+      success: function(response) {
         console.log(response)
         let res = JSON.parse(response);
 
@@ -210,7 +210,7 @@ $(document).ready(function () {
 
   /* FOR COMMENT LOAD MORE */
 
-  $('#load_more').click(function () {
+  $('#load_more').click(function() {
     const postID = $(this).data('post');
     const url = sunset_ajax_params.ajaxurl;
     let data = {
@@ -221,13 +221,13 @@ $(document).ready(function () {
     $.ajax({
       url: url,
       data: data,
-      error: function (xhr, error) {
+      error: function(xhr, error) {
         console.log(xhr.responseText)
       },
-      beforeSend: function () {
+      beforeSend: function() {
         $('#load_more').val('Loading...');
       },
-      success: function (response) {
+      success: function(response) {
         setTimeout(() => {
           $('.comment-list').html(response);
           $('#load_more').css('display', 'none');
@@ -250,14 +250,14 @@ $(document).ready(function () {
   ============
   */
 
-  $('#sidebar-close').click(function () {
+  $('#sidebar-close').click(function() {
     $('.sunset-sidebar').removeClass('visibility-visible').addClass('visibility-hidden').css('z-index', '-1');
     $('.sunset-sidebar-container').removeClass('slide-in').addClass('slide-out');
     $('body').css('overflowY', 'auto');
     //$('span.sidebar-open').css('z-index', '5');
   })
 
-  $('span.sidebar-open').click(function () {
+  $('span.sidebar-open').click(function() {
     // $(this).css('z-index', '1');
     $('.sunset-sidebar').css('z-index', '8').removeClass('visibility-hidden').addClass('visibility-visible');
 
@@ -268,82 +268,112 @@ $(document).ready(function () {
 
 
 
+  /*
+  ==================
+     POPULARITY
+  ==================
+  */
+
+  $('#like').click(function() {
+    const url = sunset_ajax_params.ajaxurl;
+    let stat = $(this).data('status');
+    let postID = $(this).data('post');
+    data = {
+      action: 'sunset_ajax_popular',
+      stat: stat,
+      post: postID
+    };
+
+    $.post(url, data, function(response) {
+      let res = JSON.parse(response);
+      if (res.stat == 'L') {
+        alert('Added to Liked Post');
+        $('#like').css('color', 'orange');
+        $('#lnum').html(res.num);
+      }
+    });
+  })
+
+  $('#dislike').click(function() {
+    const url = sunset_ajax_params.ajaxurl;
+    let stat = $(this).data('status');
+    let postID = $(this).data('post');
+    data = {
+      action: 'sunset_ajax_popular',
+      stat: stat,
+      post: postID
+    };
+
+    $.post(url, data, function(response) {
+      let res = JSON.parse(response);
+      if (res.stat == 'D') {
+        alert('Added to Disliked Post');
+        $('#dislike').css('color', 'orange');
+        $('#dnum').html(res.num);
+      }
+    });
+  })
+
+
+
 /*
-==================
-   POPULARITY
-==================
+=========================
+  AJAX FOR CONTACT FORM
+=========================
 */
 
-$('#like').click(function(){
-	const url = sunset_ajax_params.ajaxurl;
-	let stat = $(this).data('status');
-	let postID = $(this).data('post');
-	data = {
-		action: 'sunset_ajax_popular',
-		stat: stat,
-		post: postID
-	};
-	
-	$.post(url, data, function(response){
-		let res = JSON.parse(response);
-		if(res.stat == 'L')
-		{
-		alert('Added to Liked Post');
-		$('#like').css('color', 'orange');
-		$('#lnum').html(res.num);
-		}
-	});
+
+
+$('#contactSub').click(function(e){
+  e.preventDefault();
+
+    const contactFormData = $('#contactForm').serialize();
+    const url = sunset_ajax_params.ajaxurl;
+    const data = contactFormData+'&action=sunset_contact_form_submission';
+   console.log(data);
+    $.ajax({
+      url: url,
+      method: 'post',
+      data: data,
+      error: function(){
+
+      },
+      beforeSend: function(xhr){
+          $('#contactSub').val('Processing...');
+      },
+      success: function(response){
+
+        if(response != 1){
+          $('#contactSub').val('Submit');
+          $('#contactAlertContentWarning').html('<strong>Warning!!</strong> '+response);
+          $('#contactFormAlertWarning').fadeIn().toggleClass('slide-down slide-up');
+
+          setTimeout(()=>{
+            $('#contactFormAlertWarning').toggleClass('slide-up slide-down').fadeOut('slow');
+          }, 2000);
+        }else{
+          $('#contactForm')[0].reset();
+          $('#contactSub').val('Submit');
+          $('#contactAlertContentSuccess').html('<strong>Congratulations!!</strong> You have submitted your message Succssfully.');
+          $('#contactFormAlertSuccess').fadeIn().toggleClass('slide-down slide-up');
+
+          setTimeout(()=>{
+            $('#contactFormAlertSuccess').toggleClass('slide-up slide-down').fadeOut('slow');
+          }, 3000);
+        }
+
+      }
+    });
 })
 
-$('#dislike').click(function(){
-	const url = sunset_ajax_params.ajaxurl;
-	let stat = $(this).data('status');
-	let postID = $(this).data('post');
-	data = {
-		action: 'sunset_ajax_popular',
-		stat: stat,
-		post: postID
-	};
-	
-	$.post(url, data, function(response){
-		let res = JSON.parse(response);
-		if(res.stat == 'D')
-		{
-		alert('Added to Disliked Post');
-		$('#dislike').css('color', 'orange');
-		$('#dnum').html(res.num);
-		}
-	});
+
+$('#contactFormAlertSuccess button').click(function(){
+  $('#contactFormAlertSuccess').toggleClass('slide-up slide-down');
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$('#contactFormAlertWarning button').click(function(){
+  $('#contactFormAlertWarning').toggleClass('slide-up slide-down');
+})
 
 
 

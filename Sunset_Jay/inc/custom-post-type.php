@@ -44,10 +44,14 @@ function sunset_contact_custom_post()
 function sunset_set_posts_columns($columns)
 {
     $new_columns = array();
+
+    $new_columns['cb'] = '<input type="checkbox" />';
     $new_columns['title'] = 'Full Name';
     $new_columns['message'] = 'Message';
     $new_columns['email'] = 'Email';
     $new_columns['date'] = 'Date';
+
+    
     return $new_columns;
 }
 

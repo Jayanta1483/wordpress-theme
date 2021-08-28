@@ -1,10 +1,10 @@
 <?php
 /*
-  
+
 @package Sunset
 
 This page is for handling ajax calls
-  
+
  */
 
 
@@ -70,11 +70,11 @@ add_action('wp_ajax_sunset_comments', 'sunset_comments_callback');
 
 
 function sunset_comments_callback()
-{   
+{
     $check_ajax = check_ajax_referer('sunset_comment_form-wpnonce', 'sunset_comment_nonce');
 
     if( ! $check_ajax)
-    {   
+    {
         wp_die();
     }
 
@@ -112,20 +112,20 @@ function sunset_comments_callback()
 
     $GLOBALS['comment'] = $comment;
 	$GLOBALS['comment_depth'] = $comment_depth;
-   
+
 
     ob_start();
 
     sunset_comments_list_callback($comment, $args=array('max_depth'=> 6), $comment_depth);
 
-    $comment_html = ob_get_clean(); 
+    $comment_html = ob_get_clean();
     $output = array();
     $output['id'] = (int)$comment->comment_parent;
     $output['comment_html'] = $comment_html;
 
 
     echo json_encode($output);
-    
+
     wp_die();
 
 }
@@ -165,9 +165,9 @@ add_action('wp_ajax_comments_load_more', 'sunset_comments_load_more_callback');
 
 function sunset_comments_load_more_callback()
 {
-   
+
    $post_id = $_REQUEST['post_id'];
-   
+
 
 ob_start();
 
@@ -183,9 +183,9 @@ wp_list_comments(
         'short_ping'  => true,
         'callback'    => 'sunset_comments_list_callback',
         'reverse_top_level' => false
-        
-        
-        
+
+
+
     ),
     $comments
 );
@@ -215,46 +215,100 @@ function sunset_ajax_popular_callback()
 {
    if(! empty($_REQUEST['stat']) && ! empty($_REQUEST['post']))
    {
-	   
+
 	   $status = $_REQUEST['stat'];
 	   $post_id = esc_sql($_REQUEST['post']);
 	   $meta_value_like = (! empty(get_post_meta($post_id, 'like', true))) ? get_post_meta($post_id, 'like', true) : 0;
 	   $meta_value_dislike = (! empty(get_post_meta($post_id, 'dislike', true))) ? get_post_meta($post_id, 'dislike', true) : 0;
-	   
-	   
+
+
 	   if($status == 'like')
-	   {   
+	   {
            $meta_value_like++;
 		   update_post_meta($post_id, 'like', $meta_value_like);
 		   $num = get_post_meta($post_id, 'like', true);
 		   $response = array('stat'=>'L', 'num'=>$num);
-		  
+
 	   }else{
 		   $meta_value_dislike++;
 		   update_post_meta($post_id, 'dislike', $meta_value_dislike);
 		   $num = get_post_meta($post_id, 'dislike', true);
 		   $response = array('stat'=>'D', 'num'=>$num);
-		   
-		   
+
+
 	   }
-	   
+
 	   $meta_pop = ($meta_value_like > $meta_value_dislike) ? ($meta_value_like - $meta_value_dislike) : '';
-	   
+
 	   if(! empty($meta_pop))
 	   {
 		   update_post_meta($post_id, 'meta_pop', $meta_pop);
 	   }
-	   
+
 	   echo json_encode($response);
-	   
+
 	   wp_die();
-	   
+
    }
 }
 
 
 
+/*
+===================
+    CONTACT FORM
+===================
+*/
 
+add_action('wp_ajax_nopriv_sunset_contact_form_submission', 'sunset_contact_form_submission_callback');
+add_action('wp_ajax_sunset_contact_form_submission', 'sunset_contact_form_submission_callback');
+
+function sunset_contact_form_submission_callback()
+{
+  $check_ajax = check_ajax_referer('sunset_contact_form-wpnonce', 'sunset_contact_form');
+
+  if(! $check_ajax){ wp_die(); }
+
+  if(empty($_REQUEST['name'])){
+
+    echo "You are required to provide your name.";
+
+}elseif(empty($_REQUEST['email'])){
+
+   echo "You are required to provide your email.";
+
+}elseif(empty($_REQUEST['message'])){
+
+  echo "You are required to provide some message.";
+
+
+}else{
+  $name = wp_strip_all_tags($_REQUEST['name']);
+  $email = wp_strip_all_tags($_REQUEST['email']);
+  $message = wp_strip_all_tags($_REQUEST['message']);
+
+  if(! filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+     echo "Email id is invalid.";
+     wp_die();
+  }
+  $args = array(
+    'post_type'   => 'sunset-contact',
+    'post_title'  =>  $name,
+    'post_status' => 'publish',
+    'post_content' => $message,
+    'meta_input'  => array('_contact_email_value_key' => $email)
+  );
+  $post_id = wp_insert_post($args);
+
+  if($post_id != 0){
+    echo 1;
+  }else{
+    echo 'Something went wrong. Please try again!!';
+  }
+}
+  wp_die();
+}
 
 
 

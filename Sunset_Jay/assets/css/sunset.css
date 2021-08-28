@@ -925,6 +925,73 @@ h2.sunset-description {
   margin-right: 5px;
 }
 
+/*
+========================
+      CONTACT FORM
+========================
+*/
+#contactFormAlertSuccess,
+#contactFormAlertWarning {
+  position: fixed;
+  left: 15px;
+  transition: 0.6s;
+}
+#contactFormAlertSuccess p,
+#contactFormAlertWarning p {
+  margin-top: 15px;
+}
+#contactFormAlertSuccess button,
+#contactFormAlertWarning button {
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+
+.slide-down {
+  bottom: -100px;
+}
+
+.slide-up {
+  bottom: 0;
+}
+
+.form-container {
+  width: 60%;
+  margin: 100px auto;
+}
+.form-container .contact-form-symbol {
+  width: 70px;
+  aspect-ratio: 1;
+  margin: 60px auto;
+  background-image: url("../img/paper-plane.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.form-container input[type=text], .form-container input[type=email], .form-container textarea {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #808080;
+  font-size: 17px;
+  line-height: 1.5em;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+.form-container #contactSub {
+  display: block;
+  margin: 50px auto;
+  padding: 2px 20px;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 0;
+  border: none;
+  background-color: #808080;
+  font-size: 28px;
+  font-weight: 200;
+}
+.form-container #contactSub:hover {
+  background-color: #666666;
+}
+
 /* for widescreen view */
 @media (min-width: 786px) {
   .header-text h2 {

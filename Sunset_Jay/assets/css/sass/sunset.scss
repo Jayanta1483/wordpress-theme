@@ -34,8 +34,8 @@ hr{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(6px); 
-    
+    filter: blur(6px);
+
 }
 
 .header-text{
@@ -46,7 +46,7 @@ hr{
     //color: rgba(241, 241, 146, 0.986);
     font-family: 'lucida Calligraphy';
     text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-   
+
 }
 
 .header-text h6{font-size: 12px;}
@@ -76,8 +76,8 @@ nav{
             text-transform: uppercase;
             letter-spacing: 0.05em;
             position: relative;
-     
-            
+
+
             &::after{
                 content: '';
                 display: block;
@@ -85,13 +85,13 @@ nav{
                 height: 3px;
                 background-color: #fff;
                 position: absolute;
-                bottom: 0; 
+                bottom: 0;
                 left: 5px;
                 opacity: 0;
                 transition: 0.5s ease;
-                
+
                 }
-     
+
             &:hover::after{opacity: 1;transform: translateY(-2px)}
             &.active::after{opacity: 1;transform: translateY(-2px)}
             &.show{
@@ -130,7 +130,7 @@ nav{
     margin-top: 50px;
 }
 
-h1{ 
+h1{
     font-size: 55px;
     font-weight: 200;
     & a {color: #000;}
@@ -151,13 +151,13 @@ h1{
     color: $color-two;
     font-size: 16px;
     font-style: italic;
-    text-transform: capitalize;  
+    text-transform: capitalize;
     & a{
         color: $color-two-dark;
         text-decoration: none;
-        
-    
-        
+
+
+
     }
 }
 
@@ -165,9 +165,9 @@ h1{
 
 .responsive{
     width: 100%;
-    height: 400px; 
+    height: 400px;
     transition: .3s;
-    
+
     &:hover{
         opacity: 0.7;
     }
@@ -178,9 +178,9 @@ h1{
 .entry-excerpt p{
 
     font-size: 19px;
-    line-height: 1.5em; 
-    font-weight: 300; 
-    letter-spacing: 0.02em; 
+    line-height: 1.5em;
+    font-weight: 300;
+    letter-spacing: 0.02em;
 }
 
 
@@ -204,7 +204,7 @@ h1{
 
 
 .btn-sunset{
-    border: 2.3px solid $color-two; 
+    border: 2.3px solid $color-two;
     text-transform: uppercase;
     color: $color-two;
     transition: .7s;
@@ -214,8 +214,8 @@ h1{
 .entry-footer{
     padding-bottom: 8px;
     margin-top: 20px;
-    
-    
+
+
 }
 
 /*
@@ -225,18 +225,18 @@ h1{
 */
 
 .sunset-format-image{
-    
+
    .entry-header{
     height: 500px;
     padding-top: 2px;
-    background-position: center; 
-    background-size: cover; 
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
     text-shadow: 0 1px 2px rgba(0,0,0,0.4);
     position: relative;
     overflow: hidden;
-    
+
     &:hover .entry-excerpt{opacity: 1; bottom: -30px;}
     & .posted-on, .posted-in,
     & a{
@@ -250,8 +250,8 @@ h1{
         right: 0;left: 0;
         bottom: -130px;
         transition-duration: 1s;
-        background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0.09)); 
-        
+        background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0.09));
+
         & p{margin-bottom: 0;}
     }
 }
@@ -274,7 +274,7 @@ h1{
     video{
         width: 100%;
     }
-} 
+}
 
 
 /*
@@ -286,7 +286,7 @@ h1{
 .sunset-format-audio{
     //margin-top: 70px;
     audio{
-        width: 100%; 
+        width: 100%;
     }
     .entry-header{
         margin-bottom: 30px;
@@ -302,7 +302,7 @@ h1{
         margin-top: 30px;
         margin-bottom: 0;
     }
-} 
+}
 
 
     .d-block{
@@ -325,7 +325,7 @@ h1{
     position: absolute;
     left: 0; right: 0;
     bottom: -7px;
- 
+
 }
 
 
@@ -342,7 +342,7 @@ h1{
     .entry-header{
         a{color: $color-two-dark;}
         h1{
-            
+
             font-weight: 200;
         }
     }
@@ -366,7 +366,7 @@ h1{
         &::before,
         &::after{display: none;}
         a{color: $color-two-dark;}
-        
+
     }
 }
 
@@ -410,7 +410,7 @@ h1{
     footer{
         margin-top: 0;
         padding: 10px;
-        
+
     }
     .footer-row{
         background-color: #e7e6e6;
@@ -428,7 +428,7 @@ h1{
         margin-top: 11px;
     }
 
-    
+
 }
 
 
@@ -444,7 +444,7 @@ h1{
     margin: auto;
   // background-image: url('../../img/preloader.gif');
    background-position: center;
-   background-repeat: no-repeat; 
+   background-repeat: no-repeat;
    background-size: cover;
 }
 
@@ -571,7 +571,7 @@ h1{
     font-weight: bold;
     transition: 0.3s;
   }
-  
+
   .close:hover,
   .close:focus {
     color: #fff;
@@ -678,7 +678,7 @@ ol.comment-list{
 
 ol.children{
     list-style-type: none;
-   
+
 }
 
 .avatar,.avatar-60{
@@ -686,7 +686,7 @@ ol.children{
 }
 
 .fn{
-    
+
     text-transform: capitalize;
     color: #2271b1;
     font-weight: 600;
@@ -705,7 +705,7 @@ ol.children{
 }
 
 .comment-body{
-    p{  
+    p{
         margin-top: 15px;
         font-size: 18px;
         font-weight: 400;
@@ -741,12 +741,12 @@ ol.children{
             color: $color-two-dark;
         }
     }
-    
+
     label{
     font-size: 19px;
-    line-height: 1.5em; 
-    font-weight: 300; 
-    letter-spacing: 0.02em; 
+    line-height: 1.5em;
+    font-weight: 300;
+    letter-spacing: 0.02em;
     }
     .comment-reply-title{
         font-weight: 300;
@@ -786,7 +786,7 @@ ol.children{
         label{font-size: 15px;}
         input{display: inline;}
     }
-    
+
     .form-submit{
         text-align: center;
     }
@@ -849,7 +849,7 @@ ol.children{
     //height: 100vh;
     z-index: -1;
     transition: 0.5s;
-    
+
 
 
 }
@@ -865,9 +865,9 @@ ol.children{
     color: #fff;
     overflow: hidden auto;
     transition: 0.5s;
-    
+
 	ul{padding-left:20px;}
-	
+
     #sidebar-close{
         color: #bbb;
         font-size: 25px;
@@ -914,14 +914,14 @@ ol.children{
                 margin: 10px 20px 10px 0;
                 display: flex;
                 justify-content: space-between;
-				
+
             }
         }
 
         &#tag_cloud-2{
             .tagcloud{
                 text-align: center;
-                a{ 
+                a{
                     width: 12px;
                     padding: 1px 8px;
                     border-radius: 20px;
@@ -948,7 +948,7 @@ ol.children{
                 text-transform: uppercase;
             }
         }
-        
+
     }
 }
 
@@ -976,25 +976,25 @@ h2.sunset-description
         font-weight: 100;
         color: white;
     }
-    
+
 h1.sunset-username
     {
         font-size: 24px;
         margin: 0 0 10px;
     }
-    
+
 h2.sunset-description
     {
         font-size: 13px;
         margin: 0 0 20px;
     }
-    
+
     .image-container,
     .profile-picture{
         margin: 0 auto 5px;
-       overflow: hidden; 
+       overflow: hidden;
     }
-    
+
     .profile-picture{
         width: 130px;
         height: 130px;
@@ -1002,14 +1002,14 @@ h2.sunset-description
         background-repeat: no-repeat;
         background-size: cover;
     }
-    
+
     .profile-picture{
-       
+
         border-radius: 50%;
-        
+
     }
-    
-    
+
+
 .social-media{
     list-style-type: none;
     padding: 0;
@@ -1020,7 +1020,7 @@ h2.sunset-description
     a{font-size: large;
       color: #fff;
 
-      &:hover{ color: rgb(245, 161, 7);} 
+      &:hover{ color: rgb(245, 161, 7);}
     }
 }
 
@@ -1034,8 +1034,8 @@ h2.sunset-description
         height: 18px;
         display: block;
         text-indent:-9999px;
-        
-        
+
+
     }
 }
 
@@ -1046,44 +1046,107 @@ h2.sunset-description
     li{
 	margin-bottom:10px;
 	p{margin:0;}
-	
+
 	.widget-popular-title{
 	  display:inline-block;
 	 a{
 	  text-transform:uppercase;
 	  font-size:12px;
-	  
-	 
+
+
 	 }
-	 
+
 	 }
 	  .widget-comments{
 	  padding-top:6px;
-	  margin-right:23px; 
-	  float:right; 
+	  margin-right:23px;
+	  float:right;
 	  font-size:12px;
 	  color: $color-two-dark;
-	  
+
 	  }
-	  
+
 	  .widget-like,
 	  .widget-dislike{
 	     font-size:12px;
 		 color:$color-two-dark;
 		 margin-right:5px;
 	  }
-	  
+
 	}
   }
 
 
 }
 
+/*
+========================
+      CONTACT FORM
+========================
+*/
 
+ #contactFormAlertSuccess,
+ #contactFormAlertWarning{
+  // display: none;
+   position: fixed;
+   left: 15px;
+   transition: 0.6s;
+ p{
+   margin-top: 15px;
+ }
+   button{
+     position: absolute;
+     top: 0;
+     right: 5px;
+   }
+ }
+ .slide-down{
+   bottom: -100px ;
+ }
+ .slide-up{
+   bottom: 0;
+ }
 
+.form-container{
+  width: 60%;
+  margin: 100px auto;
 
+  .contact-form-symbol{
+    width: 70px;
+    aspect-ratio: 1;
+    margin:60px auto;
+    background-image: url('../img/paper-plane.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
+  input[type='text'],input[type='email'],textarea{
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid $color-two-dark;
+    font-size: 17px;
+    line-height: 1.5em;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
 
+  #contactSub{
+     display: block;
+     margin: 50px auto;
+     padding: 2px 20px;
+     width: 100%;
+     max-width: 250px;
+     border-radius: 0;
+     border: none;
+     background-color: $color-two-dark;
+     font-size: 28px;
+     font-weight: 200;
+
+     &:hover{
+       background-color: hsl(0, 0%, 40%);
+     }
+  }
+}
 
 
 
