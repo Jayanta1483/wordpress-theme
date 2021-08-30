@@ -342,7 +342,7 @@ $('#contactSub').click(function(e){
           $('#contactSub').val('Processing...');
       },
       success: function(response){
-
+         console.log(response)
         if(response != 1){
           $('#contactSub').val('Submit');
           $('#contactAlertContentWarning').html('<strong>Warning!!</strong> '+response);
@@ -350,7 +350,7 @@ $('#contactSub').click(function(e){
 
           setTimeout(()=>{
             $('#contactFormAlertWarning').toggleClass('slide-up slide-down').fadeOut('slow');
-          }, 2000);
+          }, 3000);
         }else{
           $('#contactForm')[0].reset();
           $('#contactSub').val('Submit');
@@ -367,13 +367,7 @@ $('#contactSub').click(function(e){
 })
 
 
-$('#contactFormAlertSuccess button').click(function(){
-  $('#contactFormAlertSuccess').toggleClass('slide-up slide-down');
-})
 
-$('#contactFormAlertWarning button').click(function(){
-  $('#contactFormAlertWarning').toggleClass('slide-up slide-down');
-})
 
 
 

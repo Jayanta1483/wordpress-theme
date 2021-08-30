@@ -302,8 +302,19 @@ function sunset_contact_form_submission_callback()
   $post_id = wp_insert_post($args);
 
   if($post_id != 0){
-    echo 1;
-  }else{
+     $to = EMAIL;
+     $subject = 'Sunset Contact Form - '. $name;
+     $headers[] = 'From: '.get_bloginfo('name').'<'.$to.'>' ;
+     $headers[] = 'Reply-To: '.$name.' <'.$email.'>';
+    
+
+    if(wp_mail($to, $subject, $message, $headers)){
+      echo 1;
+    }
+
+  }
+
+  else{
     echo 'Something went wrong. Please try again!!';
   }
 }

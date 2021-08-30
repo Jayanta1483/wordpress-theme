@@ -19,13 +19,7 @@
 </article>
 <div class="alert slide-down alert-success" role="alert" id="contactFormAlertSuccess">
   <p id="contactAlertContentSuccess"></p>
-  <button type="button" class="close"  aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
 </div>
 <div class="alert slide-down alert-danger" role="alert" id="contactFormAlertWarning">
   <p id="contactAlertContentWarning"></p>
-  <button type="button" class="close"  aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
 </div>

@@ -1,3 +1,21 @@
+:root button:focus, :root:active {
+  box-shadow: none;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-background: blue orange;
+}
+
+body::-webkit-scrollbar {
+  width: 2px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 20px;
+}
+
 .icon-like:before {
   content: "\e901";
 }
@@ -185,6 +203,11 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   font-weight: 600;
   font-size: 14px;
 }
+.comments-tag a .fa-comment-alt:before {
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+}
 
 .btn-sunset {
   border: 2.3px solid #bdbbbbb6;
@@ -196,6 +219,9 @@ h1.entry-title::before, h1.page-title::before, h1.entry-title::after, h1.page-ti
   background-color: #000;
   color: #fff;
   border-color: #000;
+}
+.btn-sunset:focus, .btn-sunset:active {
+  box-shadow: none;
 }
 
 .entry-footer {
@@ -752,6 +778,13 @@ ol.children {
   overflow: hidden auto;
   transition: 0.5s;
 }
+.sunset-sidebar-container::-webkit-scrollbar {
+  width: 5px;
+}
+.sunset-sidebar-container::-webkit-scrollbar-thumb {
+  background-color: #808080;
+  border-radius: 25px;
+}
 .sunset-sidebar-container ul {
   padding-left: 20px;
 }
@@ -976,6 +1009,10 @@ h2.sunset-description {
   font-weight: 300;
   letter-spacing: 0.02em;
 }
+.form-container input[type=text]:focus, .form-container input[type=email]:focus, .form-container textarea:focus {
+  box-shadow: none;
+  border-color: #808080;
+}
 .form-container #contactSub {
   display: block;
   margin: 50px auto;
@@ -990,6 +1027,9 @@ h2.sunset-description {
 }
 .form-container #contactSub:hover {
   background-color: #666666;
+}
+.form-container #contactSub:focus {
+  box-shadow: none;
 }
 
 /* for widescreen view */
