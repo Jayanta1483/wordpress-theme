@@ -10,6 +10,7 @@ require __DIR__.'/inc/sunset-ajax.php';
 require __DIR__.'/inc/shortcode.php';
 require __DIR__.'/inc/sunset-widgets.php';
 require __DIR__.'/inc/credentials.php';
+require __DIR__.'/inc/customize.php';
 
 
 require __DIR__.'\class\class-wp-bootstrap-navwalker.php';

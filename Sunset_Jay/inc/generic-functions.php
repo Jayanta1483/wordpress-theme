@@ -133,6 +133,6 @@ function sunset_comments_list_callback($comment, $args=array('max_depth'=> 6), $
 function sunset_dynamic_copyright($y)
 {
   $year = (date('Y') == $y) ? date('Y') : date('Y').'-'.$y;
-  $copyright = '<p>'.esc_html__('All rights reserved').'&copy; '.$year.' | '.esc_html__(get_bloginfo('name')).'</p>';
+  $copyright = '<p>'.esc_html__('All rights reserve', 'sunset').'&copy; '.$year.' | '.esc_html__(get_bloginfo('name'), 'sunset').'</p>';
   echo $copyright;
 }
