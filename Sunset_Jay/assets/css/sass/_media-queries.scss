@@ -15,7 +15,7 @@
             }
         }
     }
-    
+
 
     .post-footer-container{
         text-align: center;
@@ -24,3 +24,24 @@
     .comments-tag a{float: none;}
 }
 
+
+/* FOOTER SECTION */
+
+@media(max-width:600px){
+  .sunset-footer-menu{
+    text-align: center;
+    ul#menu-navigation-2{
+      a{
+        font-size: 12.5px;
+      }
+    }
+  }
+
+  .sunset-copyright{
+    p{
+      float: none;
+      text-align: center;
+      font-size: 12.5px;
+    }
+  }
+}

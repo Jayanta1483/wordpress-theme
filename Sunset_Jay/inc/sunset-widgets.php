@@ -1,16 +1,16 @@
-<?php    
+<?php
 
 /**
  * @package Sunset
- * 
- * This file is for the custom widget class 
- * 
+ *
+ * This file is for the custom widget class
+ *
  */
- 
+
  //ob_start();
 
 class Sunset_Widget extends WP_Widget {
-    
+
     /* sets up the name of the widget etc. */
 
     public function __construct()
@@ -76,8 +76,8 @@ class Sunset_Widget extends WP_Widget {
 
 
                     <!-- <ul class="social-media"> -->
-                    <?php 
-                    // if(!empty($facebook)){ ?> 
+                    <?php
+                    // if(!empty($facebook)){ ?>
                         <!-- <li><a target="_blank" href="https://www.facebook.com/ --><?php //echo $facebook   ;?><!-- "><i class="fab fa-facebook"></i></a></li> -->
                         <?php //} ?>
                      <!--    <li><a href="#" ><i class="fab fa-twitter"></i></a></li>
@@ -114,23 +114,23 @@ add_action('widgets_init', function(){
 
 class Sunset_Popular_Posts extends WP_Widget{
 	/*
-	
+
 	sets up the widget' name etc..
-	
+
 	*/
-	
+
   public function __construct()
   {
 	  $widgets_op = array(
 	       'classname'  => 'sunset-popular-posts',
 		   'description' => 'Popular Posts Widget'
 	  );
-	  
+
 	   parent::__construct('sunset_Popular_Posts', 'Sunset Popular Posts', $widget_ops);
   }
-  
-  
-  
+
+
+
 	/**
 	 * Outputs the options form on admin
 	 *
@@ -138,19 +138,19 @@ class Sunset_Popular_Posts extends WP_Widget{
 	 */
 	public function form( $instance ) {
 		// outputs the options form on admin
-		
+
 		$title = (! empty($instance['title'])) ? $instance['title'] : 'Popular Posts';
 		$tot = (! empty($instance['tot'])) ? $instance['tot'] : 4;
-		
+
 		$output = '<p><label for="'.esc_attr($this->get_field_id('title')).'" >Title:</label></br>';
 		$output .= '<input name="'.esc_html($this->get_field_name('title')).'" id="'.esc_attr($this->get_field_id('title')).'" type="text" class="widefat" value="'.esc_html($title).'"></p>';
 		$output .='<p><label for="'.esc_attr($this->get_field_id('tot')).'" >Total Number of Posts to Show : </label>';
 		$output .= '<input name="'.esc_html($this->get_field_name('tot')).'" id="'.esc_attr($this->get_field_id('tot')).'" type="number" class="tiny-text" value="'.esc_html($tot).'"></p>';
-		
+
 		echo $output;
 	}
-	
-	
+
+
 	/**
 	 * Processing widget options on save
 	 *
@@ -161,17 +161,17 @@ class Sunset_Popular_Posts extends WP_Widget{
 	 */
 	public function update( $new_instance, $old_instance ) {
 		// processes widget options to be saved
-		
+
 		$instance = array();
-		
+
 		$instance['title'] = (! empty($new_instance['title'])) ?  esc_html__($new_instance['title']) : '';
 		$instance['tot'] = (! empty($new_instance['tot'])) ? absint(esc_html($new_instance['tot'])) : 0;
-		
+
 		return $instance;
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Outputs the content of the widget
 	 *
@@ -180,12 +180,12 @@ class Sunset_Popular_Posts extends WP_Widget{
 	 */
 	public function widget( $args, $instance ) {
 		// outputs the content of the widget
-		
+
 		echo $args['before_widget'];
 		if(! empty($instance['title'])){
 			echo $args['before_title'].$instance['title'].$args['after_title'];
 		}
-		
+
 		$tot = absint($instance['tot']);
 		$post_args = array(
 		    'post_type'       =>  'post',
@@ -193,10 +193,10 @@ class Sunset_Popular_Posts extends WP_Widget{
 			'meta_key'        =>  'meta_pop',
 			'orderby'         =>  'meta_value_num',
 			'order'           => 'DESC'
-			
+
 		);
 		$popular_post = new WP_Query($post_args);
-		
+
 		if($popular_post->have_posts()){
 			echo '<ul>';
 		while($popular_post->have_posts()){
@@ -206,9 +206,9 @@ class Sunset_Popular_Posts extends WP_Widget{
 				  <p><span class="widget-like"><i class="fas fa-thumbs-up"></i> '.esc_html(get_post_meta(get_the_ID(), 'like', true)).'</span> <span class="widget-dislike" ><i class="fas fa-thumbs-down"></i>'.esc_html(get_post_meta(get_the_ID(), 'dislike', true)).'</span></p></li>';
 		}
 		echo'</ul>';
-		
+
 		wp_reset_postdata();
-		
+
 		}
 		echo $args['after_widget'];
 	}
@@ -222,11 +222,102 @@ add_action( 'widgets_init', function(){
 
 
 
+/*
+======================
+  EMAIL SUBSCRIBE
+======================
+*/
+
+class Sunset_Email_Subscribe extends WP_Widget {
+
+	/**
+	 * Sets up the widgets name etc
+	 */
+	public function __construct() {
+		$widget_ops = array(
+			'classname' => 'sunset-email-subscribe',
+			'description' => 'Sunset Email Subscribe Form',
+		);
+		parent::__construct( 'Sunset_Email_Subscribe', 'Sunset Email Subscribtion', $widget_ops );
+	}
+
+
+
+  /**
+	 * Outputs the options form on admin
+	 *
+	 * @param array $instance The widget options
+	 */
+	public function form( $instance ) {
+		// outputs the options form on admin
+
+    $title = (! empty($instance['title'])) ? $instance['title'] : 'Stay in touch with us';
+    $description = (! empty($instance['description'])) ? $instance['description'] : 'Join our mailing list or follow us & stay informed about our news and updates.';
+
+		$output = '<p><label for="'.esc_attr($this->get_field_id('title')).'" >Widget Title:</label></br>';
+		$output .= '<input name="'.esc_html($this->get_field_name('title')).'" id="'.esc_attr($this->get_field_id('title')).'" type="text" class="widefat" value="'.esc_html($title).'"></p>';
+		$output .='<p><label for="'.esc_attr($this->get_field_id('description')).'" >Short description about sbscription form : </label>';
+		$output .= '<input name="'.esc_html($this->get_field_name('description')).'" id="'.esc_attr($this->get_field_id('deacription')).'" type="text" class="widefat" value="'.esc_html($description).'"></p>';
+
+		echo $output;
+
+	}
+
+
+  /**
+   * Processing widget options on save
+   *
+   * @param array $new_instance The new options
+   * @param array $old_instance The previous options
+   *
+   * @return array
+   */
+  public function update( $new_instance, $old_instance ) {
+    // processes widget options to be saved
+
+    $instance = array();
+
+    $instance['title'] = (! empty($new_instance['title'])) ?  esc_html__($new_instance['title']) : '';
+    $instance['description'] = (! empty($new_instance['description'])) ? esc_html__($new_instance['description']) : '';
+
+    return $instance;
+  }
+
+
+
+	/**
+	 * Outputs the content of the widget
+	 *
+	 * @param array $args
+	 * @param array $instance
+	 */
+	public function widget( $args, $instance ) {
+		// outputs the content of the widget
+
+    echo $args['before_widget'];
+
+    echo $args['before_title'].$instance['title'].$args['after_title'];
+    echo '<p class="es-description text-center mb-5">'.$instance['description'].'</p>';
+    echo '<form id="es_form">';
+    echo '<div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Enter your email address here" aria-label="Enter your email address here" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                 <button class="btn btn-warning" type="button" id="button-addon2">Subscribe</button>
+            </div>
+          </div>';
+    echo '</form>';
+
+    echo $args['after_widget'];
+	}
 
 
 
 
+}
 
+add_action( 'widgets_init', function(){
+	register_widget( 'Sunset_Email_Subscribe' );
+});
 
 
 

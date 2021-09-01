@@ -11,16 +11,34 @@ This is a template for Footer;
 ?>
 
 
-<footer class="mt-5">
-<pre>
+<footer class="mt-5 container">
+<div class="row">
+  <div class="col-12 sunset-footer-sidebar">
+       <?php get_sidebar('footer'); ?>
+  </div>
+
+  <div class="col-12 col-sm-6 sunset-footer-menu">
 
 
+  <?php
+   wp_nav_menu( array(
+     'menu'=>'secondary',
+     'container'=>false,
+     'theme_location'=>'secondary',
+     'menu_class'=>'nav',
+     'walker'=> new WP_Bootstrap_Navwalker()
+   )
+   );
+
+   ?>
 
 
-
-
-</pre>
-
+  </div>
+  <div class="col-12 col-sm-6 sunset-copyright">
+     <?php sunset_dynamic_copyright(2021); ?>
+  </div>
+</div>
+<hr>
 </footer>
 
 <?php wp_footer(); ?>

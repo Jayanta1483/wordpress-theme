@@ -9,11 +9,16 @@ $color-two-dark : #808080;
     box-shadow: none;
 
   }
+
+  input:focus{
+    box-shadow: none;
+  }
 }
 
 body{
   scrollbar-width: thin;
   scrollbar-background: blue orange;
+
 }
 
 body::-webkit-scrollbar{
@@ -26,14 +31,15 @@ body::-webkit-scrollbar-thumb{
   border-radius: 20px;
 }
 
-.icon-like:before {
-  content: "\e901";
-}
-
-.icon-thumb-down:before {
-  content: "\e900";
-}
+// .icon-like:before {
+//   content: "\e901";
+// }
+//
+// .icon-thumb-down:before {
+//   content: "\e900";
+// }
 a{
+  color: $color-two-dark;
     &:hover{
         color: $color-two-dark;
         text-decoration: none;
@@ -1197,6 +1203,86 @@ h2.sunset-description
      }
   }
 }
+
+
+
+
+/*
+=========================
+    FOOTER SECTION
+=========================
+*/
+footer{
+  margin-top: 50px;
+}
+.sunset-footer-menu{
+  ul#menu-navigation-2{
+    a{
+      font-size: 15px;
+    }
+  }
+}
+
+.sunset-copyright{
+  p{
+    float: right;
+    font-size: 15px;
+    position: relative;
+    top: 10px;
+    color: $color-two-dark;
+  }
+}
+
+.footer-widget-area{
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.sunset-footer-widget-title{
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.es-description{
+  color: $color-two-dark;
+}
+
+.sunset_email_subscribe-3{
+  div.input-group{
+    width: 45%;
+    margin: auto;
+    input[type='email'].form-control{
+      border-radius: 0;
+      background-color: $color-two;
+
+      &:focus{
+        border-color: none;
+        border-radius: 0;
+      }
+    }
+  }
+
+  div.input-group-append{
+    button{
+      border-radius: 0;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

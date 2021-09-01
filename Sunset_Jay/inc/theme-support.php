@@ -75,6 +75,16 @@ function sunset_sidebar_register()
        'before_title'          => '<h2 class="sunset-widget-title">',
        'after_title'           => '</h2>'
     ));
+
+    register_sidebar(array(
+       'id'                    => 'sunset_footer_section',
+       'name'                  => __('Sunset Footer Section', 'sunset'),
+       'description'           => __('Sunset footer section', 'sunset'),
+       'before_widget'         => '<section id="%1$s" class="widget %1$s">',
+       'after_widget'          => '</section>',
+       'before_title'          => '<h2 class="sunset-footer-widget-title text-center mb">',
+       'after_title'           => '</h2>'
+    ));
 }
 
 
