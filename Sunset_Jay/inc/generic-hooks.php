@@ -69,7 +69,7 @@ function sunset_comment_form_nonce_callback()
 add_filter( 'comment_form_submit_button', function( $submit_button, $args )
 {
     // Override the submit button HTML:
-    $button = '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="'.esc_attr__(get_theme_mod('sunset_post_comm_text', __('Post Comments', 'sunset'))).'" />';
+    $button = '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="'.esc_attr__(get_option('sunset_post_comm_text', __('Post Comments', 'sunset'))).'" />';
 
     return sprintf(
         $button,
