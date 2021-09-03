@@ -55,15 +55,30 @@ function sunset_comment_form_nonce_callback()
   return $sunset_comment_nonce;
 }
 
+/* To modify the life span of wp nonce but it will create issue / crash wp customizer */
 
+// add_filter('nonce_life', 'sunset_nonce_life_mod');
+//
+// function sunset_nonce_life_mod()
+// {
+//   return 1800;
+// }
 
-add_filter('nonce_life', 'sunset_nonce_life_mod');
+/* COMMENT FORM BUTTON MODIFICATION */
 
-function sunset_nonce_life_mod()
+add_filter( 'comment_form_submit_button', function( $submit_button, $args )
 {
-  return 1800;
-}
+    // Override the submit button HTML:
+    $button = '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="'.esc_attr__(get_theme_mod('sunset_post_comm_text', __('Post Comments', 'sunset'))).'" />';
 
+    return sprintf(
+        $button,
+        esc_attr( $args['name_submit'] ),
+        esc_attr( $args['id_submit'] ),
+        esc_attr( $args['class_submit'] )
+     );
+
+}, 10, 2 );
 
 
 

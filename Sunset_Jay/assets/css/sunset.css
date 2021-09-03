@@ -926,31 +926,31 @@ h2.sunset-description {
   text-indent: -9999px;
 }
 
-.sunset_popular_posts-2 ul {
+.sunset_popular_posts-3 ul {
   padding-left: 20px;
 }
-.sunset_popular_posts-2 ul li {
+.sunset_popular_posts-3 ul li {
   margin-bottom: 10px;
 }
-.sunset_popular_posts-2 ul li p {
+.sunset_popular_posts-3 ul li p {
   margin: 0;
 }
-.sunset_popular_posts-2 ul li .widget-popular-title {
+.sunset_popular_posts-3 ul li .widget-popular-title {
   display: inline-block;
 }
-.sunset_popular_posts-2 ul li .widget-popular-title a {
+.sunset_popular_posts-3 ul li .widget-popular-title a {
   text-transform: uppercase;
   font-size: 12px;
 }
-.sunset_popular_posts-2 ul li .widget-comments {
+.sunset_popular_posts-3 ul li .widget-comments {
   padding-top: 6px;
   margin-right: 23px;
   float: right;
   font-size: 12px;
   color: #808080;
 }
-.sunset_popular_posts-2 ul li .widget-like,
-.sunset_popular_posts-2 ul li .widget-dislike {
+.sunset_popular_posts-3 ul li .widget-like,
+.sunset_popular_posts-3 ul li .widget-dislike {
   font-size: 12px;
   color: #808080;
   margin-right: 5px;
@@ -1065,19 +1065,19 @@ footer {
   color: #808080;
 }
 
-.sunset_email_subscribe-3 div.input-group {
+.sunset_email_subscribe-2 div.input-group {
   width: 45%;
   margin: auto;
 }
-.sunset_email_subscribe-3 div.input-group input[type=email].form-control {
+.sunset_email_subscribe-2 div.input-group input[type=email].form-control {
   border-radius: 0;
   background-color: #bdbbbbb6;
 }
-.sunset_email_subscribe-3 div.input-group input[type=email].form-control:focus {
+.sunset_email_subscribe-2 div.input-group input[type=email].form-control:focus {
   border-color: none;
   border-radius: 0;
 }
-.sunset_email_subscribe-3 div.input-group-append button {
+.sunset_email_subscribe-2 div.input-group-append button {
   border-radius: 0;
 }
 
