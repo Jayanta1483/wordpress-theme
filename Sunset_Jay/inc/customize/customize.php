@@ -13,6 +13,7 @@
 
 
 
+
 add_action( 'customize_register', 'sunset_customizer_register' );
 
 
@@ -56,7 +57,6 @@ function sunset_customizer_register($wp_customize)
 
   $wp_customize->add_setting('footer_brand_name', array(
             'default'                =>  esc_html__( get_bloginfo('name'), 'sunset'),
-            //'capability' => 'edit_theme_options',
             'sanitize_callback'      =>  '',
             'transport'              =>  'refresh'
   ));
@@ -130,7 +130,7 @@ function sunset_customizer_register($wp_customize)
             'type'                   =>  'option',
             'default'                =>   true,
             'sanitize_callback'      =>  'sunset_sanitize_checkbox',
-            'transport'              =>  'refresh'
+            'transport'              =>  'postMessage'
   ));
 
   $wp_customize->add_control('sunset_read_more_activation', array(
@@ -143,10 +143,17 @@ function sunset_customizer_register($wp_customize)
   ));
 
 
+
+
+
+/* SANITIZE AND ACTIVE CALLBACK FUNCTIONS */
+
   function sunset_sanitize_checkbox($checked)
   {
     return ((isset($checked) && true == $checked) ? true : false);
   }
+
+
 
   function sunset_read_more_text_callback($control)
   {

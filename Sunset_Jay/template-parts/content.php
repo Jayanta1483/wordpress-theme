@@ -27,11 +27,10 @@
         ?>
         </div>
         <div class="entry-excerpt text-justify"><?php the_excerpt(); ?></div>
-        <?php if(get_option('sunset_read_more_activation', true)){ ?>
-        <div class="btn-container text-center">
+        <?php $display = (get_option('sunset_read_more_activation', true) == false) ? 'd-none' : ''; ?>
+        <div class="btn-container text-center <?php echo $display ?>" id="readMoreBtn">
         <a href="<?php  the_permalink()   ;?>" class="btn btn-sunset" target="_blank"><?php esc_html_e( get_option('sunset_read_more_text', 'Read More')); ?></a>
-        </div>
-        <?php }; ?>
+      </div>
     </div>
 
     <footer class="entry-footer">
