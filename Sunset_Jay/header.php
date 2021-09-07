@@ -41,9 +41,10 @@ This is Template for Header
                     </div>
                     <!--header-content-->
                     <div class="header-text">
-                        <h2><?php bloginfo('name'); ?></h1>
-                            <h6><?php bloginfo('description'); ?>
-                        </h2>
+                      <?php if(display_header_text()){ ?>
+                        <h2><?php bloginfo('name'); ?></h2>
+                            <h6><?php bloginfo('description'); ?></h6>
+                      <?php } ?>
                     </div>
                     <!--header-text-->
                     <div class="nav-container">

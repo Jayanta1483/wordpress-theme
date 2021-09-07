@@ -22,6 +22,10 @@ function sunset_customizer_register($wp_customize)
   $wp_customize->get_section('static_front_page')->priority = 30;
   $wp_customize->get_section('static_front_page')->title = esc_html__('Home Page Preferences', 'sunset');
 
+  $wp_customize->get_setting('blogname')->transport = 'postMessage';
+  $wp_customize->get_setting('blogdescription')->transport = 'postMessage';
+  $wp_customize->get_setting('header_textcolor')->transport = 'postMessage';
+
   /* CREATING FOOTER SECTION */
 
   $wp_customize->add_panel('customizer_footer_section', array(
@@ -82,8 +86,14 @@ function sunset_customizer_register($wp_customize)
 
 
   $wp_customize->add_section('customizer_theme_option_text', array(
-           'title'           =>     esc_html__('Button Option', 'sunset'),
+           'title'           =>     esc_html__('Button Text', 'sunset'),
            'priority'        =>     1,
+           'panel'           =>     'customizer_theme_option'
+  ));
+
+  $wp_customize->add_section('customizer_theme_button_color', array(
+           'title'           =>     esc_html__('Button Color', 'sunset'),
+           'priority'        =>     3,
            'panel'           =>     'customizer_theme_option'
   ));
 
@@ -142,6 +152,22 @@ function sunset_customizer_register($wp_customize)
              'active_callback'  =>  'is_archive'
   ));
 
+
+  /* FOR BUTTON COLORS */
+
+  $wp_customize->add_setting('sunset_button_background_color', array(
+            'type'                   =>  'option',
+            'default'                =>   '343a40',
+            'sanitize_callback'      =>  'sanitize_hex_color_no_hash',
+            'sanitize_js_callback'   =>  'maybe_hash_hex_color',
+            'transport'              =>  'postMessage'
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sunset_button_background_color', array(
+             'section'          =>  'customizer_theme_button_color',
+             'settings'          => 'sunset_button_background_color',
+             'label'            =>  esc_html__('Background Color :', 'sunset')
+  )));
 
 
 

@@ -31,13 +31,15 @@ body::-webkit-scrollbar-thumb{
   border-radius: 20px;
 }
 
-// .icon-like:before {
-//   content: "\e901";
-// }
+// .btn-container a.btn-sunset,
+// #load_more,#commentSub{
+//   &:hover{
+//     background-color: orange;
+//     border-color: orange;
 //
-// .icon-thumb-down:before {
-//   content: "\e900";
+//   }
 // }
+
 a{
   color: $color-two-dark;
     &:hover{

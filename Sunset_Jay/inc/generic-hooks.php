@@ -137,10 +137,52 @@ function onMailError( $wp_error ) {
 }
 
 
+/*
+======================
+  CUSTOMIZER API
+======================
+*/
 
 
+add_action('wp_head', 'sunset_customizer_css_embed_style');
+
+function sunset_customizer_css_embed_style()
+{
+
+  $button_background = get_option('sunset_button_background_color', '343a40');
+
+  $style = '';
+
+  $style .= '<style>
+               .btn-container a.btn-sunset,
+               #load_more,#commentSub{
+                 border-color: #'.$button_background.';
+                 color: #'.$button_background.';
+               }
+               .btn-container a.btn-sunset:hover{
+                 background-color: #'.$button_background.';
+                 border-color: #'.$button_background.';
+                 color: #fff;
+               }
+                #load_more:hover{
+                  background-color: #'.$button_background.';
+                  border-color: #'.$button_background.';
+                  color: #fff;
+                }
+                #commentSub:hover {
+                      background-color: #'.$button_background.';
+                      border-color: #'.$button_background.';
+                      color: #fff;
 
 
+                        };
+             </style>';
+
+   $style = str_replace( array( "\r", "\n", "\t" ), '', $style );
+
+   echo $style;
+
+}
 
 
 

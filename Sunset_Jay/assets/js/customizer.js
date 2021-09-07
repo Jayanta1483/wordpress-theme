@@ -37,6 +37,21 @@ wp.customize.control('sunset_read_more_text', function(readMoreTextControl){
 })
 
 
-const readMoreBtn = document.getElementById('readMoreBtn');
+/* SHOWING/HIDING SITE NAME */
 
-console.log(readMoreBtn)
+ wp.customize.control('blogname', function(blog_name){
+  const displayBlogCheck = document.querySelector('#_customize-input-display_header_text');
+  blog_name.active.set(this.checked == true);
+  displayBlogCheck.addEventListener('click', function(){
+    blog_name.active.set(this.checked == true);
+  })
+})
+
+/* SHOWING/HIDING SITE TAG */
+wp.customize.control('blogdescription', function(blog_desc){
+ const displayBlogCheck = document.querySelector('#_customize-input-display_header_text');
+ blog_desc.active.set(this.checked == true);
+ displayBlogCheck.addEventListener('click', function(){
+   blog_desc.active.set(this.checked == true);
+ })
+})
