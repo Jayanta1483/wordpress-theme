@@ -150,10 +150,14 @@ function sunset_customizer_css_embed_style()
 {
 
   $button_background = get_option('sunset_button_background_color', '343a40');
+  $header_text_color = get_theme_mod('header_textcolor', '');
 
   $style = '';
 
   $style .= '<style>
+              .header-text{
+                color: #'.$header_text_color.';
+              }
                .btn-container a.btn-sunset,
                #load_more,#commentSub{
                  border-color: #'.$button_background.';
