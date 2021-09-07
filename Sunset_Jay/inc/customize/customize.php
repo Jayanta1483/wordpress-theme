@@ -47,7 +47,7 @@ function sunset_customizer_register($wp_customize)
   $wp_customize->add_setting('copyright_text', array(
             'default'                =>  __('All rights reserved', 'sunset'),
             'sanitize_callback'      =>  '',
-            'transport'              =>  'refresh'
+            'transport'              =>  'postMessage'
   ));
 
   $wp_customize->add_control('copyright_text', array(
@@ -63,7 +63,7 @@ function sunset_customizer_register($wp_customize)
   $wp_customize->add_setting('footer_brand_name', array(
             'default'                =>  esc_html__( get_bloginfo('name'), 'sunset'),
             'sanitize_callback'      =>  '',
-            'transport'              =>  'refresh'
+            'transport'              =>  'postMessage'
   ));
 
   $wp_customize->add_control('footer_brand_name', array(

@@ -41,18 +41,6 @@ wp.customize('header_textcolor', function(colorCode){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* SHOWING/HIDING READ MORE BUTTON */
 
   wp.customize('sunset_read_more_activation', function(readMoreActivationValue){
@@ -92,10 +80,20 @@ wp.customize('header_textcolor', function(colorCode){
 
 
 
+/* FOOTER COPYRIGHT TEXT & BRAND NAME */
 
 
+wp.customize('copyright_text', function(value){
+  value.bind(function(newValue){
+    $('span#copyRight').html(newValue);
+  })
+})
 
-
+wp.customize('footer_brand_name', function(value){
+  value.bind(function(newValue){
+    $('span#footerBrand').html(newValue);
+  })
+})
 
 
 

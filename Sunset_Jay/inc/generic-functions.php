@@ -133,6 +133,6 @@ function sunset_comments_list_callback($comment, $args=array('max_depth'=> 6), $
 function sunset_dynamic_copyright($y)
 {
   $year = (date('Y') == $y) ? date('Y') : date('Y').'-'.$y;
-  $copyright = '<p>'.get_theme_mod('copyright_text').'&copy; '.$year.' | '.get_theme_mod('footer_brand_name', esc_html__(get_bloginfo('name'), 'sunset')).'</p>';
+  $copyright = '<p><span id="copyRight">'.get_theme_mod('copyright_text').'</span>&copy; '.$year.' | <span id="footerBrand">'.get_theme_mod('footer_brand_name', esc_html__(get_bloginfo('name'), 'sunset')).'</span></p>';
   echo $copyright;
 }
