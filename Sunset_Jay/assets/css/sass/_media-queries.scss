@@ -45,3 +45,33 @@
     }
   }
 }
+
+
+/*     404 PAGE
+===================
+*/
+
+@media(min-width:700px){
+  .page-wrapper{
+    position: relative;
+    h3.page-background{
+      font-size: 18rem;
+    }
+
+    h3.header-404{
+      position: absolute;
+      bottom: 150px;
+      left: 0;right: 0;
+      text-align: center;
+      font-size: 3.125rem;
+      font-weight: 900;
+    }
+
+    p.description-404{
+      position: absolute;
+      left: 0;right: 0;
+      bottom: 200px;
+      font-size: 1rem;
+    }
+  }
+  }

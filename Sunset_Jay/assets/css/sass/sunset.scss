@@ -15,6 +15,10 @@ $color-two-dark : #808080;
   }
 }
 
+*{
+  box-sizing: border-box;
+}
+
 body{
   scrollbar-width: thin;
   scrollbar-background: blue orange;
@@ -1273,8 +1277,58 @@ footer{
 
 
 
+/*
+=====================
+  404 PAGE TEMPLATE
+=====================
+*/
 
+#container_404{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.page-wrapper{
+  h3.page-background{
+    font-size: 6.2rem;
+    font-weight: 900;
+    color: hsl(0, 0%, 92%);
+  }
+
+  h3.header-404{
+    font-size: 1.72rem;
+  }
+
+  .description-404{
+    padding-top: 5px;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .home-btn-link{
+    display: block;
+    width: 200px;
+    margin: auto;
+    border: 2px solid hsl(204, 100%, 55%);
+    border-radius: 30px;
+    padding: 12px 10px;
+    background-color: hsl(204, 100%, 55%);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+    &:hover{
+      background-color: #fff;
+      color: hsl(204, 100%, 55%);
+
+    }
+
+  }
+
+}
 
 
 

@@ -1100,7 +1100,7 @@ footer {
 .page-wrapper h3.page-background {
   font-size: 6.2rem;
   font-weight: 900;
-  color: #ebebeb;
+  color: #e6e6e6;
 }
 .page-wrapper h3.header-404 {
   font-size: 1.72rem;
@@ -1110,22 +1110,27 @@ footer {
   font-size: 0.85rem;
   text-align: center;
 }
-.page-wrapper .home-btn-link {
-  display: block;
+.page-wrapper .home-btn {
   width: 200px;
   margin: auto;
   border: 2px solid #1aa3ff;
   border-radius: 30px;
   padding: 12px 10px;
   background-color: #1aa3ff;
-  color: #fff;
   text-align: center;
-  text-transform: uppercase;
+  cursor: pointer;
   transition: 0.3s;
 }
-.page-wrapper .home-btn-link:hover {
+.page-wrapper .home-btn:hover {
   background-color: #fff;
+}
+.page-wrapper .home-btn:hover .home-btn-link {
   color: #1aa3ff;
+}
+.page-wrapper .home-btn .home-btn-link {
+  text-transform: uppercase;
+  color: #fff;
+  transition: 0.3s;
 }
 
 /* for widescreen view */
@@ -1177,25 +1182,22 @@ footer {
   .page-wrapper {
     position: relative;
   }
-  .page-wrapper h3.page-background {
+
+  h3.page-background {
     font-size: 18rem;
   }
-  .page-wrapper h3.header-404 {
+
+  .header-404 {
     position: absolute;
-    bottom: 150px;
-    left: 0;
-    right: 0;
+    bottom: 0;
     text-align: center;
     font-size: 3.125rem;
     font-weight: 900;
   }
-  .page-wrapper p.description-404 {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 200px;
-    font-size: 1rem;
+
+  .description-404 {
+    font-size: 0.95rem;
   }
 }
 
-/*# sourceMappingURL=sunset.css.map */
+/*# sourceMappingURL=sunet.css.map */

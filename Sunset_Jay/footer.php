@@ -9,7 +9,7 @@ This is a template for Footer;
 
 
 ?>
-
+<?php if(! is_404()){ ?>
 
 <footer class="mt-5 container">
 <div class="row">
@@ -41,6 +41,8 @@ This is a template for Footer;
 <hr>
 </footer>
 
-<?php wp_footer(); ?>
+<?php
+};
+wp_footer(); ?>
 </body>
 </html>

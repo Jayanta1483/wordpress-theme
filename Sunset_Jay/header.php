@@ -21,6 +21,9 @@ This is Template for Header
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php if(! is_404()){ ?>
+
 <div class="sunset-sidebar visibility-hidden">
     <div class="sunset-sidebar-container slide-out">
         <div class="sidebar-close"><span id="sidebar-close">&times;</span></div>
@@ -85,3 +88,5 @@ This is Template for Header
         <!--row-->
     </header>
     <!--.container-fluid-->
+
+ <?php } ?>
