@@ -1301,7 +1301,7 @@ footer{
     font-size: 1.72rem;
   }
 
-  .description-404{
+  p.description-404{
     padding-top: 5px;
     font-size: 0.85rem;
     text-align: center;
@@ -1332,7 +1332,35 @@ footer{
 
 
 
+/*
+=====================
+  SEARCH TEMPLATE
+=====================
+*/
 
+.search-form{
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  transform: translateY(70px);
+  margin: auto;
+  #searchField{
+    border-radius: 20px 0 0 20px;
+  }
+
+  #searchBtn{
+    border: 1px solid hsl(204, 100%, 55%);
+    border-radius: 0 20px 20px 0;
+    background-color: hsl(204, 100%, 55%);
+    color: #fff;
+    text-transform: uppercase;
+    transition: 0.3s;
+    &:hover{
+      background-color: #fff;
+      color: hsl(204, 100%, 55%);
+    }
+  }
+}
 
 
 

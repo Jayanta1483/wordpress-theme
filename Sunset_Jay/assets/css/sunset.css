@@ -1105,7 +1105,7 @@ footer {
 .page-wrapper h3.header-404 {
   font-size: 1.72rem;
 }
-.page-wrapper .description-404 {
+.page-wrapper p.description-404 {
   padding-top: 5px;
   font-size: 0.85rem;
   text-align: center;
@@ -1124,6 +1124,34 @@ footer {
   transition: 0.3s;
 }
 .page-wrapper .home-btn-link:hover {
+  background-color: #fff;
+  color: #1aa3ff;
+}
+
+/*
+=====================
+  SEARCH TEMPLATE
+=====================
+*/
+.search-form {
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  transform: translateY(70px);
+  margin: auto;
+}
+.search-form #searchField {
+  border-radius: 20px 0 0 20px;
+}
+.search-form #searchBtn {
+  border: 1px solid #1aa3ff;
+  border-radius: 0 20px 20px 0;
+  background-color: #1aa3ff;
+  color: #fff;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+.search-form #searchBtn:hover {
   background-color: #fff;
   color: #1aa3ff;
 }
