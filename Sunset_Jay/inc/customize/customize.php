@@ -172,6 +172,94 @@ function sunset_customizer_register($wp_customize)
 
 
 
+/* TO CHANGE 404 PAGE MESSAGES */
+
+$wp_customize->add_panel('sunset_page_not_found_panel', array(
+  'title'             =>      esc_html__('404 Page', 'sunset'),
+  'description'       =>      esc_html__('You can change the error messages from here.', 'sunset'),
+  'priority'          =>      115
+));
+
+$wp_customize->add_section('sunset_page_not_found_section', array(
+  'title'             =>   esc_html__('Messages', 'sunset'),
+  'priority'          =>   1,
+  'panel'             =>   'sunset_page_not_found_panel'
+));
+
+
+/* MAIN MESSAGE */
+
+$wp_customize->add_setting('sunset_page_not_found_main', array(
+  'default'                =>   __('we are sorry page not found!', 'sunset'),
+  'transport'              =>  'postMessage'
+));
+
+$wp_customize->add_control('sunset_page_not_found_main', array(
+  'type'             => 'text',
+  'priority'         =>  1,
+  'section'          => 'sunset_page_not_found_section',
+  'label'            => 'Main Message :',
+  'description'      => 'Text put here will be outputted on the 404 page.'
+));
+
+
+/* SUB MESSAGE */
+
+
+$wp_customize->add_setting('sunset_page_not_found_sub', array(
+  'default'                =>   __('The page you are looking for might have been removed or had its name changed or is temporarily unavailable.', 'sunset'),
+  'transport'              =>  'postMessage'
+));
+
+$wp_customize->add_control('sunset_page_not_found_sub', array(
+  'type'             => 'text',
+  'priority'         =>  3,
+  'section'          => 'sunset_page_not_found_section',
+  'label'            => 'Sub Message :',
+  'description'      => 'Text put here will be outputted on the 404 page.'
+));
+
+
+
+/* TO CHANGE 404 PAGE BUTTON */
+
+$wp_customize->add_section('sunset_page_not_found_button', array(
+  'title'             =>   esc_html__('Buttons', 'sunset'),
+  'priority'          =>   3,
+  'panel'             =>   'sunset_page_not_found_panel'
+));
+
+/* BUTTON TEXT */
+
+$wp_customize->add_setting('sunset_page_not_found_button_text', array(
+  'default'                =>   __('back to homepage', 'sunset'),
+  'transport'              =>  'postMessage'
+));
+
+$wp_customize->add_control('sunset_page_not_found_button_text', array(
+  'type'             => 'text',
+  'priority'         =>  1,
+  'section'          => 'sunset_page_not_found_button',
+  'label'            => 'Button Text :',
+  'description'      => 'Text put here will be outputted on the 404 page button.'
+));
+
+/* BUTTON COLOR */
+
+$wp_customize->add_setting('sunset_page_not_found_button_color', array(
+  'default'                =>   '1aa3ff',
+  'sanitize_callback'      =>  'sanitize_hex_color_no_hash',
+  'sanitize_js_callback'   =>  'maybe_hash_hex_color',
+));
+
+$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'sunset_page_not_found_button_color', array(
+  'priority'         =>  3,
+  'section'          => 'sunset_page_not_found_button',
+  'settings'         => 'sunset_page_not_found_button_color',
+  'label'            => 'Button Color :'
+)));
+
+
 
 /* SANITIZE AND ACTIVE CALLBACK FUNCTIONS */
 

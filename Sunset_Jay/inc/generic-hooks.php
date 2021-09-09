@@ -151,6 +151,7 @@ function sunset_customizer_css_embed_style()
 
   $button_background = get_option('sunset_button_background_color', '343a40');
   $header_text_color = get_theme_mod('header_textcolor', '');
+  $button_background_two = get_theme_mod('sunset_page_not_found_button_color', '1aa3ff');
 
   $style = '';
 
@@ -163,23 +164,38 @@ function sunset_customizer_css_embed_style()
                  border-color: #'.$button_background.';
                  color: #'.$button_background.';
                }
+
                .btn-container a.btn-sunset:hover{
                  background-color: #'.$button_background.';
                  border-color: #'.$button_background.';
                  color: #fff;
                }
+
                 #load_more:hover{
                   background-color: #'.$button_background.';
                   border-color: #'.$button_background.';
                   color: #fff;
                 }
+
                 #commentSub:hover {
                       background-color: #'.$button_background.';
                       border-color: #'.$button_background.';
                       color: #fff;
+                  }
 
+            .page-wrapper .home-btn-link{
+                border-color: #'.$button_background_two.';
+                background-color: #'.$button_background_two.';
+              }
+                .page-wrapper button#searchBtn{
+                  border-color: #'.$button_background_two.';
+                  background-color: #'.$button_background_two.';
 
-                        };
+                }
+
+              .page-wrapper .home-btn-link:hover{color: #'.$button_background_two.';}
+              .page-wrapper button#searchBtn:hover{color: #'.$button_background_two.';}
+
              </style>';
 
    $style = str_replace( array( "\r", "\n", "\t" ), '', $style );

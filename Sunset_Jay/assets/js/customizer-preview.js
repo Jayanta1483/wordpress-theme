@@ -96,9 +96,20 @@ wp.customize('footer_brand_name', function(value){
 })
 
 
+/*  404 PAGE MESSAGES */
 
 
+wp.customize('sunset_page_not_found_main' function(value){
+  value.bind(function(newValue){
+    $('.header-404').html(newvalue);
+  })
+})
 
+wp.customize('sunset_page_not_found_sub' function(value){
+  value.bind(function(newValue){
+    $('.description-404').html(newvalue);
+  })
+})
 
 
 

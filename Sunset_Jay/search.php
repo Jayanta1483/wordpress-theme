@@ -13,7 +13,7 @@ global $query_string;
 wp_parse_str( $query_string, $search_query );
 $search_query['orderby'] = 'date';
 $search_query['order'] = 'ASC';
-$search_query['posts_per_archive_page'] = 2;
+$search_query['posts_per_page'] = 2;
 $search = new WP_Query( $search_query );
 
 // echo '<pre>';
@@ -22,6 +22,7 @@ $search = new WP_Query( $search_query );
 ?>
 <div class="content-container">
     <h1 class="page-title"><?php _e( 'Search results for:', 'sunset' ); ?>  <span class="search-query"><?php echo get_search_query(); ?></span></h1>
+      <p>Number of Articles Found : <?php echo $search->found_posts; ?></p>
     <div class="container">
         <div class="row">
             <div class="search-results-container col-12">
